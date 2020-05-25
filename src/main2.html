@@ -164,6 +164,20 @@
         .news_title{
             margin-left: 100px;
         }
+        .focusImg{
+            width: 40px;
+            height: 40px;
+            border-radius: 15px;
+            margin-left: 10%;
+            margin-top: 8px;
+        }
+        .focus_Btn{
+            margin-left: 310%;
+width: 65px;
+        }
+        /*.focus_Name{*/
+        /*    margin-left: 50%;*/
+        /*}*/
 
     </style>
     <script>
@@ -543,20 +557,27 @@
                 comments.style.display = 'none';
             }
 
+            // //删除所有新闻tr，但是这个没有效果
+            var focus_tr=document.getElementById("focusMy").getElementsByTagName("tr");
+            var focus_trlength=focus_tr.length;
+            for(var h=0;h<focus_trlength;h++){
+                document.getElementById("focusMy").removeChild(focus_tr[0]);
+            }
+
             var id = localStorage.getItem("id");
             var focussdata = [];//存放对于的点赞对象的数组
             var request = new XMLHttpRequest();
             request.open("GET", " http://139.199.55.139:8080/api/follow/myFollow?" +
                 "u_id=" + id);
             request.send();
-            alert(id);
+            // alert(id);
             request.onreadystatechange = function () {
                 if (request.readyState === 4 && request.status === 200) {
                     var json = JSON.parse(request.responseText);
                     if (json.status == "200") {
                         for (var i = 0; i < json["data"].length; i++) {
                             focussdata[i] = json["data"][i];
-                            alert(json.message);
+                            // alert(json.message);
                         }
                         for (var j = 0; j < json["data"].length; j++) {
                             //第一行--名
@@ -565,8 +586,15 @@
                             var td2 = document.createElement("td");
                             var td3 = document.createElement("td");
                             var td1Img = document.createElement("img");
+                            // var td2_lab=document.createElement("span");
                             var tdName = document.createElement("td");
                             var tdBtn = document.createElement("button");
+                            (function (num) {
+                                tdBtn.onclick = function(){
+                                    var id=localStorage.getItem("id");
+                                    focus_Btn(id,focussdata[num]["u_id"]);
+                                };
+                            })(j);
 
                             childtr1.appendChild(td1);
                             childtr1.appendChild(td2);
@@ -576,12 +604,35 @@
                             td3.appendChild(tdBtn);
 
                             td1Img.src = focussdata[j]["u_photo"];
+                            td1Img.className="focusImg";
                             tdName.innerHTML = focussdata[j]["u_name"];
-                            tdBtn.innerText = "关注";
+                            tdName.className="focus_Name";
+                            tdBtn.innerText = "已关注";
+                            tdBtn.className="focus_Btn";
 
                             document.getElementById("focusMy").appendChild(childtr1);
                         }
+                        //取消关注
+                        function focus_Btn(r1,r2) {
+                            var id=r1;
+                            var f_ufid=r2;
+                            var request = new XMLHttpRequest();
 
+                            request.open("GET"," http://139.199.55.139:8080/api/follow/deleteFollow?" +
+                                "u_id="+id+"&f_ufid="+f_ufid);
+                            request.send();
+                            request.onreadystatechange = function () {
+                                if(request.readyState===4&&request.status===200){
+                                    // alert(id);
+                                    var json=JSON.parse(request.responseText);
+                                    if(json.status=="200"){
+                                        alert(json.message);
+                                    }if(json.status=="500"){
+                                        alert("取关失败");
+                                    }
+                                }
+                            };
+                        }
                     }
                 }
             }
@@ -1258,46 +1309,11 @@
                     <table id="focusMy">
 
                     </table>
-<!--                    <details style="margin-left: 15px;margin-top: 3%" open>-->
-<!--                        <summary >公众号</summary>-->
-<!--                        <table style="margin-top: 1%;margin-left: 2%">-->
-<!--                            <tr id="nn1">-->
-<!--                                <td  width="50px"><img src="images/head.png" width="40" height="40"></td>-->
-<!--                                <td width="200px;">新闻小助理</td>-->
-<!--                                <td><button id="cancelfoucs" onclick="GZ()" style="border-radius: 5px;background: #ffffff">已关注</button></td>-->
-<!--                            </tr>-->
-<!--                            <tr >-->
-<!--                                <td  width="50px"><img src="images/head.png" width="40" height="40"></td>-->
-<!--                                <td width="200px;">小丸子童话集</td>-->
-<!--                                <td><button  style="border-radius: 5px;background: #ffffff">已关注</button></td>-->
-<!--                            </tr>-->
-<!--                        </table>-->
-<!--                    </details>-->
-<!--                    <details style="margin-left: 15px;" open>-->
-<!--                        <summary >好友关注</summary>-->
-<!--                        <table style="margin-top: 1%;margin-left: 2%">-->
-<!--                            <tr >-->
-<!--                                <td  width="50px"><img src="images/head.png" width="40" height="40"></td>-->
-<!--                                <td width="200px;">易</td>-->
-<!--                                <td><button  style="border-radius: 5px;background: #ffffff">已关注</button></td>-->
-<!--                            </tr>-->
-<!--                            <tr >-->
-<!--                                <td  width="50px"><img src="images/head.png" width="40" height="40"></td>-->
-<!--                                <td width="200px;">🐏</td>-->
-<!--                                <td><button style="border-radius: 5px;background: #ffffff">已关注</button></td>-->
-<!--                            </tr>-->
 
-
-<!--                        </table>-->
-
-<!--                    </details>-->
                 </div>
                 <!--         点赞-->
                 <div id="zan" class="box2"style="display: none" >
-                    <p style="margin-top: 5px;"><label style="margin-left: 15px;font-size: 18px;">我</label>
-                        <label id="zan_time" style="font-size: 12px;margin-left: 20px;">04月21日20：18</label>
-                    </p>
-                    <p style="margin-left: 22px;font-size: 16px;margin-top: -10px;">赞了</p>
+
                     <table id="like_news" style="margin-left: 18px;" >
 
                     </table>
