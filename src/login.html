@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆界面</title>
+    <link href="main.css" rel="stylesheet">
+    <script language="JavaScript">
+        function pd() {
+            var name=document.getElementById("phone").value;
+            var psw=document.getElementById("password").value;
+            if(name.length!=11){
+                window.alert("请输入11位的手机号！")
+            }else if(psw.length!=6){
+                window.alert("请输入6位数密码！");
+            }
+            //根据数据库判断是否登录
+            else {
+                var request = new XMLHttpRequest();
+
+                request.open("GET"," http://139.199.55.139:8080/api/user/login?" +
+                    "u_phone="+document.getElementById("phone").value+"&u_password="+document.getElementById("password").value);
+                request.send();
+                request.onreadystatechange = function () {
+                    if(request.readyState===4&&request.status===200){
+                        var json=JSON.parse(request.responseText);
+                        if(json.status=="200"){
+                            localStorage.setItem("photoes",json.data["u_photo"]);
+                            localStorage.setItem("id",json.data["u_id"]);
+                            localStorage.setItem("name",json.data["u_name"]);
+                            localStorage.setItem("password",json.data["u_password"]);
+                            localStorage.setItem("regist",json.data["u_regist"]);
+                            localStorage.setItem("login",json.data["u_login"]);
+                            localStorage.setItem("phone",json.data["u_phone"]);
+                            localStorage.setItem("online",json.data["u_online"]);
+                            window.location.href="main2.html";
+
+                            alert(json.message);
+                        }if(json.status=="500"){
+                            document.getElementById("msg").innerHTML=json.message;
+                        }
+                    }
+
+                };
+
+            }
+
+        }
+        function forget() {
+            window.location.href="register.html";
+            localStorage.setItem("textss","确定");
+            localStorage.setItem("title","忘记密码界面");
+        }
+        function register() {
+            window.location.href="register.html";
+            localStorage.setItem("textss","注册");
+            localStorage.setItem("title","注册界面");
+        }
+        function backMain() {
+            window.location.href="main2.html";
+        }
+    </script>
+</head>
+<body >
+<div class="box" >
+    <div style="height: 60px;font-size: 30px;">
+        <div style="padding: 12px">
+            <img src="images/back-line.png" width="20px" onclick="backMain()"/>
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登录</strong>
+        </div>
+    </div>
+    <hr style="background: #87cefa;height: 4px;border-radius: 8px">
+    <form name="login" method="post" action="" style="margin-top: 25px;margin-left: 50px">
+        <p >
+            <img src="images/phone.png" width="20px" > : &nbsp;&nbsp;
+            <input type="number" id="phone"  title="请填写正确的手机号" placeholder="请输入手机号" style="height: 25px;border-radius: 8px" />
+        </p>
+        <p >
+            <img src="images/password.png" width="20px"> : &nbsp;&nbsp;
+            <input type="password" id="password" style="height: 25px;border-radius: 8px"   title="请输入6位数字" placeholder="请输入密码"/>
+        </p>
+        <p id="msg" style="font-size: 16px;color: red"></p>
+        <p>
+            <input type="button" value="登录" onclick="pd()" style="margin-top: 15px;margin-left:0px;background: #87cefa;  width: 220px;font-size: 25px;border-radius: 10px">
+
+        </p>
+        <p>
+            <input type="button" value="忘记密码?"  onclick="forget()" style="margin-left: 35px;width: 70px;font-size: 8px;margin-top: 20px;border-radius: 8px"/>
+            <input type="button" value="注册"  onclick="register()" style="margin-left: 50px;border-radius: 8px"/>
+        </p>
+     </form>
+</div>
+</div>
+</body>
+</html>

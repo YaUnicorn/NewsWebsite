@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)https://www.cnblogs.com/xiaofengfeng/archive/2012/10/20/2732784.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin">
+    <meta property="og:description" content="&amp;lt;!DOCTYPE html PUBLIC &amp;quot;-//W3C//DTD XHTML 1.0 Transitional//EN&amp;quot; &amp;quot;http://www.w3.org/">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>js 弹出对话框3种方式 . - 小锋神 - 博客园</title>
+    
+    <link rel="stylesheet" href="./js 弹出对话框3种方式 . - 小锋神 - 博客园_files/blog-common.min.css">
+    <link id="MainCss" rel="stylesheet" href="./js 弹出对话框3种方式 . - 小锋神 - 博客园_files/bundle-codinglife.min.css">
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./js 弹出对话框3种方式 . - 小锋神 - 博客园_files/bundle-codinglife-mobile.min.css">
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/xiaofengfeng/rss">
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/xiaofengfeng/rsd.xml">
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/xiaofengfeng/wlwmanifest.xml">
+    <script async="" src="./js 弹出对话框3种方式 . - 小锋神 - 博客园_files/analytics.js"></script><script src="./js 弹出对话框3种方式 . - 小锋神 - 博客园_files/jquery-2.2.0.min.js"></script>
+    <script src="./js 弹出对话框3种方式 . - 小锋神 - 博客园_files/blog-common.min.js"></script>
+    <script>
+        var currentBlogId = 74882;
+        var currentBlogApp = 'xiaofengfeng';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'CodingLife';
+    </script>
+    
+    
+    
+</head><style type="text/css" id="29988059118"></style>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/xiaofengfeng/"><img id="blogLogo" src="./js 弹出对话框3种方式 . - 小锋神 - 博客园_files/logo.gif" alt="返回主页"></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/xiaofengfeng/">小锋神</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/xiaofengfeng/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E5%B0%8F%E9%94%8B%E7%A5%9E">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/xiaofengfeng/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+538&nbsp; </span>
+<span id="stats_article_count">文章 - 
+4&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+198</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class="postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10/20/2732784.html">js 弹出对话框3种方式 .</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <div class="cnblogs_Highlighter">
+<div><div id="highlighter_407540" class="syntaxhighlighter nogutter  html"><div class="toolbar"><span><a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10/20/2732784.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">&lt;!</code><code class="html keyword">DOCTYPE</code> <code class="html plain">html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="html plain">&lt;</code><code class="html keyword">html</code> <code class="html plain">xmlns="http://www.w3.org/1999/xhtml"&gt;</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="html plain">&lt;</code><code class="html keyword">head</code><code class="html plain">&gt;</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="html plain">&lt;</code><code class="html keyword">meta</code> <code class="html plain">http-equiv="Content-Type" content="text/html; charset=gb2312" /&gt;</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="html plain">&lt;</code><code class="html keyword">title</code><code class="html plain">&gt;三种弹出对话框的用法实例&lt;/</code><code class="html keyword">title</code><code class="html plain">&gt;</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="html plain">&lt;</code><code class="html keyword">script</code> <code class="html plain">language="javascript"&gt;</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="html plain">function ale()</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="html plain">{</code></div><div class="line number16 index15 alt1">&nbsp;</div><div class="line number17 index16 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">//这个基本没有什么说的，就是弹出一个提醒的对话框</code></div><div class="line number18 index17 alt1">&nbsp;</div><div class="line number19 index18 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">alert("我敢保证，你现在用的是演示一");</code></div><div class="line number20 index19 alt1">&nbsp;</div><div class="line number21 index20 alt2"><code class="html plain">}</code></div><div class="line number22 index21 alt1">&nbsp;</div><div class="line number23 index22 alt2"><code class="html plain">function firm()</code></div><div class="line number24 index23 alt1">&nbsp;</div><div class="line number25 index24 alt2"><code class="html plain">{</code></div><div class="line number26 index25 alt1">&nbsp;</div><div class="line number27 index26 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">//利用对话框返回的值 （true 或者 false）</code></div><div class="line number28 index27 alt1">&nbsp;</div><div class="line number29 index28 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">if(confirm("你确信要转去风亦飞的博客？"))</code></div><div class="line number30 index29 alt1">&nbsp;</div><div class="line number31 index30 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">{</code></div><div class="line number32 index31 alt1">&nbsp;</div><div class="line number33 index32 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">//如果是true ，那么就把页面转向thcjp.cnblogs.com</code></div><div class="line number34 index33 alt1">&nbsp;</div><div class="line number35 index34 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">location.href="http://blog.csdn.net/fengyifei11228/";</code></div><div class="line number36 index35 alt1">&nbsp;</div><div class="line number37 index36 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">}</code></div><div class="line number38 index37 alt1">&nbsp;</div><div class="line number39 index38 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">else</code></div><div class="line number40 index39 alt1">&nbsp;</div><div class="line number41 index40 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">{</code></div><div class="line number42 index41 alt1">&nbsp;</div><div class="line number43 index42 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">//否则说明下了，赫赫</code></div><div class="line number44 index43 alt1">&nbsp;</div><div class="line number45 index44 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">alert("你按了取消，那就是返回false");</code></div><div class="line number46 index45 alt1">&nbsp;</div><div class="line number47 index46 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">}</code></div><div class="line number48 index47 alt1">&nbsp;</div><div class="line number49 index48 alt2"><code class="html plain">}</code></div><div class="line number50 index49 alt1">&nbsp;</div><div class="line number51 index50 alt2"><code class="html plain">function prom()</code></div><div class="line number52 index51 alt1">&nbsp;</div><div class="line number53 index52 alt2"><code class="html plain">{</code></div><div class="line number54 index53 alt1">&nbsp;</div><div class="line number55 index54 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">var name=prompt("请输入您的名字","");//将输入的内容赋给变量 name ，</code></div><div class="line number56 index55 alt1">&nbsp;</div><div class="line number57 index56 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">//这里需要注意的是，prompt有两个参数，前面是提示的话，后面是当对话框出来后，在对话框里的默认值</code></div><div class="line number58 index57 alt1">&nbsp;</div><div class="line number59 index58 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">if(name)//如果返回的有内容</code></div><div class="line number60 index59 alt1">&nbsp;</div><div class="line number61 index60 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">{</code></div><div class="line number62 index61 alt1">&nbsp;</div><div class="line number63 index62 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">alert("欢迎您："+ name)</code></div><div class="line number64 index63 alt1">&nbsp;</div><div class="line number65 index64 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">}</code></div><div class="line number66 index65 alt1">&nbsp;</div><div class="line number67 index66 alt2"><code class="html plain">}</code></div><div class="line number68 index67 alt1">&nbsp;</div><div class="line number69 index68 alt2"><code class="html plain">&lt;/</code><code class="html keyword">script</code><code class="html plain">&gt;</code></div><div class="line number70 index69 alt1">&nbsp;</div><div class="line number71 index70 alt2"><code class="html plain">&lt;/</code><code class="html keyword">head</code><code class="html plain">&gt;</code></div><div class="line number72 index71 alt1">&nbsp;</div><div class="line number73 index72 alt2">&nbsp;</div><div class="line number74 index73 alt1">&nbsp;</div><div class="line number75 index74 alt2"><code class="html plain">&lt;</code><code class="html keyword">body</code><code class="html plain">&gt;</code></div><div class="line number76 index75 alt1">&nbsp;</div><div class="line number77 index76 alt2"><code class="html plain">&lt;</code><code class="html keyword">p</code><code class="html plain">&gt;对话框有三种&lt;/</code><code class="html keyword">p</code><code class="html plain">&gt;</code></div><div class="line number78 index77 alt1">&nbsp;</div><div class="line number79 index78 alt2"><code class="html plain">&lt;</code><code class="html keyword">p</code><code class="html plain">&gt;1：只是提醒，不能对脚本产生任何改变；&lt;/</code><code class="html keyword">p</code><code class="html plain">&gt;</code></div><div class="line number80 index79 alt1">&nbsp;</div><div class="line number81 index80 alt2"><code class="html plain">&lt;</code><code class="html keyword">p</code><code class="html plain">&gt;2：一般用于确认，返回 true 或者 false ，所以可以轻松用于 ifelse判断 &lt;/</code><code class="html keyword">p</code><code class="html plain">&gt;</code></div><div class="line number82 index81 alt1">&nbsp;</div><div class="line number83 index82 alt2"><code class="html plain">&lt;</code><code class="html keyword">p</code><code class="html plain">&gt;3： 一个带输入的对话框，可以返回用户填入的字符串，常见于某些留言本或者论坛输入内容那里的 插入UBB格式图片 &lt;/</code><code class="html keyword">p</code><code class="html plain">&gt;</code></div><div class="line number84 index83 alt1">&nbsp;</div><div class="line number85 index84 alt2"><code class="html plain">&lt;</code><code class="html keyword">p</code><code class="html plain">&gt;下面我们分别演示：&lt;/</code><code class="html keyword">p</code><code class="html plain">&gt;</code></div><div class="line number86 index85 alt1">&nbsp;</div><div class="line number87 index86 alt2"><code class="html plain">&lt;</code><code class="html keyword">p</code><code class="html plain">&gt;演示一：提醒 对话框&lt;/</code><code class="html keyword">p</code><code class="html plain">&gt;</code></div><div class="line number88 index87 alt1">&nbsp;</div><div class="line number89 index88 alt2"><code class="html plain">&lt;</code><code class="html keyword">p</code><code class="html plain">&gt;</code></div><div class="line number90 index89 alt1">&nbsp;</div><div class="line number91 index90 alt2"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">input</code> <code class="html plain">type="submit" name="Submit" value="提交" onclick="ale()" /&gt;</code></div><div class="line number92 index91 alt1">&nbsp;</div><div class="line number93 index92 alt2"><code class="html plain">&lt;/</code><code class="html keyword">p</code><code class="html plain">&gt;</code></div><div class="line number94 index93 alt1">&nbsp;</div><div class="line number95 index94 alt2"><code class="html plain">&lt;</code><code class="html keyword">p</code><code class="html plain">&gt;演示二 ：确认对话框 &lt;/</code><code class="html keyword">p</code><code class="html plain">&gt;</code></div><div class="line number96 index95 alt1">&nbsp;</div><div class="line number97 index96 alt2"><code class="html plain">&lt;</code><code class="html keyword">p</code><code class="html plain">&gt;</code></div><div class="line number98 index97 alt1">&nbsp;</div><div class="line number99 index98 alt2"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">input</code> <code class="html plain">type="submit" name="Submit2" value="提交" onclick="firm()" /&gt;</code></div><div class="line number100 index99 alt1">&nbsp;</div><div class="line number101 index100 alt2"><code class="html plain">&lt;/</code><code class="html keyword">p</code><code class="html plain">&gt;</code></div><div class="line number102 index101 alt1">&nbsp;</div><div class="line number103 index102 alt2"><code class="html plain">&lt;</code><code class="html keyword">p</code><code class="html plain">&gt;演示三 ：要求用户输入，然后给个结果&lt;/</code><code class="html keyword">p</code><code class="html plain">&gt;</code></div><div class="line number104 index103 alt1">&nbsp;</div><div class="line number105 index104 alt2"><code class="html plain">&lt;</code><code class="html keyword">p</code><code class="html plain">&gt;</code></div><div class="line number106 index105 alt1">&nbsp;</div><div class="line number107 index106 alt2"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">input</code> <code class="html plain">type="submit" name="Submit3" value="提交" onclick="prom()" /&gt;</code></div><div class="line number108 index107 alt1">&nbsp;</div><div class="line number109 index108 alt2"><code class="html plain">&lt;/</code><code class="html keyword">p</code><code class="html plain">&gt;</code></div><div class="line number110 index109 alt1">&nbsp;</div><div class="line number111 index110 alt2"><code class="html plain">&lt;/</code><code class="html keyword">body</code><code class="html plain">&gt;</code></div><div class="line number112 index111 alt1">&nbsp;</div><div class="line number113 index112 alt2"><code class="html plain">&lt;/</code><code class="html keyword">html</code><code class="html plain">&gt;</code></div></div></td></tr></tbody></table></div></div>
+</div>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block"><div id="BlogPostCategory">
+    分类: 
+            <a href="https://www.cnblogs.com/xiaofengfeng/category/288275.html" target="_blank">C#web应用知识</a></div>
+
+
+    <div id="blog_post_info">
+<div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(2732784,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+        <a id="green_channel_follow" onclick="follow(&#39;f508f254-d6ad-df11-8eb9-001cf0cd104b&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./js 弹出对话框3种方式 . - 小锋神 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./js 弹出对话框3种方式 . - 小锋神 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/xiaofengfeng/" target="_blank"><img src="./js 弹出对话框3种方式 . - 小锋神 - 博客园_files/u154287.jpg" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/xiaofengfeng/">小锋神</a><br>
+            <a href="https://home.cnblogs.com/u/xiaofengfeng/followees/">关注 - 2</a><br>
+            <a href="https://home.cnblogs.com/u/xiaofengfeng/followers/">粉丝 - 470</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;f508f254-d6ad-df11-8eb9-001cf0cd104b&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(2732784,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">7</span>
+    </div>
+    <div class="buryit" onclick="votePost(2732784,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">1</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+    <div class="clear"></div>
+    <div id="post_next_prev">
+
+    <a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10/10/2717975.html" class="p_n_p_prefix">« </a> 上一篇：    <a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10/10/2717975.html" title="发布于 2012-10-10 11:04">终于解决SQL Server 2008 64位系统无法导入Access/Excel的问题 2012/08/01</a>
+    <br>
+    <a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10/26/2740956.html" class="p_n_p_prefix">» </a> 下一篇：    <a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10/26/2740956.html" title="发布于 2012-10-26 12:54">快递公司快递单号规律总结</a>
+
+</div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2012-10-20 23:34</span>&nbsp;
+<a href="https://www.cnblogs.com/xiaofengfeng/">小锋神</a>&nbsp;
+阅读(<span id="post_view_count">258474</span>)&nbsp;
+评论(<span id="post_comment_count">1</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=2732784" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(2732784);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="./js 弹出对话框3种方式 . - 小锋神 - 博客园_files/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 74882, cb_blogApp = 'xiaofengfeng', cb_blogUserGuid = 'f508f254-d6ad-df11-8eb9-001cf0cd104b';
+    var cb_entryId = 2732784, cb_entryCreatedDate = '2012-10-20 23:34', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder">
+
+<div id="comment_pager_top">
+    
+</div>
+
+<br>
+<div class="feedback_area_title">评论列表</div>
+<div class="feedbackNoItems"><div class="feedbackNoItems"></div></div>	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10/20/2732784.html#3671756" class="layer">#1楼</a>
+<a name="3671756" id="comment_anchor_3671756"></a>
+
+        <span id="comment-maxId" style="display:none">3671756</span>
+        <span id="comment-maxDate" style="display:none">2017/4/19 下午3:11:15</span>
+ 
+<span class="comment_date">2017-04-19 15:11</span>
+
+ 
+
+            <a id="a_comment_author_3671756" href="https://www.cnblogs.com/ytfblog/" target="_blank">江南烟雨ytf</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_3671756" data-format-type="Ubb" class="blog_comment_body cnblogs-ubb">
+    顶
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3671756, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(3671756, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_3671756_avatar" style="display:none">
+            https://pic.cnblogs.com/face/1141981/20170407160958.png
+        </span>
+
+			</div>
+		</div>
+
+<div id="comment_pager_bottom">
+    
+</div>
+
+
+</div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10/20/2732784.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10/20/2732784.html#top">返回顶部</a></div>
+    <div id="comment_form_container" style="visibility: visible;"><div class="login_tips">
+    注册用户登录后才能发表评论，请 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a>
+     或 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，
+    <a href="https://www.cnblogs.com/">访问</a> 网站首页。
+</div></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-ucancode&#39;)">【推荐】超50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="https://cloud.tencent.com/act/season?fromSource=gwzcw.3422970.3422970.3422970&amp;utm_medium=cpc&amp;utm_id=gwzcw.3422970.3422970.3422970" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-腾讯云&#39;)">【活动】腾讯云服务器推出云产品采购季 1核2G首年仅需99元</a><br><a href="https://developer.aliyun.com/article/717197?utm_content=g_1000088944" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-阿里云开发者社区&#39;)">【推荐】开放下载！《长安十二时辰》爆款背后的优酷技术秘籍首次公开</a><br><a href="https://developer.aliyun.com/ask/257928?utm_content=g_1000088948" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-阿里云开发者社区&#39;)">【推荐】精品问答：精品问答：Python 技术 1000 问</a><br></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb">
+<div class="itnews c_ad_block">
+    <b>最新 IT 新闻</b>:
+    <br>
+ ·              <a href="https://news.cnblogs.com/n/658591/" target="_blank">法院下禁令、投资人欲撤资，Telegram“发币”走向穷途末路</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/658594/" target="_blank">没有手机的第一年，美图仍难回血</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/658593/" target="_blank">Google 取消愚人节活动</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/658592/" target="_blank">“家里蹲”引发数据海啸，欧洲互联网巨头们为何只限流，不扩容？</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/658590/" target="_blank">支付宝入局，本地生活格局生变</a>
+            <br>
+    » <a href="https://news.cnblogs.com/" title="IT 新闻" target="_blank">更多新闻...</a>
+</div></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem"><!--done-->
+<h3 class="catListTitle">公告</h3>
+
+<div id="blog-news">
+    
+    <div id="profile_block">
+        昵称：
+        <a href="https://home.cnblogs.com/u/xiaofengfeng/">
+            小锋神
+        </a>
+        <br>
+        园龄：
+        <a href="https://home.cnblogs.com/u/xiaofengfeng/" title="入园时间：2010-08-22">
+            9年7个月
+        </a>
+        <br>
+        粉丝：
+        <a href="https://home.cnblogs.com/u/xiaofengfeng/followers/">
+            470
+        </a>
+        <br>
+        关注：
+        <a href="https://home.cnblogs.com/u/xiaofengfeng/followees/">
+            2
+        </a>
+        <div id="p_b_follow">
+<a href="javascript:void(0)" onclick="follow(&#39;f508f254-d6ad-df11-8eb9-001cf0cd104b&#39;)">+加关注</a></div>
+        <script>getFollowStatus('f508f254-d6ad-df11-8eb9-001cf0cd104b');</script>
+    </div>
+</div>
+
+</div>
+
+			<div id="blog-calendar" style="">
+
+<table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar" border="0">
+    <tbody>
+        <tr>
+            <td colspan="7">
+                <table class="CalTitle" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2012/09/20&#39;); return false;">&lt;</a>
+                            </td>
+                            <td align="center">2012年10月</td>
+                            <td align="right" class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2012/11/20&#39;); return false;">&gt;</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+                    <th class="CalDayHeader" align="center" abbr="日" scope="col">日</th>
+                    <th class="CalDayHeader" align="center" abbr="一" scope="col">一</th>
+                    <th class="CalDayHeader" align="center" abbr="二" scope="col">二</th>
+                    <th class="CalDayHeader" align="center" abbr="三" scope="col">三</th>
+                    <th class="CalDayHeader" align="center" abbr="四" scope="col">四</th>
+                    <th class="CalDayHeader" align="center" abbr="五" scope="col">五</th>
+                    <th class="CalDayHeader" align="center" abbr="六" scope="col">六</th>
+        </tr>
+            <tr>
+                            <td class="CalOtherMonthDay" align="center">30</td>
+                        <td class="" align="center">
+                            1
+                        </td>
+                        <td class="" align="center">
+                            2
+                        </td>
+                        <td class="" align="center">
+                            3
+                        </td>
+                        <td class="" align="center">
+                            4
+                        </td>
+                        <td class="" align="center">
+                            5
+                        </td>
+                    <td class="CalWeekendDay" align="center">
+                        6
+                    </td>
+            </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            7
+                        </td>
+                            <td class="" align="center">
+                                <a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10/08.html"><u>8</u></a>
+                            </td>
+                            <td class="" align="center">
+                                9
+                            </td>
+                            <td class="" align="center">
+                                <a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10/10.html"><u>10</u></a>
+                            </td>
+                            <td class="" align="center">
+                                11
+                            </td>
+                            <td class="" align="center">
+                                12
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            13
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            14
+                        </td>
+                            <td class="" align="center">
+                                15
+                            </td>
+                            <td class="" align="center">
+                                16
+                            </td>
+                            <td class="" align="center">
+                                17
+                            </td>
+                            <td class="" align="center">
+                                18
+                            </td>
+                            <td class="" align="center">
+                                19
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            <a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10/20.html"><u>20</u></a>
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            21
+                        </td>
+                            <td class="" align="center">
+                                22
+                            </td>
+                            <td class="" align="center">
+                                23
+                            </td>
+                            <td class="" align="center">
+                                24
+                            </td>
+                            <td class="" align="center">
+                                25
+                            </td>
+                            <td class="" align="center">
+                                <a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10/26.html"><u>26</u></a>
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            27
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            28
+                        </td>
+                            <td class="" align="center">
+                                29
+                            </td>
+                            <td class="" align="center">
+                                30
+                            </td>
+                            <td class="" align="center">
+                                31
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                1
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                2
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            3
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalOtherMonthDay" align="center">
+                            4
+                        </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                5
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                6
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                7
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                8
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                9
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            10
+                        </td>
+                </tr>
+    </tbody>
+</table></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn">
+<!-- 搜索 -->
+<div id="sidebar_search" class="sidebar-block">
+    <div id="sidebar_search" class="mySearch">
+        <h3 class="catListTitle">搜索</h3>
+        <div id="sidebar_search_box">
+            <div id="widget_my_zzk" class="div_my_zzk">
+                <input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk">
+            </div>
+            <div id="widget_my_google" class="div_my_zzk">
+                <input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 常用链接 -->
+<div id="sidebar_shortcut" class="sidebar-block">
+    <div class="catListLink">
+<h3 class="catListTitle">
+常用链接
+</h3>
+<ul>
+		<li>
+
+<a href="https://www.cnblogs.com/xiaofengfeng/p/" title="我的博客的随笔列表">我的随笔</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/xiaofengfeng/MyComments.html" title="我的发表过的评论列表">我的评论</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/xiaofengfeng/OtherPosts.html" title="我评论过的随笔列表">我的参与</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/xiaofengfeng/RecentComments.html" title="我的博客的评论列表">最新评论</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/xiaofengfeng/tag/" title="我的博客的标签列表">我的标签</a>
+</li>
+
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div>
+
+
+</div>
+
+<!-- 最新随笔 -->
+
+
+
+<!-- 我的标签 -->
+<div id="sidebar_toptags" class="sidebar-block">
+    
+</div>
+
+<!-- 积分与排名 -->
+<div id="sidebar_scorerank" class="sidebar-block">
+    <div class="catListBlogRank">
+<h3 class="catListTitle">积分与排名</h3>
+<ul>
+	<li class="liScore">
+		积分 -	
+566709
+	</li>
+	<li class="liRank">
+		排名 -	
+389
+	</li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+<!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
+<div id="sidebar_categories">
+    
+        <div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+            <h3 class="catListTitle">
+                
+
+随笔分类
+
+
+
+            </h3>
+
+
+            <ul>
+
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/290318.html" rel="" target="">
+    asp.net Ajax(8)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/575786.html" rel="" target="">
+    asp.net MVC(8)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/312642.html" rel="" target="">
+    C#(131)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/288275.html" rel="" target="">
+    C#web应用知识(92)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/324875.html" rel="" target="">
+    devexpress web控件(18)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/323515.html" rel="" target="">
+    devexpress控件技巧(18)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/288271.html" rel="" target="">
+    GridVIew 控件应用(17)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/1230616.html" rel="" target="">
+    Java(18)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/288273.html" rel="" target="">
+    JavaScript脚本(3)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/462478.html" rel="" target="">
+    Jquery(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/290308.html" rel="" target="">
+    MSSQL应用实例(69)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/290315.html" rel="" target="">
+    MYSQL(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/392810.html" rel="" target="">
+    Oracle for C#(9)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/546944.html" rel="" target="">
+    SQLite(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/288272.html" rel="" target="">
+    Vs其它控件应用(5)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/324871.html" rel="" target="">
+    WCF(3)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/290319.html" rel="" target="">
+    web services(6)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/291662.html" rel="" target="">
+    winform资料(109)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/324874.html" rel="" target="">
+    WPF web程序
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/324872.html" rel="" target="">
+    WPF应用程序
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/290317.html" rel="" target="">
+    XML(20)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/290311.html" rel="" target="">
+    编程方面电脑应用(5)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/491855.html" rel="" target="">
+    程序设计(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/290309.html" rel="" target="">
+    接口类(2)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/381540.html" rel="" target="">
+    京东接口
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/290313.html" rel="" target="">
+    开发错误案例解决方案(5)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/328641.html" rel="" target="">
+    类，功能，方法(3)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/381539.html" rel="" target="">
+    拍拍接口
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/397373.html" rel="" target="">
+    软件架构
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/381538.html" rel="" target="">
+    淘宝接口
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/290312.html" rel="" target="">
+    网络应用(2)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/288274.html" rel="" target="">
+    网页美工(7)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/category/489864.html" rel="" target="">
+    微软企业库(6)
+</a>
+ 
+
+                        </li>
+
+            </ul>
+
+
+        </div>
+        <div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+            <h3 class="catListTitle">
+                
+
+随笔档案
+
+
+
+            </h3>
+
+
+            <ul>
+
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2018/08.html" rel="" target="">
+    2018年8月(5)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2018/07.html" rel="" target="">
+    2018年7月(3)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2018/06.html" rel="" target="">
+    2018年6月(18)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2018/05.html" rel="" target="">
+    2018年5月(5)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2015/09.html" rel="" target="">
+    2015年9月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2015/08.html" rel="" target="">
+    2015年8月(2)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2015/02.html" rel="" target="">
+    2015年2月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2014/11.html" rel="" target="">
+    2014年11月(3)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2014/07.html" rel="" target="">
+    2014年7月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2014/06.html" rel="" target="">
+    2014年6月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2014/05.html" rel="" target="">
+    2014年5月(5)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2014/04.html" rel="" target="">
+    2014年4月(3)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2014/03.html" rel="" target="">
+    2014年3月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2014/02.html" rel="" target="">
+    2014年2月(8)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2014/01.html" rel="" target="">
+    2014年1月(7)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2013/12.html" rel="" target="">
+    2013年12月(8)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2013/11.html" rel="" target="">
+    2013年11月(8)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2013/10.html" rel="" target="">
+    2013年10月(5)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2013/09.html" rel="" target="">
+    2013年9月(2)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2013/07.html" rel="" target="">
+    2013年7月(9)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2013/06.html" rel="" target="">
+    2013年6月(17)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2013/05.html" rel="" target="">
+    2013年5月(4)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2013/04.html" rel="" target="">
+    2013年4月(5)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2013/03.html" rel="" target="">
+    2013年3月(7)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2013/02.html" rel="" target="">
+    2013年2月(6)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2013/01.html" rel="" target="">
+    2013年1月(5)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/12.html" rel="" target="">
+    2012年12月(9)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/11.html" rel="" target="">
+    2012年11月(3)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10.html" rel="" target="">
+    2012年10月(4)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/09.html" rel="" target="">
+    2012年9月(21)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/08.html" rel="" target="">
+    2012年8月(9)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/07.html" rel="" target="">
+    2012年7月(10)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/06.html" rel="" target="">
+    2012年6月(11)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/05.html" rel="" target="">
+    2012年5月(14)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/04.html" rel="" target="">
+    2012年4月(19)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/03.html" rel="" target="">
+    2012年3月(13)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/02.html" rel="" target="">
+    2012年2月(15)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/01.html" rel="" target="">
+    2012年1月(7)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/12.html" rel="" target="">
+    2011年12月(19)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/11.html" rel="" target="">
+    2011年11月(14)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/10.html" rel="" target="">
+    2011年10月(12)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/09.html" rel="" target="">
+    2011年9月(27)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/08.html" rel="" target="">
+    2011年8月(8)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/07.html" rel="" target="">
+    2011年7月(16)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/05.html" rel="" target="">
+    2011年5月(16)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/04.html" rel="" target="">
+    2011年4月(24)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/03.html" rel="" target="">
+    2011年3月(12)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/02.html" rel="" target="">
+    2011年2月(7)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/01.html" rel="" target="">
+    2011年1月(18)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2010/12.html" rel="" target="">
+    2010年12月(14)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2010/11.html" rel="" target="">
+    2010年11月(22)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2010/10.html" rel="" target="">
+    2010年10月(19)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2010/09.html" rel="" target="">
+    2010年9月(13)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/archive/2010/08.html" rel="" target="">
+    2010年8月(22)
+</a>
+ 
+
+                        </li>
+
+            </ul>
+
+
+        </div>
+        <div id="sidebar_imagecategory" class="catListImageCategory sidebar-block">
+            <h3 class="catListTitle">
+                
+
+相册
+
+
+
+            </h3>
+
+
+            <ul>
+
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xiaofengfeng/gallery/294826.html" rel="nofollow noopener noreferrer" target="">
+    相册1(8)
+</a>
+ 
+
+                        </li>
+
+            </ul>
+
+
+        </div>
+
+</div>
+
+<!-- 最新评论 -->
+<div id="sidebar_recentcomments" class="sidebar-block">
+    <div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div class="RecentCommentBlock">
+        <ul>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/xiaofengfeng/p/3382094.html#4470483">1. Re:DataGridView单元格合并</a></li>
+                    <li class="recent_comment_body">这个rowMergeView1是基本的DataGridView吗？设置了什么属性？为什么可以自动合并“中国”“美国”“英国”这几个单元格？</li>
+                    <li class="recent_comment_author">--loogle.lee</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/xiaofengfeng/p/4101557.html#4356601">2. Re:ASP.NET MVC中实现多个按钮提交的几种方法</a></li>
+                    <li class="recent_comment_body">你这代码自己都不试一下嘛</li>
+                    <li class="recent_comment_author">--初晨~</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/12/07/2279677.html#4346894">3. Re:Dev中ChartControl柱状图(Bar)用法</a></li>
+                    <li class="recent_comment_body">请问在柱形图定端显示数值要怎么写</li>
+                    <li class="recent_comment_author">--午夜与鬼共舞丶</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/12/27/2836183.html#4301190">4. Re:WaitHandles 的数目必须少于或等于 64 个</a></li>
+                    <li class="recent_comment_body">谢谢，写的真好，最近遇到mysql导出到Excel报表，20W，采用ManualResetEvent多线程操作，List&lt;List&lt;ManualResetEvent&gt;&gt;占用的资源居高不下，您的这个刚好...</li>
+                    <li class="recent_comment_author">--小强强123</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/xiaofengfeng/p/3402158.html#4300301">5. Re:Datagridview 在基于文本的单元格中启用换行,自动调整行高列宽</a></li>
+                    <li class="recent_comment_body">thank you</li>
+                    <li class="recent_comment_author">--nutix</li>
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+
+
+<!-- 阅读排行榜 -->
+<div id="sidebar_topviewedposts" class="sidebar-block">
+    <div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10/20/2732784.html">
+                            1. js 弹出对话框3种方式 .(258474)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/04/16/2018504.html">
+                            2. DataGridView控件使用大全(165811)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/06/27/2565941.html">
+                            3. DataTable排序(77112)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/12/23/2299679.html">
+                            4. C#将字符转换成utf8编码 GB321编码转换(49078)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/xiaofengfeng/archive/2010/11/20/1882372.html">
+                            5. c# 保留2位小数(46963)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+<!-- 评论排行榜 -->
+<div id="sidebar_topcommentedposts" class="sidebar-block">
+    <div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/xiaofengfeng/archive/2013/01/28/2879531.html">
+                            1. [C#]二维码生成、解码(QRCode)【支持winform、web调用】(16)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/04/16/2018504.html">
+                            2. DataGridView控件使用大全(15)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/xiaofengfeng/p/3488574.html">
+                            3. WinForm自定义控件–TextBox扩展(10)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/12/07/2279677.html">
+                            4. Dev中ChartControl柱状图(Bar)用法(7)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/xiaofengfeng/p/3573331.html">
+                            5. c#录音和放音，超简单！不用DirectX(6)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+<!-- 推荐排行榜 -->
+<div id="sidebar_topdiggedposts" class="sidebar-block">
+    
+<div id="topdigg_posts_wrap">
+    <div class="catListView">
+        <h3 class="catListTitle">推荐排行榜</h3>
+        <div id="TopDiggPostsBlock">
+            <ul style="word-break: break-all">
+                        <li>
+                            <a href="https://www.cnblogs.com/xiaofengfeng/archive/2011/04/16/2018504.html">
+                                1. DataGridView控件使用大全(27)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/xiaofengfeng/archive/2010/10/06/1844601.html">
+                                2. C#颜色和名称样式对照表(7)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/xiaofengfeng/archive/2012/10/20/2732784.html">
+                                3. js 弹出对话框3种方式 .(7)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/xiaofengfeng/p/4125003.html">
+                                4. 在C#中如何读取枚举值的描述属性(5)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/xiaofengfeng/p/3182056.html">
+                                5. winform窗体间传值(5)
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright © 2020 小锋神
+<br><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+</body></html>

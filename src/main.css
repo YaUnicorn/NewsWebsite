@@ -1,0 +1,32 @@
+a{text-decoration: none;color: #0060ff}
+a:hover{text-decoration: underline;color: #ff0000}
+body{
+    font-size: 9pt;
+    font: 12px Tahoma,Verdana,"宋体";
+
+}
+.box,.box2{
+    box-sizing: border-box;
+    border: 1px solid #666;
+    border-radius: 5px;
+/*定位*/
+    position: absolute;
+    top:50%;
+    left:50%;
+
+    background: #ffffff;
+}
+.box{height: 350px;width: 330px;margin-left:200px;margin-top: -250px;}
+.box2{height:450px;width: 400px; margin-left: -200px;
+    margin-top: -250px;}
+.p1{font-size: 16px;
+}
+/*@keyframes go {*/
+/*    0%{transform: rotateZ(0);}*/
+/*    100%{transform: rotateZ(360deg);}*/
+/*}*/
+/*#refr{*/
+/*    animation-name: go;*/
+/*    animation-duration: 2s;*/
+/*    animation-iteration-count: infinite;*/
+/*}*/

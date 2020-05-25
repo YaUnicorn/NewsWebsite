@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册界面</title>
+    <link href="main.css" rel="stylesheet">
+    <style type="text/css">
+        #canvas{
+            cursor: pointer;
+        }
+    </style>
+    <script language="JavaScript">
+        function goback() {
+            window.history.back();
+        }
+        var s=localStorage.getItem("textss");
+        var titles=localStorage.getItem("title");
+        //alert(s)
+        window.onload=function () {
+            document.getElementById("forr").value=s;
+            document.getElementsByTagName("title")[0].innerText=titles;
+        }
+
+    </script>
+
+</head>
+<body >
+<div class="box2">
+    <div style="height: 60px;font-size: 30px;">
+            <div style="padding: 12px" >
+            <img src="images/back-line.png" width="20px" onclick="goback()"/>
+                <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;完善信息</strong>
+        </div>
+    </div>
+    <hr style="background: #87cefa;height: 4px;border-radius: 8px">
+    <form name="register" method="post" action="register.html" style="margin-top: 25px;margin-left: 50px">
+        <p >
+            <img src="images/phone.png" width="25px" > : &nbsp;&nbsp;
+            <input type="number" id="phone" required="required"    placeholder=" Phone" style="height: 25px;border-radius: 8px" />
+            <span style="margin-left: 6px;color: darkgrey">请输入11位手机号</span>
+        </p>
+
+        <p >
+            <img src="images/password.png" width="25px"> : &nbsp;&nbsp;
+            <input type="password" id="password"  required="required"  style="height: 25px;border-radius: 8px" placeholder=" Password"/>
+            <span style="font-size: 8px; margin-left: 6px;color: darkgrey">请输入6位的数字</span>
+        </p>
+
+        <p>
+            <img src="images/passwordAgain.png" width="25px;"> : &nbsp;&nbsp;
+            <input type="password" id="pswagin"  required="required"  style="height: 25px;border-radius: 8px" placeholder=" PasswordAgain"/>
+            <span style="font-size: 8px; margin-left: 6px;color: darkgrey">请与密码保持一致</span>
+        </p>
+        <p>
+            <img src="images/Code.png" width="25px;"> :&nbsp;&nbsp;&nbsp;
+            <input type="text" id="txt2"  style="height: 25px;border-radius: 8px" placeholder=" Code"/>
+            <canvas id="canvas" width="150px" height="50px" style="margin-top: 15px;margin-left: 65px"></canvas>
+            <input type="button" value="点击换一张" onclick="drawPic()" style="margin-top: -50px;"/>
+<!--          </div>-->
+        </p>
+        <p id="createResult"></p>
+            <input type="button"  id="forr" onclick="bindevent()" style="margin-top: 10px;margin-left: -5px;font-size: 25px; width: 300px;background: #87cefa;border-radius: 8px" />
+            <script>
+                function bindevent() {
+                    var phone = document.getElementById("phone").value;
+                    var psw = document.getElementById("password").value;
+                    var pswag = document.getElementById("pswagin").value;
+
+                    var txt2 = document.getElementById("txt2").value;
+                    mcavs = localStorage.getItem("chacknum");
+
+                    if (psw != pswag) {
+                        alert("密码不匹配！");
+                        document.getElementById("pswagin").value = "";
+                    } else if (phone.length != 11) {
+                        alert("请输入正确的手机号！");
+                    } else if (psw.length != 6) {
+                        alert("密码不正确");
+
+                    } else if (txt2 == "") {
+                        alert("验证码为空");
+                    } else if (txt2 == mcavs) {//正确
+
+                        if (titles.length == 4) {
+                            var request = new XMLHttpRequest();
+                            request.open("POST", "http://139.199.55.139:8080/api/user/regist?");
+                            var data = "u_phone=" + document.getElementById("phone").value + "&u_password=" + document.getElementById("password").value;
+                            request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                            request.send(data);
+
+                            request.onreadystatechange = function () {
+                                if(request.readyState===4&&request.status===200){
+                                    var json = JSON.parse(request.responseText);
+                                    if (json.status == "200") {
+                                        alert(json.message);
+                                        window.location.href = "main2.html";
+                                    } else if (json.status == "500") {
+                                        document.getElementById("createResult").innerHTML = json.message + ",手机号已经存在!！！";
+                                        document.getElementById("createResult").style.color = "red";
+                                    }
+                                }
+
+                            }
+                        } else if (titles.length == 6) {
+                            var request = new XMLHttpRequest();
+                            request.open("POST", "http://139.199.55.139:8080/api/user/forgetPassword?");
+                            var data = "u_phone=" + document.getElementById("phone").value + "&u_password=" + document.getElementById("password").value;
+                            request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                            request.send(data);
+                            request.onreadystatechange = function () {
+                                if(request.readyState===4&&request.status===200){
+                                    var json = JSON.parse(request.responseText);
+                                    if (json.status == "200") {
+                                        alert(json.message);
+                                        window.location.href = "main2.html";
+                                    } else if (json.status == "500") {
+                                        document.getElementById("createResult").innerHTML = json.message;
+                                    }
+                                }
+
+                            }
+                        }
+
+                    }
+
+                    else {
+                       alert("验证码错误，请重新输入");
+                        document.getElementById("txt2").value="";
+                    }
+
+                }
+                //生成随机数
+                function  randomNum(min,max) {
+                    return Math.floor(Math.random()*(max-min)+min);
+                }
+                //生成随机颜色RGB分量
+                function randomColor(min,max) {
+                    var _r=randomNum(min,max);
+                    var _g=randomNum(min,max);
+                    var _b=randomNum(min,max);
+                    return "rgb("+_r+","+_g+","+_b+")";
+                }
+                //先阻止画布默认点击发生的行为再执行drawPic（）方法
+                document.getElementById("canvas").onclick=function () {
+                    e.preventDefault();
+                    drawPic();
+                    //bindevent();
+                }
+                function  drawPic() {
+                    //获取到元素canvas
+                    var cavs=document.getElementById("canvas");
+                    //设置随机数库
+                    var str="abcdefghijklmnopqrstuvwxyz0123456789";
+                    var chacknum="";//随机数
+                    var num=4;
+                    var width=cavs.width;
+                    var height=cavs.height;
+                    var ctx=cavs.getContext("2d");//获取conntext对象
+                    ctx.textBaseline="bottom";//文字上下对齐方式-底部对齐
+                    ctx.fillStyle=randomColor(180,240);//填充画布颜色
+                    ctx.fillRect(0,0,width,height);//填充矩形--画画
+                    for(var i=0;i<num;i++){
+                        var  x=(width-10)/num*i+10;
+                        var y=randomNum(height/2,height);
+                        var deg=randomNum(-45,45);
+                        var txt=str[randomNum(0,str.length)];
+                        chacknum+=txt;//获取随机数
+                        localStorage.setItem("chacknum",chacknum);
+                        ctx.fillStyle=randomColor(10,100);//填充随机颜色
+                        ctx.font=randomNum(16,40)+"px SimHei";//设置随机数大小，字体位SIMhEI
+                        ctx.translate(x,y);//将当前xy坐标作为原始坐标
+                        ctx.rotate(deg*Math.PI/180);//旋转随机角度
+                        ctx.fillText(txt,0,0);
+                        ctx.rotate(-deg*Math.PI/180);
+                        ctx.translate(-x,-y);
+                    }
+                    for (var i=0;i<num;i++){
+                        //定义笔触颜色
+                        ctx.strokeStyle=randomColor(90,180);
+                        ctx.beginPath();
+                        //随机划线--4条路径
+                        ctx.moveTo(randomNum(0,width),randomNum(0,height));
+                        ctx.lineTo(randomNum(0,width),randomNum(0,height));
+                        ctx.stroke();
+                    }
+                    for(var i=0;i<num*10;i++){
+                        ctx.fillStyle=randomColor(0,255);
+                        ctx.beginPath();
+                        //随机画原，填充颜色
+                        ctx.arc(randomNum(0,width),randomNum(0,height),1,0,2*Math.PI);
+                        ctx.fill();
+                    }
+                    return chacknum;
+
+
+                }
+                drawPic();
+
+            </script>
+
+    </form>
+</div>
+</body>
+</html>

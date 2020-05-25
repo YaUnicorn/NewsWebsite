@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布新闻</title>
+    <style>
+        .addnews{
+            box-sizing: border-box;
+            border: 1px solid #666;
+            border-radius: 5px;
+            /*定位*/
+            position: absolute;
+            /*top:20%;*/
+            left:5%;
+            height: 100%;width: 65%;
+           display: inline;
+            overflow: hidden;
+        }
+        .friendsList{
+            box-sizing: border-box;
+            border: 1px solid  #666;
+            border-radius: 5px;
+            width: 25%;height: 100%;
+            position: absolute;
+           margin-left: 970px;
+
+
+        }
+        body{
+            background: #87cefa;
+        }
+       .nbox_addnews{
+           width: 85%;height:80%; box-sizing: border-box;
+           border: 1px solid #666;
+           border-radius: 5px;margin-left: 55px;
+       }
+        table tr{
+            height: 35px;
+        }
+        .alter_ziliao{
+            margin-left: 80px;font-size: 18px;
+        }
+    </style>
+    <script>
+        //我的新闻
+        function addNews() {
+            var Release_content=document.getElementById("Release_content");
+            var add_news=document.getElementById("add_news");
+            var alter_info=document.getElementById("alter_info");
+            if(Release_content.style.display!='block'){
+                Release_content.style.display='block';
+                add_news.style.display='none';
+                alter_info.style.display='none';
+
+            }else if(add_news.style.display!='block'){
+                add_news.style.display='block';
+                Release_content.style.display='none';
+                alter_info.style.display='none';
+        }}
+        //修改个人信息
+        function alter_info() {
+
+            var talk=document.getElementById("talk");
+            talk.style.display='none';
+            var hit_like=document.getElementById("hit_like");
+            hit_like.style.display='none';
+            var attentions=document.getElementById("attentions");
+            attentions.style.display='none';
+            var add_news=document.getElementById("add_news");
+            add_news.style.display='none';
+            var alter_info=document.getElementById("alter_info");
+            alter_info.style.display='block';
+            var Release_content=document.getElementById("Release_content");
+            Release_content.style.display = 'none';
+        }
+        //发布新闻
+        function fabu_news() {
+            var talk=document.getElementById("talk");
+            talk.style.display='none';
+            var hit_like=document.getElementById("hit_like");
+            hit_like.style.display='none';
+            var attentions=document.getElementById("attentions");
+            attentions.style.display='none';
+            var add_news=document.getElementById("add_news");
+            add_news.style.display='none';
+            var alter_info=document.getElementById("alter_info");
+            alter_info.style.display='none';
+            var Release_content=document.getElementById("Release_content");
+                Release_content.style.display = 'block';
+        }
+        //我的关注
+        function attentions() {
+            var talk=document.getElementById("talk");
+            talk.style.display='none';
+            var hit_like=document.getElementById("hit_like");
+            hit_like.style.display='none';
+            var attentions=document.getElementById("attentions");
+            attentions.style.display='block';
+            var add_news=document.getElementById("add_news");
+            add_news.style.display='none';
+            var alter_info=document.getElementById("alter_info");
+            alter_info.style.display='none';
+            var Release_content=document.getElementById("Release_content");
+            Release_content.style.display = 'none';
+        }
+        //我的点赞
+        function hit_like() {
+
+            var talk=document.getElementById("talk");
+            talk.style.display='none';
+            var hit_like=document.getElementById("hit_like");
+            hit_like.style.display='block';
+            var attentions=document.getElementById("attentions");
+            attentions.style.display='none';
+            var add_news=document.getElementById("add_news");
+            add_news.style.display='none';
+            var alter_info=document.getElementById("alter_info");
+            alter_info.style.display='none';
+            var Release_content=document.getElementById("Release_content");
+            Release_content.style.display = 'none';
+        }
+        //我的评论
+        function talk() {
+            var talk=document.getElementById("talk");
+            talk.style.display='block';
+            var hit_like=document.getElementById("hit_like");
+            hit_like.style.display='none';
+            var attentions=document.getElementById("attentions");
+            var Release_content=document.getElementById("Release_content");
+            var add_news=document.getElementById("add_news");
+            var alter_info=document.getElementById("alter_info");
+            attentions.style.display='none';
+            Release_content.style.display='none';
+            add_news.style.display='none';
+            alter_info.style.display='none';
+        }
+        //取消关注
+        function guanzhu(){
+
+            var con;
+            if(document.getElementById("cancelfoucs").innerHTML=="已关注"){
+                con=confirm("确定取消关注吗？");
+                if(con==true){
+                    alert("取消关注成功！");
+                    document.getElementById("cancelfoucs").innerHTML="关注";
+                }
+            }else {
+                con=confirm("确定重新关注吗？");
+                if(con==true){
+                alert("关注成功！");
+                document.getElementById("cancelfoucs").innerHTML="已关注";
+            }
+            }
+        }
+        //删除发布
+        function delete_comms() {
+            var con;
+            con=confirm("确定要删除这条新闻吗？？？")
+            if(con==true){
+                alert("删除成功！");
+                document.getElementById("news1").remove();
+            }
+        }
+        //聊天页面与好友列表页面转换
+        function oc_chat() {
+            var list=document.getElementById("list_friends");
+            var chat=document.getElementById("chat");
+            if(list.style.display!='block'){
+                list.style.display='block';
+                chat.style.display='none';
+            }else{
+                list.style.display='none';
+                chat.style.display='block';
+            }
+        }
+        //修改头像页面，更换头像
+        function changeImg(val) {
+            document.getElementById("showing").src=val;
+        }
+    </script>
+</head>
+<body>
+<!--//个人中心-->
+<div class="addnews">
+    <div id="title_bar" >
+        <nav style="background: #1e90ff;height: 30px;border-radius: 8px;margin-top: -13px;" >
+            <ul style="list-style: none">
+                <li onclick="fabu_news()" style="display: inline;font-size: 18px;" >&nbsp;&nbsp;&nbsp;<a href="#" style="text-decoration: none;">我的发布&nbsp;&nbsp;&nbsp;</a>|</li>
+                <li onclick="attentions()" style="display: inline;font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style="text-decoration: none">我的关注&nbsp;&nbsp;&nbsp;</a>|</li>
+                <li onclick="hit_like()" style="display: inline;font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style="text-decoration: none">我的点赞&nbsp;&nbsp;&nbsp;</a>|</li>
+                <li onclick="talk()" style="display: inline;font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style="text-decoration: none">我的评论</a></li>
+            </ul>
+        </nav>
+
+    </div>
+    <!--            我的发布-->
+    <div id="Release_content" style="background:#ffffff;height: 94%;">
+        <div style="width: 120%;height: 100%;overflow-y: scroll;overflow-x: hidden;">
+            <div  style="margin-left: 15px;width: 81%;margin-bottom: 30px;">
+                <img src="images/add.png" onclick="addNews()" style="margin-left: 95%;"><br>
+                <div id="news1" style="background: #6ce26c">
+                    <label style="margin-left: 8px;">仙女&nbsp;发表于2020-4-7&nbsp;15：59：00</label><br>
+                    <table>
+                    <tr>
+                        <td ><img src="images/link.png" style="margin-left: 8px;margin-top: 5px;width: 30px;height: 30px;"></td>
+                        <td ><a href="#" style="text-decoration: none;margin-left: 5px;">[一禅小和尚].....师傅说出来真理</a></td>
+                    </tr>
+                </table>
+                    <span id="contentRealase" style="padding: 5px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一禅:师父，为什么好多感情最后都无疾而终了呢?
+                   师父:一个人走进另一个人的生命，并肩而行，然后渐行渐远，最后不告而别，每个人都习惯不动声色，每个人都以为自己百毒不侵。
+                   一禅:那后来呢?
+                   师父:后来啊……就是无数次的蓦然回首与恍然大悟，最终人们学会在忙碌和沉默中，藏起自己的心事，
+                   只敢在午夜梦回，绝对安全的时候，一个人在记忆中，辗转反侧...........
+               </span>
+                    <table>
+                    <tr>
+                        <td width="80%"></td>
+                        <td width="10%"><img src="images/zan.png" style="width: 20px;height: 20px;"></td>
+                        <td width="8%"><img src="images/cotalks.png" style="width: 20px;height: 20px;"></td>
+                        <td><img onclick="delete_comms()" src="images/delete.png" style="width: 30px;height: 30px;"></td>
+                    </tr>
+                </table>
+                   <hr>
+                </div>
+                <label style="margin-left: 8px;">仙女&nbsp;发表于2020-4-7&nbsp;15：59：00</label><br>
+                <table>
+                    <tr>
+                        <td ><img src="images/link.png" style="margin-left: 8px;margin-top: 5px;width: 30px;height: 30px;"></td>
+                        <td ><a href="#" style="text-decoration: none;margin-left: 5px;">[一禅小和尚].....师傅说出来真理</a></td>
+                    </tr>
+                </table>
+                <span id="contentRealase2" style="padding: 5px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一禅:师父，为什么好多感情最后都无疾而终了呢?
+                   师父:一个人走进另一个人的生命，并肩而行，然后渐行渐远，最后不告而别，每个人都习惯不动声色，每个人都以为自己百毒不侵。
+                   一禅:那后来呢?
+                   师父:后来啊……就是无数次的蓦然回首与恍然大悟，最终人们学会在忙碌和沉默中，藏起自己的心事，
+                   只敢在午夜梦回，绝对安全的时候，一个人在记忆中，辗转反侧...........
+               </span>
+                <table>
+                    <tr>
+                        <td width="80%"></td>
+                        <td width="10%"><img src="images/zan.png" style="width: 20px;height: 20px;"></td>
+                        <td width="8%"><img src="images/cotalks.png" style="width: 20px;height: 20px;"></td>
+                        <td><img src="images/delete.png" style="width: 30px;height: 30px;"></td>
+                    </tr>
+                </table>
+                <hr>
+                <label style="margin-left: 8px;">仙女&nbsp;发表于2020-4-7&nbsp;15：59：00</label><br>
+                <table>
+                    <tr>
+                        <td ><img src="images/link.png" style="margin-left: 8px;margin-top: 5px;width: 30px;height: 30px;"></td>
+                        <td ><a href="#" style="text-decoration: none;margin-left: 5px;">[一禅小和尚].....师傅说出来真理</a></td>
+                    </tr>
+                </table>
+                <span id="contentRealase3" style="padding: 5px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一禅:师父，为什么好多感情最后都无疾而终了呢?
+                   师父:一个人走进另一个人的生命，并肩而行，然后渐行渐远，最后不告而别，每个人都习惯不动声色，每个人都以为自己百毒不侵。
+                   一禅:那后来呢?
+                   师父:后来啊……就是无数次的蓦然回首与恍然大悟，最终人们学会在忙碌和沉默中，藏起自己的心事，
+                   只敢在午夜梦回，绝对安全的时候，一个人在记忆中，辗转反侧...........
+               </span>
+                <table>
+                    <tr>
+                        <td width="80%"></td>
+                        <td width="10%"><img src="images/zan.png" style="width: 20px;height: 20px;"></td>
+                        <td width="8%"><img src="images/cotalks.png" style="width: 20px;height: 20px;"></td>
+                        <td><img src="images/delete.png" style="width: 30px;height: 30px;"></td>
+                    </tr>
+                </table>
+                <hr>
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <hr>
+<!--    新闻添加-->
+    <div id="add_news" style="background:#ffffff;height: 100%;display: none">
+        <div style="width: 120%;height: 100%;overflow-y: scroll;overflow-x: hidden;margin-top: -18px;">
+            <div  style="margin-left: 15px;width: 81%;margin-bottom: 30px;">
+                 <h2>添加新闻</h2>
+                <table style="padding-left: 20px;">
+                    <tr>
+                        <td>作 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：</td>
+                        <td><input id="news_phone" type="text"/></td>
+                    </tr>
+                    <tr >
+                        <td>新闻标题：</td>
+                        <td><input id="news_title" type="text"/> </td>
+                    </tr>
+                    <tr>
+                        <td>新闻类别：</td>
+                        <td>
+                            <select>
+                                <option>新闻热点</option>
+                                <option>娱乐新闻</option>
+                                <option>军事</option>
+                                <option>科技</option>
+                                <option>综合</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>发布内容：</td>
+                        <td><textarea cols="50" rows="6"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>图片/视频：</td>
+                        <td><input  type="file"/></td>
+                    </tr>
+                    <tr>
+                        <td>发布时间：</td>
+                        <td><input type="date"/></td>
+                    </tr>
+                    <tr>
+                        <td ></td>
+                        <td><button onclick="addNews()">取消</button><button style="margin-left: 280px;">发布</button> </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+<!--    修改个人信息-->
+    <div id="alter_info" style="background:#ffffff;height: 100%;display: none">
+        <div style="width: 120%;height: 100%;overflow-y: scroll;overflow-x: hidden;margin-top: -18px;">
+            <div  style="margin-left: 15px;width: 81%;margin-bottom: 30px;">
+                 <h2>修改资料</h2>
+                <table class="alter_ziliao">
+                    <tr >
+                        <td >头&nbsp;&nbsp;&nbsp;像：</td>
+                        <td width="100px;" style="margin-left: 15px;"><img src="" id="showing" name="showing" width="120px" height="120px;"></td>
+                        <td ><select onchange="changeImg(this.value)">
+                            <option value="images/title_head2.jpg">title_head2.jpg</option>
+                            <option value="images/title_head3.jpg">title_head3.jpg</option>
+
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>昵&nbsp;&nbsp;&nbsp;称：</td>
+                        <td><input type="text" style="height: 23px;"> </td>
+                    </tr>
+                    <tr>
+                        <td>性&nbsp;&nbsp;&nbsp;别：</td>
+                        <td><input name="sex" type="radio" checked="checked"/>男</td>
+                        <td><input name="sex" type="radio"/>女</td>
+                    </tr>
+                    <tr>
+                        <td>手机号：</td>
+                        <td><input type="text" style="height: 23px;"></td>
+                    </tr>
+                    <tr>
+                        <td>密&nbsp;&nbsp;&nbsp;码：</td>
+                        <td><input type="text" style="height: 23px;"></td>
+                    </tr>
+
+
+                </table>
+                <button style="margin-left: 270px;margin-top: 20px">确定</button>
+            </div>
+        </div>
+        <table style="margin-left: 100px;">
+            <tr>
+                <td>头像：</td>
+                <td><img  width=""></td>
+                <td><input type="file"></td>
+            </tr>
+        </table>
+
+    </div>
+<!--    我的关注-->
+    <div id="attentions" style="background:#ffffff;height: 100%;display: none">
+        <div style="width: 120%;height: 100%;overflow-y: scroll;overflow-x: hidden;margin-top: -18px;">
+            <h2 style="margin-left: 35%">我的关注</h2>
+            <div  style="margin-left: 10%;width: 65%; box-sizing: border-box;
+            border: 1px solid #666;
+            border-radius: 5px;">
+                <details style="margin-left: 20%;margin-top: 3%" open>
+                    <summary >公众号</summary>
+                    <table style="margin-top: 1%;margin-left: 2%">
+                        <tr >
+                            <td  width="50px"><img src="images/head.png" width="40" height="40"></td>
+                            <td width="200px;">新闻小助理</td>
+                            <td><button id="cancelfoucs" onclick="guanzhu()" style="border-radius: 5px;background: #ffffff">已关注</button></td>
+                        </tr>
+                        <tr >
+                            <td  width="50px"><img src="images/head.png" width="40" height="40"></td>
+                            <td width="200px;">小丸子童话集</td>
+                            <td><button  style="border-radius: 5px;background: #ffffff">已关注</button></td>
+                        </tr>
+                    </table>
+                </details>
+                <details style="margin-left: 20%" open>
+                         <summary >好友关注</summary>
+                      <table style="margin-top: 1%;margin-left: 2%">
+                <tr >
+                    <td  width="50px"><img src="images/head.png" width="40" height="40"></td>
+                    <td width="200px;">易</td>
+                    <td><button  style="border-radius: 5px;background: #ffffff">已关注</button></td>
+                </tr>
+                <tr >
+                    <td  width="50px"><img src="images/head.png" width="40" height="40"></td>
+                    <td width="200px;">🐏</td>
+                    <td><button style="border-radius: 5px;background: #ffffff">已关注</button></td>
+                </tr>
+
+
+               </table>
+
+              </details>
+
+            </div>
+        </div>
+    </div>
+<!--    我的点赞-->
+    <div id="hit_like" style="background:#ffffff;height: 100%;display: none">
+        <div style="width: 120%;height: 100%;overflow-y: scroll;overflow-x: hidden;margin-top: -18px;">
+            <div  style="margin-left: 15px;width: 81%;margin-bottom: 30px;">
+               <h2>我的点赞</h2>
+            </div>
+        </div>
+    </div>
+<!--    我的评论-->
+    <div id="talk" style="background:#ffffff;height: 100%;display: none">
+        <div style="width: 120%;height: 100%;overflow-y: scroll;overflow-x: hidden;margin-top: -18px;">
+            <div  style="margin-left: 15px;width: 81%;margin-bottom: 30px;">
+                  <h2>My Comments</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//好友列表-->
+<div class="friendsList">
+    <div id="info" style="background: #be3d3b;height: 10%">
+        <img src="images/head.png" style="width: 65px;height: 65px;margin-left: 10px;margin-top: 12px;">
+        <h4 id="name" style="margin-top: -65px;margin-left: 85px;">Unicorn~</h4>
+        <hr style="border: 2px;">
+    </div>
+    <table>
+        <tr>
+            <td width="220px;">
+                <h5 style="margin-left: 13px;margin-top: 20px;font-size: 14px;margin-bottom: 5px;">好友列表</h5>
+            </td>
+            <td>
+                <button id="alter_zl" style="margin-left: 18px;" onclick="alter_info()">修改资料</button>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <div id="list_friends" >
+        <details style="margin-left: 15px;">
+           <summary>特别关心</summary>
+           <table style="margin-left: 10px;">
+            <tr>
+                <td><img src="images/head.png" width="20px;" height="20px;" /></td>
+                <td >&nbsp;&nbsp;王子轩</td>
+                <td ><img onclick="oc_chat()" src="images/message.png" width="20px;" height="20px;"></td>
+                <td><img onclick="delete_friends()" src="images/canacle.png" width="20px;" height="20px;"></td>
+            </tr>
+            <tr>
+                <td><img src="images/head.png" width="20px;" height="20px;" /></td>
+                <td width="230px;">&nbsp;&nbsp;薛琳</td>
+                <td width="30px;"><img src="images/message.png" width="20px;" height="20px;"></td>
+                <td width="30px;"><img src="images/canacle.png" width="20px;" height="20px;"></td>
+            </tr>
+        </table>
+        </details>
+    <details style="margin-left: 15px;" open>
+        <summary>好友列表</summary>
+        <table style="margin-left: 10px;">
+            <tr>
+                <td><img src="images/head.png" width="20px;" height="20px;" /></td>
+                <td width="230px;">&nbsp;&nbsp;王子轩</td>
+                <td width="30px;"><img src="images/message.png" width="20px;" height="20px;"></td>
+                <td width="30px;"><img src="images/deletefriends.png" width="16px;" height="16px;"></td>
+            </tr>
+            <tr>
+                <td><img src="images/head.png" width="20px;" height="20px;" /></td>
+                <td width="230px;">&nbsp;&nbsp;薛琳</td>
+                <td ><img src="images/message.png" width="20px;" height="20px;"></td>
+                <td><img src="images/deletefriends.png" width="16px;" height="16px;"></td>
+            </tr>
+        </table>
+    </details>
+    </div>
+    <div id="chat"style="margin-top: -10px;background: #ffffff;height: 80%;display: none">
+        <table >
+            <tr style="min-height: 20px;">
+                <td width="120px"><img onclick="oc_chat()" src="images/back1.png" width="20" height="20" ></td>
+                <td><label style="font-size: 18px;">易烊千玺</label></td>
+            </tr>
+        </table>
+        <p style="font-size: 10px;margin-top: -9px;margin-left: 125px;color: #7c7c7c">对方正在输入...</p>
+        <hr>
+        <div id="chat_list" style="height: 80%;background: #f8f8ff ;margin-top: -10px;overflow: hidden">
+            <div style="width: 110%;height: 100%;overflow-y: scroll;overflow-x: hidden;">
+                <div style="padding-right: 17px;margin-left: 10px">
+                </div>
+            </div>
+
+        </div>
+        <hr style="margin-top: -3px;">
+        <div id="send">
+            <input type="text" style="width: 250px;height: 25px;margin-left: 10px;"/><button style="margin-left: 10px;">发送</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

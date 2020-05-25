@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页面</title>
+    <style>
+         body{
+            background: #add8e6;
+        }
+         /*左部分 */
+        .left {
+           width: 25%;
+            background: #87ceeb;
+            height: 600px;
+            box-sizing: border-box;
+            border: 1px solid #666;
+            border-radius: 5px;
+            /*定位*/
+            position: absolute;
+        }
+         /*中间部分 */
+        .center {
+            width: 50%;
+            height: 600px;
+            box-sizing: border-box;
+            border: 1px solid #666;
+            border-radius: 5px;
+            /*定位*/
+            position: absolute;
+            margin-left: 345px;
+            overflow: hidden;
+        }
+         /*右部分 */
+        .right {
+            width: 23%;
+            background: #87cefa;
+            height: 600px;
+            box-sizing: border-box;
+            border: 1px solid #666;
+            border-radius: 5px;
+            /*定位*/
+            position: absolute;
+            margin-left: 1031px;
+
+        }
+
+    </style>
+    <script>
+        //右--评论区重置
+        function reset() {
+            document.getElementById("comment").value="";
+        }
+        //右--转到登陆界面
+        function userLogin() {
+            window.location.href="login.html";
+        }
+        //右--发布评论
+        function create() {
+            var comm=document.getElementById("comment").value;
+            // var commResult=document.getElementById("commentResult").value;
+            if(comm.length>0){
+                document.getElementById("commentResult").innerHTML=comm;
+                document.getElementById("comment").value="";
+            }else if(comm.length==0){
+                //
+                alert("评论内容不能为空！");
+            }
+        }
+        //右--个人中心跳转
+        function box_content() {
+            window.location.href="addNews.html";
+        }
+        //左--新闻热点
+        function daily_recommd() {
+            var daily_recommd=document.getElementById("daily_recommd");
+            var amusement=document.getElementById("amusement");
+            var affairs=document.getElementById("affairs");
+            var technology=document.getElementById("technology");
+            var comprehensive=document.getElementById("comprehensive");
+            daily_recommd.style.display='block';
+            amusement.style.display='none';
+            affairs.style.display='none';
+            technology.style.display='none';
+            comprehensive.style.display='none';
+
+        }
+        //左--娱乐
+        function amusement() {
+            var daily_recommd=document.getElementById("daily_recommd");
+            var amusement=document.getElementById("amusement");
+            var affairs=document.getElementById("affairs");
+            var technology=document.getElementById("technology");
+            var comprehensive=document.getElementById("comprehensive");
+            daily_recommd.style.display='none';
+            amusement.style.display='block';
+            affairs.style.display='none';
+            technology.style.display='none';
+            comprehensive.style.display='none';
+
+        }
+        //左--军事
+        function affairs() {
+            var daily_recommd=document.getElementById("daily_recommd");
+            var amusement=document.getElementById("amusement");
+            var affairs=document.getElementById("affairs");
+            var technology=document.getElementById("technology");
+            var comprehensive=document.getElementById("comprehensive");
+            daily_recommd.style.display='none';
+            amusement.style.display='none';
+            affairs.style.display='block';
+            technology.style.display='none';
+            comprehensive.style.display='none';
+
+        }
+        //左--科技
+        function technology() {
+            var daily_recommd=document.getElementById("daily_recommd");
+            var amusement=document.getElementById("amusement");
+            var affairs=document.getElementById("affairs");
+            var technology=document.getElementById("technology");
+            var comprehensive=document.getElementById("comprehensive");
+            daily_recommd.style.display='none';
+            amusement.style.display='none';
+            affairs.style.display='none';
+            technology.style.display='block';
+            comprehensive.style.display='none';
+
+        }
+        //左--综合
+        function comprehensive() {
+            var daily_recommd=document.getElementById("daily_recommd");
+            var amusement=document.getElementById("amusement");
+            var affairs=document.getElementById("affairs");
+            var technology=document.getElementById("technology");
+            var comprehensive=document.getElementById("comprehensive");
+            daily_recommd.style.display='none';
+            amusement.style.display='none';
+            affairs.style.display='none';
+            technology.style.display='none';
+            comprehensive.style.display='block';
+
+        }
+        //中--关注
+        function attention() {
+            var con;
+            if(document.getElementById("foucs_fr").innerHTML=="已关注"){
+                alert("请到 “我的关注” 操作");
+            }else{
+                con=confirm("确定关注吗？");
+                if(con==true){
+                    alert("关注成功！");
+                    document.getElementById("foucs_fr").innerHTML="已关注";
+                }
+            }
+        }
+        //中--添加好友
+        function add_friendss() {
+            var con;
+            if(document.getElementById("add_friends").innerHTML=="已添加"){
+                alert("您已添加过该好友！");
+            }else{
+                con=confirm("确定添加好友吗？");
+                if(con==true){
+                    alert("添加成功！");
+                    document.getElementById("add_friends").innerHTML="已添加";
+                }
+            }
+
+        }
+        //中--点赞
+        function link_like() {
+            document.getElementById("like").style.color="#f00";
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="left" >
+       <h2 style="margin-top: 5px;margin-left: 10px;">新闻导向</h2>
+        <details style="margin-left: 18px;" open>
+            <summary>新闻类别</summary>
+            <P onclick="daily_recommd()" style="margin-left: 25px;"><a href="#" style="text-decoration: none">新闻热点</a> </P>
+            <p onclick="amusement()" style="margin-left: 25px;"><a href="#" style="text-decoration: none">娱乐新闻</a></p>
+            <p onclick="affairs()" style="margin-left: 25px;"><a href="#" style="text-decoration: none">军事</a></p>
+            <p onclick="technology()" style="margin-left: 25px;"><a href="#" style="text-decoration: none">科技</a></p>
+            <p onclick="comprehensive()" style="margin-left: 25px;"><a href="#" style="text-decoration: none">综合</a></p>
+        </details>
+<!--        //新闻热点-->
+        <div id="daily_recommd" style="background: #ffffff;border-radius: 8px;">
+           <td><img src="images/hot_news.png" width="40" height="40"></td><td>热点推荐</td>
+            <hr>
+            <table style="margin-left: 18px;" >
+                <tr >
+                    <td width="30px"><img src="images/link.png" width="20" height="20"></td>
+                    <td ><a href="#" >携手抗疫 3国领导人向习近平表达谢意</a> </td>
+                </tr>
+                <tr>
+                    <td width="30px"><img src="images/link.png" width="20" height="20"></td>
+                    <td ><a href="#" >最大贫民窟现感染者 印度“封城”能否解决疫情难题？</a> </td>
+                </tr>
+
+                <tr>
+                    <td width="30px"><img src="images/link.png" width="20" height="20"></td>
+                    <td ><a href="#" >外媒：科学家发现史上最强大超新星 或两太阳合并形成</a> </td>
+                </tr>
+                <tr>
+                    <td width="30px"><img src="images/link.png" width="20" height="20"></td>
+                    <td ><a href="#" >震惊！！某些学校马上开学！！！快来看看有没有你的学校</a> </td>
+                </tr>
+            </table>
+            
+        </div>
+<!--        娱乐新闻-->
+        <div id="amusement"style="background: #ffffff;display: none;border-radius: 8px;">
+            <td><img src="images/amuse.png" width="30" height="30" style="margin-top: 8px;"></td>
+            <td >&nbsp;&nbsp;&nbsp;娱乐新闻</td>
+            <hr>
+            <table style="margin-left: 18px;" >
+                <tr>
+                    <td width="30px"><img src="images/listen.png" width="20" height="20"></td>
+                    <td ><a href="#" >哇塞....易烊千玺又发布新歌《I adroe you》</a> </td>
+                </tr>
+                <tr>
+                    <td width="30px"><img src="images/link.png" width="20" height="20"></td>
+                    <td ><a href="#" >撕到热搜第一！太丑了</a> </td>
+                </tr>
+            </table>
+        </div>
+<!--        军事-->
+        <div id="affairs"style="background: #ffffff;display: none;border-radius: 8px;">
+            <td><img src="images/affair.png" width="25" height="25" style="margin-top: 5px;"></td><td>&nbsp;&nbsp;&nbsp;军事</td>
+            <hr>
+            <table style="margin-left: 18px;" >
+                <tr>
+                    <td width="30px"><img src="images/link.png" width="20" height="20"></td>
+                    <td ><a href="#" >资讯！特朗普暗自进军伊朗，暗杀其民族英雄</a> </td>
+                </tr>
+            </table>
+
+        </div>
+<!--        科技-->
+        <div id="technology"style="background: #ffffff;display: none;border-radius: 8px;">
+            <td><img src="images/techlo.png" width="25" height="25" style="margin-top: 5px;"></td><td>&nbsp;&nbsp;&nbsp;科技</td>
+            <hr>
+            <table style="margin-left: 18px;" >
+                <tr>
+                    <td width="30px"><img src="images/link.png" width="20" height="20"></td>
+                    <td ><a href="#" >5G时代来了！</a> </td>
+                </tr>
+            </table>
+
+        </div>
+<!--       综合-->
+        <div id="comprehensive"style="background: #ffffff;display: none;border-radius: 8px;">
+            <td><img src="images/compre.png" width="25" height="25" style="margin-top: 5px;"></td><td>&nbsp;&nbsp;&nbsp;综合</td>
+            <hr>
+            <table style="margin-left: 18px;" >
+                <tr>
+                    <td width="30px"><img src="images/link.png" width="20" height="20"></td>
+                    <td ><a href="#" >综合新闻</a> </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="center">
+        <div class="box1_content" style="width: 120%;height: 600px;overflow-y: scroll;overflow-x: hidden;background-color: #ffffff;">
+           <div class="box2_content" style="height: 100%;width: 80%;margin-left:  23px;margin-bottom: 20px;">
+              <h2 >震惊！！某些学校马上开学！！！快来看看有没有你的学校aaaaaaaaaaaaaaaa</h2>
+              <table style="margin-top: -15px;">
+                  <tr>
+                      <td rowspan="2" width="50px;" style="font-size: 15px;"><img src="images/head.png" width="38px;"></td>
+                      <td  style="font-size: 14px;" width="370px;">小小粉刷匠</td>
+                      <td  rowspan="2" width="100">
+                          <button id="foucs_fr" onclick="attention()" style="background: #30b8e1; border-radius: 8px;color: #ffffff;width: 80px;">关注</button>
+                      </td>
+                      <td  rowspan="2">
+                          <button id="add_friends" onclick="add_friendss()" style="background: #30b8e1; border-radius: 8px;color: #ffffff;width: 80px;">加好友</button>
+                      </td>
+                  </tr>
+                  <tr>
+
+                      <td style="font-size: 11px;">04-09 yue</td>
+                  </tr>
+              </table>
+               <hr>
+               <img src="images/111.jpg" width="350px;" style="margin-left: 140px;">
+               <h5 style="margin-left: 280px;">资料图</h5>
+               <p style="margin-left: 80px;">开学返校复课后，学生周末会缩短吗？部分地区已发通知！</p>
+               <span><p style="margin-left: 80px;">“请同学们放心，缺的课都会补回来！”</p>
+　　                 据四川日报报道，3月29日，记者从四川自贡市教体局获悉，该市各普通中小学校今年暑假放假时间原则上推迟两周，
+                   即小学7月18日正式放假，中学7月25日正式放假。返校复课后，除法定节假日调休以及中考高考等占用外，
+                   周六原则上正常上班上课。正式行课期间，每天下午可增加一课时，用于弥补推迟开学延误的教学时间。
+                   各学校可取消本学期半期考试、运动会、艺术节等活动。取消小学低段期末统考。小学高段期末考试原则上
+                   安排在原开学时间的第二十二周举行，中学期末考试安排在原开学时间的第二十三周举行.<br>
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此外，四川攀枝花市教育和体育局近日也发布通知，从4月1日起，攀枝花分学段分批次错峰开学。
+                   开学复课后，全市义务教育和高中阶段教育学校每周六集中安排上课。义务教育阶段学校暑假放
+                   假时间由7月3日顺延至7月20日，高中阶段学校暑假放假时间由7月10日顺延至7月25日。<br>
+　　               东南大学学生自4月19日起实行分期分批错峰报到。东南大学成贤学院学生自4月21日起实行分期分批错峰报到。
+                   江苏警官学院将于4月15日、16日分期分批、错时错峰开学。南京体育学院将于4月17日起安排学生错峰有序开学。
+                   南京工程学院将于4月18日起安排学生分批错峰有序返校。南京医科大学将于4月13日-14日分期分批、错时错峰开学。
+                   南京铁道职业技术学院将从4月23日起安排学生分批有序返校。苏州大学将于4月23日起安排学生分期分批、错时错峰开学。
+                   中国矿业大学、江苏海洋大学将于4月15日起安排学生分批次有序返校。江苏师范大学将于4月23日起安排学生分批次有序返校。
+                   徐州医科大学将于4月19日起安排学生分期分批、错时错峰开学。
+               </span><br>
+<!--               <img src="images/zan.png" onclick="link_like()" id="like" width="24" height="24" style="margin-top: 8px;margin-left: 580px;">-->
+                   <p id="like" onclick="link_like()" style="font-size: 24px;color: #ccc; cursor: pointer;margin-left: 580px;">&#10084</p>
+               <hr>
+               <p style="color: darkgrey">看看其他的吧</p>
+               <table>
+                   <tr>
+                       <td width="500px;"><a href="#">春意浓，归有期。3月18日，
+                           自治区新冠肺炎疫情防控工作领导小组指挥部印发通知，根据《广西高三初三年级2020年春季学期开学工作方案》，
+                           确定全区高三、初三年级于4月7日开学。</a></td>
+                       <td><img src="images/222.jpg" width="150" height="130"> </td>
+                   </tr>
+                   <tr>
+                       <td width="500px;"><a href="#">春意浓，归有期。3月18日，
+                           自治区新冠肺炎疫情防控工作领导小组指挥部印发通知，根据《广西高三初三年级2020年春季学期开学工作方案》，
+                           确定全区高三、初三年级于4月7日开学。</a></td>
+                       <td><img src="images/222.jpg" width="150" height="130"> </td>
+                   </tr>
+                   <tr>
+                       <td width="500px;"><a href="#">春意浓，归有期。3月18日，
+                           自治区新冠肺炎疫情防控工作领导小组指挥部印发通知，根据《广西高三初三年级2020年春季学期开学工作方案》，
+                           确定全区高三、初三年级于4月7日开学。</a></td>
+                       <td><img src="images/222.jpg" width="150" height="130"> </td>
+                   </tr>
+               </table>
+           </div>
+
+        </div>
+
+    </div>
+    <div class="right">
+        <div id="box1" style="height: 75%">
+          <div style="height:20%;">
+           <img src="images/head.png" style="margin-left:140px;margin-top: 8px;width: 55px;height: 55px;">
+            <p style="margin-top: 3px;margin-left:90px;"><button style="width: 70px;height: 20px;" onclick="box_content()">个人中心</button>
+            <button id="Userlogin" style="width: 70px;height: 20px;margin-left: 20px;" onclick="userLogin()">登&nbsp;录</button></p>
+           </div>
+            <hr>
+        <div id="comment_box" style="height:75%;font-size: 16px;background: #ffffff">
+            <p  style="font-size: 16px;margin-top: 5px;margin-left: 5px;">
+                <img src="images/talkk.png" width="25px;" height="25px" >
+            </p>
+            <p id="commentResult" style="margin-left: 5px;"></p>
+        </div>
+        </div>
+        <hr>
+        <div style="height: 26%;margin-top: -8px;">
+            <p style="font-size: 16px;margin-top: 8px;margin-left: 5px;">评论区：</p>
+            <textarea id="comment" style="margin-left:20px;margin-top: -12px;width: 270px;height: 70px;" placeholder="请开始您的表演...."></textarea>
+           <p style="margin-top: 5px;"> <button style="width: 50px;height: 20px;margin-left: 80px;" onclick="reset()">重置</button>
+               <button style="width: 50px;height: 20px;margin-left: 70px;" onclick="create()">发表</button>
+           </p>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
