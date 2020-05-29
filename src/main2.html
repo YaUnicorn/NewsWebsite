@@ -5,123 +5,144 @@
     <title>Title</title>
     <style>
         /*左边*/
-        .news{
+        .news {
             box-sizing: border-box;
             border: 1px solid #666;
             border-radius: 5px;
             /*定位*/
             position: absolute;
             /*top:20%;*/
-            left:2%;
-            height: 100%;width: 68%;
+            left: 2%;
+            height: 100%;
+            width: 68%;
             display: inline;
             overflow: hidden;
         }
+
         /*右边*/
-        .Myinfo{
+        .Myinfo {
             box-sizing: border-box;
-            border: 1px solid  #666;
+            border: 1px solid #666;
             border-radius: 5px;
-            width: 28%;height: 100%;
+            width: 28%;
+            height: 100%;
             position: absolute;
             margin-left: 950px;
         }
-        body{
+
+        body {
             background: whitesmoke;
             /*background: #f4f4f4;*/
         }
+
         /*新闻分类*/
-        .newsType{
+        .newsType {
             box-sizing: border-box;
-            border: 1px solid  #666;
+            border: 1px solid #666;
             border-radius: 5px;
             position: absolute;
             height: 93.5%;
             width: 35%;
-            margin-top:40px;
+            margin-top: 40px;
         }
+
         /*新闻分类导航栏*/
-        .newsTypeBar{
+        .newsTypeBar {
             box-sizing: border-box;
-            border: 1px solid  #666;
+            border: 1px solid #666;
             border-radius: 5px;
             position: absolute;
             height: 6%;
             width: 100%;
         }
+
         /*详细新闻*/
-        .newsDetails{
+        .newsDetails {
             box-sizing: border-box;
-            border: 1px solid  #666;
+            border: 1px solid #666;
             border-radius: 5px;
             position: relative;
             height: 93.5%;
             width: 64%;
-            margin-top:40px;
+            margin-top: 40px;
             margin-left: 35.5%;
             overflow: hidden;
         }
-        a{
+
+        a {
             text-decoration: none;
         }
-        nav{
-            height: 30px;border-radius: 8px;margin-top: -13px;"
+
+        nav {
+            height: 30px;
+            border-radius: 8px;
+            margin-top: -13px;
+        "
         }
-        nav ul{
+
+        nav ul {
             list-style: none
         }
-        nav ul li{
-            display: inline;font-size: 18px;
+
+        nav ul li {
+            display: inline;
+            font-size: 18px;
         }
-        #son1{
-            /*background-color: #6ce26c;*/
-            width: 100%;
-        }
-        #son2{
-            background-color: lightskyblue;
-            /*width: 900px;*/
-        }
-        #son3{
-            background-color: beige;
-            /*width: 900px;*/
-        }
-        .slide{
+
+        /*先注销这是哪个轮播图的son1，son2,son3XL*/
+        /*#son1{*/
+        /*    !*background-color: #6ce26c;*!*/
+        /*    width: 100%;*/
+        /*}*/
+        /*#son2{*/
+        /*    background-color: lightskyblue;*/
+        /*    !*width: 900px;*!*/
+        /*}*/
+        /*#son3{*/
+        /*    background-color: beige;*/
+        /*    !*width: 900px;*!*/
+        /*}*/
+        .slide {
             width: 100%;
             height: 600px;
             position: absolute;
         }
-        .eslipise,.eslipise_new{
+
+        .eslipise, .eslipise_new {
             text-indent: 2em;
 
             font-weight: normal;
 
-            overflow:hidden;
+            overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp:3;
+            -webkit-line-clamp: 3;
         }
-        .eslipise{
+
+        .eslipise {
             margin-top: 1px;
             margin-left: 8px;
-            max-width:360px;
+            max-width: 360px;
             /*white-space: nowrap;*/
 
         }
-        .eslipise_new{
+
+        .eslipise_new {
             max-width: 90%;
             font-size: 16px;
             margin-left: 12px;
             margin-top: 3px;
 
         }
-        .comms{
+
+        .comms {
             font-weight: normal;
-            overflow:hidden;
+            overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp:3;
+            -webkit-line-clamp: 3;
             max-width: 300%;
             font-size: 16px;
             margin-left: 12px;
@@ -129,7 +150,8 @@
             background: #e6e6e6;
             border-radius: 5px;
         }
-        .box{
+
+        .box {
             width: 100%;
             height: 500px;
             box-sizing: border-box;
@@ -142,86 +164,92 @@
             overflow: hidden;
             margin-bottom: 20px;
         }
-        .box2{
-           height: 100%;width: 90%;margin-bottom: 20px;
+
+        .box2 {
+            height: 100%;
+            width: 90%;
+            margin-bottom: 20px;
         }
-        h1{margin-top: 8px;font-family:楷体;}
-        .news_img{width: 88%;margin-left: 6%;border-radius: 8px;}
-        .ckxq{margin-left: 85%}
-        .psuoj{text-indent: 2em}
-        .likenewsimg{
-            width:80px;
-            height:70px;
+
+        h1 {
+            margin-top: 8px;
+            font-family: 楷体;
+        }
+
+        .news_img {
+            width: 88%;
+            margin-left: 6%;
+            border-radius: 8px;
+        }
+
+        .ckxq {
+            margin-left: 85%
+        }
+
+        .psuoj {
+            text-indent: 2em
+        }
+
+        .likenewsimg {
+            width: 80px;
+            height: 70px;
             border-radius: 5px;
             margin-left: 15%;
         }
-        .Nametd{margin-left: 100%;width: 80px;}
-        .deteleNewsImg{
+
+        .Nametd {
+            margin-left: 100%;
+            width: 80px;
+        }
+
+        .deteleNewsImg {
             height: 20px;
             width: 20px;
             margin-left: 400%;
         }
-        .news_title{
+
+        .news_title {
             margin-left: 100px;
         }
-        .focusImg{
-            width: 40px;
-            height: 40px;
-            border-radius: 15px;
-            margin-left: 10%;
-            margin-top: 8px;
-        }
-        .focus_Btn{
-            margin-left: 310%;
-width: 65px;
-        }
-        /*.focus_Name{*/
-        /*    margin-left: 50%;*/
-        /*}*/
 
     </style>
     <script>
-        var photos=localStorage.getItem("photoes");
-        var name=localStorage.getItem("name");
-        var online=localStorage.getItem("online");
-       //新闻导航栏--数据库
-        //默认显示综合的新闻XL
-        function defaultNews(){
+        var photos = localStorage.getItem("photoes");
+        var name = localStorage.getItem("name");
+        var online = localStorage.getItem("online");
+        //新闻导航栏--数据库
+        //默认显示综合的新闻XL--------------------------------------------------------------------基本代码都是在这里的
+        function defaultNews() {
             var request = new XMLHttpRequest();
-            request.open("GET"," http://139.199.55.139:8080/api/news/selectNewsByType?" +
-                "n_type="+"3");
+            request.open("GET", " http://139.199.55.139:8080/api/news/selectNewsByType?" +
+                "n_type=" + "3");
             request.send();
             request.onreadystatechange = function () {
-                if(request.readyState===4 && request.status===200){
+                if (request.readyState === 4 && request.status === 200) {
 
-                    var json=JSON.parse(request.responseText);//json解析返回的数据
-                    if(json.status=="200"){
+                    var json = JSON.parse(request.responseText);//json解析返回的数据
+                    if (json.status == "200") {
 
                         var sametypeth = 0;//设置一个数，用于记录id为3的新闻的数量XL
-                        var newsdatath=[];//存放对应新闻id的信息对象 数组
-                        var newsith=0;
-                        for(var f=0;f<json["data"].length;f++){
-                            if(json["data"][f]["n_type"]=="3"){
+                        var newsdatath = [];//存放对应新闻id的信息对象 数组
+                        var newsith = 0;
+                        for (var f = 0; f < json["data"].length; f++) {
+                            if (json["data"][f]["n_type"] == "3") {
                                 sametypeth++;
-                                newsdatath[newsith++]=json["data"][f];
-
+                                newsdatath[newsith++] = json["data"][f];
                             }
                         }//end-for
+                        for (var g = 0; g < sametypeth; g++) {
 
-
-                        for(var g=0;g<sametypeth;g++){
-
-                            var childnewth =document.createElement("tr");//一个新闻就是table中的一个tr
+                            var childnewth = document.createElement("tr");//一个新闻就是table中的一个tr
                             var tdFirstth = document.createElement("td");//第一行
                             var tdSecondth = document.createElement("td");//第二行
-                            var spanFirstth=document.createElement("sapn");//第二行第一个标签放发布时间
+                            var spanFirstth = document.createElement("sapn");//第二行第一个标签放发布时间
                             // var spanSecond=document.createElement("sapn");//第二行第二个标签放发布作者 暂时没有使用到
-                            var tdFimgth =document.createElement("img");//放在第一个td里用来显示新闻图片
-                            var tdSath=document.createElement("a");//放在第二个td里用来放新闻缩略标题
+                            var tdFimgth = document.createElement("img");//放在第一个td里用来显示新闻图片
+                            var tdSath = document.createElement("a");//放在第二个td里用来放新闻缩略标题
                             // 标签之间的关系层次
-
                             document.getElementById("daily_recommds").appendChild(childnewth);
-
                             childnewth.appendChild(tdFirstth);
                             childnewth.appendChild(tdSecondth);
                             tdFirstth.appendChild(tdFimgth);
@@ -230,237 +258,320 @@ width: 65px;
                             tdSecondth.appendChild(spanFirstth);
                             // tdSecond.appendChild(spanSecondth);
                             // tdFimgth.className="newsXLimg";
-                            tdFimgth.style.width="80px";
-                            tdFimgth.style.height="60px";
-                            tdFimgth.style.borderRadius="5px";
-                            tdFimgth.src=newsdatath[g]["n_img_url"];
-                            tdSath.innerHTML=newsdatath[g]["n_title"];
-                            spanFirstth.innerHTML=newsdatath[g]["n_release"];
-                            spanFirstth.style.fontSize="4px";
+                            tdFimgth.style.width = "80px";
+                            tdFimgth.style.height = "60px";
+                            tdFimgth.style.borderRadius = "5px";
+                            tdFimgth.src = newsdatath[g]["n_img_url"];
+                            tdSath.innerHTML = newsdatath[g]["n_title"];
+                            spanFirstth.innerHTML = newsdatath[g]["n_release"];
+                            spanFirstth.style.fontSize = "4px";
+
+                        }//end-for
+
+                    }
+                }
+            };
+        }
+        //默认显示综合的新闻轮播图XL
+        function defaultLunBo(){
+        }
+        //点击导航栏的新闻类别显示对应的新闻缩略图
+        function navli_suolue(p){
+            //删除新闻板块的所有新闻
+            var trarray = document.getElementById("daily_recommds").getElementsByTagName("tr");
+            var trlength = trarray.length;
+            for (var h = 0; h < trlength; h++) {
+                document.getElementById("daily_recommds").removeChild(trarray[0]);
+            }
+            //第一件事情：li的字体颜全部色变成黑色；第二件事情：被点击的字体颜色变成蓝色
+            var navli_array=document.getElementById("newsnav").getElementsByTagName("li");
+            for (var t = 0; t <navli_array.length; t++) {
+                navli_array[t].getElementsByTagName("a")[0].style.color = "#000000";
+            }
+            //第二件事情：被点击的字体颜色变成蓝色
+            p.getElementsByTagName("a")[0].style.color = "#a4a3d1";
+            var index_type_id = p.getAttribute("index");//index_type_id是所点击的新闻类别的对应id
+            //点击新闻种类name之后，要向数据库提交新闻id，获取对应新闻id的新闻内容
+            // 两件事情：第一件事情就是移除全部新闻，第二件事件显示所点击的li所对应的新闻缩略
+
+            var request = new XMLHttpRequest();
+            request.open("GET", " http://139.199.55.139:8080/api/news/selectNewsByType?" +
+                "n_type=" + p.getAttribute("index"));//传递所点击的li标签的index自定义属性，里面存放着新闻种类的id.
+            request.send();
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200) {
+                    var json = JSON.parse(request.responseText);//json解析返回的数据
+                    if (json.status == "200") {
+                        var sametype = 0;//设置一个数，用于记录同一id的新闻的数量XL
+                        var newsdata = [];//存放对应新闻id的信息对象 数组
+                        var newsi = 0;
+                        for (var d = 0; d < json["data"].length; d++) {
+                            if (index_type_id == json["data"][d]["n_type"]) {
+                                sametype++;
+                                newsdata[newsi++] = json["data"][d];
+
+                            }
+                        }//end-for
+
+                        for (var e = 0; e < sametype; e++) {
+                            var childnew = document.createElement("tr");//一个新闻就是table中的一个tr
+                            var tdFirst = document.createElement("td");//第一行
+                            var tdSecond = document.createElement("td");//第二行
+                            var spanFirst = document.createElement("sapn");//第二行第一个标签放发布时间
+                            // var spanSecond=document.createElement("sapn");//第二行第二个标签放发布作者 暂时没有使用到
+                            var tdFimg = document.createElement("img");//放在第一个td里用来显示新闻图片
+                            var tdSa = document.createElement("a");//放在第二个td里用来放新闻缩略标题
+                            // 标签之间的关系层次
+                            document.getElementById("daily_recommds").appendChild(childnew);
+                            childnew.appendChild(tdFirst);
+                            childnew.appendChild(tdSecond);
+                            tdFirst.appendChild(tdFimg);
+                            tdSecond.appendChild(tdSa);
+                            tdSecond.appendChild(document.createElement("br"));//换行，将新闻缩略标题和新闻发布时间换行分离
+                            tdSecond.appendChild(spanFirst);
+                            // tdSecond.appendChild(spanSecond);
+                            // tdFimg.className="newsXLimg";
+                            tdFimg.style.width = "80px";
+                            tdFimg.style.height = "60px";
+                            tdFimg.style.borderRadius = "5px";
+                            tdFimg.src = newsdata[e]["n_img_url"];
+                            tdSa.innerHTML = newsdata[e]["n_title"];
+                            spanFirst.innerHTML = newsdata[e]["n_release"];
+                            spanFirst.style.fontSize = "4px";
                         }
+                        // alert("数据库中该类别的对应的新闻个数"+sametype);//弹框显示数据库传来的对应的新闻个数
+                        //点击事件之后动态生成的tr和之前就显示的tr的个数，生成tr之后执行这个弹框，但是动态生成的tr是在弹框之后才显示的
+                        // alert("弹框结束之后，页面上的新闻总数"+document.getElementById("daily_recommds").getElementsByTagName("tr").length);
+                    }//end-if(json.status=="200")
+                }
+            };//end- request.onreadystatechange = function ()
+        }
+        // 轮播图自动生成新闻开始咯--------------------
+        function lunboFunction(w){
+            var divarray = document.getElementById("lunbo").getElementsByTagName("div");
+            var divlength = divarray.length;
+            //删除新闻轮播图中的新闻。
+            for (var h = 0; h < divlength; h++) {
+                document.getElementById("lunbo").removeChild(divarray[0]);
+            }
+            var request = new XMLHttpRequest();
+            request.open("GET"," http://139.199.55.139:8080/api/news/selectNewsByType?" +
+                "n_type="+w);//传递所点击的li标签的index自定义属性，里面存放着新闻种类的id.
+            request.send();
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200) {
+                    var json = JSON.parse(request.responseText);//json解析返回的数据
+                    if (json.status == "200") {
+                        var newsnum=0;//用于记录一个类别新闻的数量
+                        var newsContent=[];//准备存放轮播图中的新闻
+                        var newslunboi=0;
+                        for(var i=0;i<json["data"].length;i++){
+                            if(w==json["data"][i]["n_type"]){
+                                newsnum++;
+                                newsContent[newslunboi++]=json["data"][i];
+                            }
+                        }//end-for
+
+                        alert("该类型的新闻数量为:"+newsnum);//测试
+                        for(var j=0;j<newsnum;j++){
+                            alert("第"+j+"次");
+                            var divChild=document.createElement("div");//轮播模块中的一个轮播新闻图
+                            divChild.className="slide";
+                            document.getElementById("lunbo").appendChild(divChild);
+                            divChild.appendChild(document.createElement("hr"));
+                            var h1Obj=document.createElement("h1");//h1新闻大标题
+                            h1Obj.innerHTML=newsContent[j]["n_title"];
+                            divChild.appendChild(h1Obj);
+                            divChild.appendChild( divChild.appendChild(document.createElement("hr")));
+                            var imgObj = document.createElement("img");//存放图片
+                            imgObj.className="news_img";
+                            imgObj.src=newsContent[j]["n_img_url"];
+                            divChild.appendChild(imgObj);
+                            var h4Obj=document.createElement("h4");//h4新闻前言
+                            var aObj=document.createElement("a");//h4中的a,用于点击
+                            aObj.href="#";
+                            h4Obj.className="eslipise_new";
+                            divChild.appendChild(h4Obj);
+                            h4Obj.appendChild(aObj);
+                            //aObj.onclick=lunboclick;//点击h4中a标签文字的一个点击事件。暂时还没写。
+                            var pObj=document.createElement("p");
+                            pObj.className="ckxq";
+                            divChild.appendChild(pObj);
+                            var aObj2=document.createElement("a");
+                            aObj2.href="#";
+                            aObj2.innerHTML="查看详情";
+                            pObj.appendChild(aObj2);
+
+
+                        }//end-for
+                        var arr = document.getElementsByClassName("slide");
+                        for (var i = 0; i < arr.length; i++) {
+                            arr[i].style.top = i * 600 + "px";
+                        }
+
                     }
                 }
             };
         }
         //这里我需要有完成动态获取数据库中的导航标题名称XL
         function navlist() {
-            var newsType_name=[];//存放获取到的新闻的名字  一个数组XL
-            var newsType_id=[];//存放获取到的对应的新闻的id 一个数组XL
-
-            //现在要做的事情就是默认显示的是综合的新闻--------------------------------------
-
-            defaultNews();
-
-
-            //一开始就发起请求获取新闻类别
+            var newsType_name = [];//存放获取到的新闻的名字  一个数组XL
+            var newsType_id = [];//存放获取到的对应的新闻的id 一个数组XL
+            defaultNews();//默认显示综合的新闻缩略
+            defaultLunBo();//默认显示综合的新闻轮播
+            //默认显示的是综合的新闻轮播,还没有做。------------
             var request = new XMLHttpRequest();//创建一个XMLHttpRequest
-            request.open("GET","http://139.199.55.139:8080/api/news/getType");
+            request.open("GET", "http://139.199.55.139:8080/api/news/getType");
             request.send();
-            request.onreadystatechange = function (){
-                if(request.readyState===4 && request.status===200){
-                    var json=JSON.parse(request.responseText);//获取json代码
-                    if(json.status=="200"){
-                        for(var i=0;i<json["data"].length;i++){
-                            newsType_name[i]=json["data"][i]["type_name"];
-                            newsType_id[i]=json["data"][i]["type_id"];
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200) {
+                    var json = JSON.parse(request.responseText);//获取json代码
+                    if (json.status == "200") {
+                        for (var i = 0; i < json["data"].length; i++) {
+                            newsType_name[i] = json["data"][i]["type_name"];
+                            newsType_id[i] = json["data"][i]["type_id"];
                         }//end-for
-                        //现在已经获取到了返回的新闻类别信息了，准备动态显示新闻类别
-                        for(var j=0;j<newsType_name.length;j++){
-                            var child=document.createElement("li");//创建li标签
-                            var a=document.createElement("a");//创建a标签
-                            var str="   |   ";
-                            a.href="#";
-                            a.innerHTML=newsType_name[j]+str;//ul>li>a标签里是新闻类别的名字
-                            a.style.color="#000000";
+                        for (var j = 0; j < newsType_name.length; j++) {
+                            var child = document.createElement("li");//创建li标签
+                            var a = document.createElement("a");//创建a标签
+                            var str = "   |   ";
+                            a.href = "#";
+                            a.innerHTML = newsType_name[j] + str;//ul>li>a标签里是新闻类别的名字
+                            a.style.color = "#000000";
                             child.appendChild(a);//中动态添加a标签
                             document.getElementById("newsnav").appendChild(child);//ul中动态添加li标签
                         }//end-for
 
                         //接下来的任务：点击导航栏上面的标签，显示对应的新闻。
-                        var navli=document.getElementById("newsnav").getElementsByTagName("li");
-                        for(var k=0;k<newsType_name.length;k++){
-
+                        var navli = document.getElementById("newsnav").getElementsByTagName("li");
+                        for (var k = 0; k < newsType_name.length; k++) {
                             //第一件事情，给li标签添加自定义属性index来存放新闻种类id
                             //目前是体育6，军事5，娱乐4，综合3；默认是综合被选中，颜色是淡蓝色
-                            navli[k].setAttribute("index",newsType_id[k]);
-                            if(navli[k].getAttribute("index")==3){
-                                navli[k].getElementsByTagName("a")[0].style.color="#a4a3d1";
+                            navli[k].setAttribute("index", newsType_id[k]);
+                            if (navli[k].getAttribute("index") == 3) {
+                                navli[k].getElementsByTagName("a")[0].style.color = "#a4a3d1";
                             }
-                            //为每一个li注册点击事件
-                            navli[k].onclick=function(){
-                                //删除所有新闻tr，但是这个没有效果 现在已经有效果了，记住循环的内部是删除数组中的对象，那么数组的长度就是动态变化的，另外数组的第一个元素删除，那么数组的序号就死动态变化的，
-                                var trarray=document.getElementById("daily_recommds").getElementsByTagName("tr");
-                                var trlength=trarray.length;
-                                for(var h=0;h<trlength;h++){
-                                    document.getElementById("daily_recommds").removeChild(trarray[0]);
-                                }
-
-                                //第一件事情：li的字体颜全部色变成黑色；第二件事情：被点击的字体颜色变成蓝色
-                                for(var t=0;t<navli.length;t++){
-                                    navli[t].getElementsByTagName("a")[0].style.color="#000000";
-                                }
-                                //第二件事情：被点击的字体颜色变成蓝色
-                                this.getElementsByTagName("a")[0].style.color="#a4a3d1";
-                                var index_type_id=this.getAttribute("index");//index_type_id是所点击的新闻类别的对应id
-                                //点击新闻种类name之后，要向数据库提交新闻id，获取对应新闻id的新闻内容
-                                // 两件事情：第一件事情就是移除全部新闻，第二件事件显示所点击的li所对应的新闻缩略
-
-                                var request = new XMLHttpRequest();
-                                request.open("GET"," http://139.199.55.139:8080/api/news/selectNewsByType?" +
-                                    "n_type="+this.getAttribute("index"));//传递所点击的li标签的index自定义属性，里面存放着新闻种类的id.
-                                request.send();
-                                request.onreadystatechange = function () {
-                                    if(request.readyState===4 && request.status===200){
-                                        var json=JSON.parse(request.responseText);//json解析返回的数据
-                                        if(json.status=="200"){
-                                            var sametype = 0;//设置一个数，用于记录同一id的新闻的数量XL
-                                            var newsdata=[];//存放对应新闻id的信息对象 数组
-                                            var newsi=0;
-                                            for(var d=0;d<json["data"].length;d++){
-                                                if(index_type_id==json["data"][d]["n_type"]){
-                                                    sametype++;
-                                                    newsdata[newsi++]=json["data"][d];
-
-                                                }
-                                            }//end-for
-
-                                            for(var e=0;e<sametype;e++){
-                                                var childnew =document.createElement("tr");//一个新闻就是table中的一个tr
-                                                var tdFirst = document.createElement("td");//第一行
-                                                var tdSecond = document.createElement("td");//第二行
-                                                var spanFirst=document.createElement("sapn");//第二行第一个标签放发布时间
-                                                // var spanSecond=document.createElement("sapn");//第二行第二个标签放发布作者 暂时没有使用到
-                                                var tdFimg =document.createElement("img");//放在第一个td里用来显示新闻图片
-                                                var tdSa=document.createElement("a");//放在第二个td里用来放新闻缩略标题
-                                                // 标签之间的关系层次
-                                                document.getElementById("daily_recommds").appendChild(childnew);
-                                                childnew.appendChild(tdFirst);
-                                                childnew.appendChild(tdSecond);
-                                                tdFirst.appendChild(tdFimg);
-                                                tdSecond.appendChild(tdSa);
-                                                tdSecond.appendChild(document.createElement("br"));//换行，将新闻缩略标题和新闻发布时间换行分离
-                                                tdSecond.appendChild(spanFirst);
-                                                // tdSecond.appendChild(spanSecond);
-                                                // tdFimg.className="newsXLimg";
-                                                tdFimg.style.width="80px";
-                                                tdFimg.style.height="60px";
-                                                tdFimg.style.borderRadius="5px";
-                                                tdFimg.src=newsdata[e]["n_img_url"];
-                                                tdSa.innerHTML=newsdata[e]["n_title"];
-                                                spanFirst.innerHTML=newsdata[e]["n_release"];
-                                                spanFirst.style.fontSize="4px";
-                                            }
-                                            // alert("数据库中该类别的对应的新闻个数"+sametype);//弹框显示数据库传来的对应的新闻个数
-                                            //点击事件之后动态生成的tr和之前就显示的tr的个数，生成tr之后执行这个弹框，但是动态生成的tr是在弹框之后才显示的
-                                            // alert("弹框结束之后，页面上的新闻总数"+document.getElementById("daily_recommds").getElementsByTagName("tr").length);
-                                        }//end-if(json.status=="200")
-                                    }
+                            (function(num){
+                                navli[num].onclick=function(){
+                                    navli_suolue(navli[num]);//点击导航栏上的新闻类别显示新闻缩略
+                                    lunboFunction(navli[num].getAttribute("index"));//点击导航栏上的新闻类别显示新闻轮播
                                 };
-                            }  //end-navli[].onclick事件 为每一个li创建的注册事件结束了。
-                        }
+                            })(k)
+                        }//end-for
                     };//end-内if(json.status=="200")
-                }
+                }// if (request.readyState === 4 && request.status === 200)
             };//end- request.onreadystatechange
         }//end-function navlist()
+        //XL写的菜鸡代码都在这里-----------------------------------------------------------------------------------------------------------------
         //发布新闻中新闻类型的select函数--数据库
-        function fbnavlist(){
-            var newsType_name=[];//存放获取到的新闻的名字  一个数组XL
+        function fbnavlist() {
+            var newsType_name = [];//存放获取到的新闻的名字  一个数组XL
             var newsType_id = [];//存放获取到的对应的新闻的id 一个数组XL
             var request = new XMLHttpRequest();//创建一个XMLHttpRequest
-            request.open("GET","http://139.199.55.139:8080/api/news/getType");
+            request.open("GET", "http://139.199.55.139:8080/api/news/getType");
             request.send();
-            request.onreadystatechange = function (){
-                if(request.readyState===4 && request.status===200){
-                    var json=JSON.parse(request.responseText);//获取json代码
-                    if(json.status=="200"){
-                        for(var i=0;i<json["data"].length;i++){
-                            newsType_name[i]=json["data"][i]["type_name"];
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200) {
+                    var json = JSON.parse(request.responseText);//获取json代码
+                    if (json.status == "200") {
+                        for (var i = 0; i < json["data"].length; i++) {
+                            newsType_name[i] = json["data"][i]["type_name"];
                             newsType_id[i] = json["data"][i]["type_id"];
                         }//end-for
                         //现在已经获取到了返回的新闻类别信息了，准备动态显示新闻类别
-                        for(var j=0;j<newsType_name.length;j++){
-                            var child1=document.createElement("option");//创建option标签
-                            child1.innerHTML=newsType_name[j];//标签里是新闻类别的名字
-                            child1.value=newsType_id[j];
+                        for (var j = 0; j < newsType_name.length; j++) {
+                            var child1 = document.createElement("option");//创建option标签
+                            child1.innerHTML = newsType_name[j];//标签里是新闻类别的名字
+                            child1.value = newsType_id[j];
                             document.getElementById("fbnewstype").appendChild(child1);//select中动态添加option标签
                         }//end-for
                     };//end-内if
                 }
             };
         }
+
         // 轮播图
-        onload=function () {
+        onload = function () {
             navlist();
             fbnavlist();
 
-            if(online==1){
-                document.getElementById("Userlogin").innerHTML='退出登录';
-            }else {
-                document.getElementById("Userlogin").innerHTML='登录';
+            if (online == 1) {
+                document.getElementById("Userlogin").innerHTML = '退出登录';
+            } else {
+                document.getElementById("Userlogin").innerHTML = '登录';
             }
 
-            document.getElementById("name").innerHTML=name;
+            document.getElementById("name").innerHTML = name;
 
-            if(photos!=null&& photos!=""){
-                document.getElementById("photo").src=photos;
-                document.getElementById("photoi").src=photos;}
-
-            var arr=document.getElementsByClassName("slide");
-            for(var i=0;i<arr.length;i++){
-                arr[i].style.top=i*600+"px";
+            if (photos != null && photos != "") {
+                document.getElementById("photo").src = photos;
+                document.getElementById("photoi").src = photos;
             }
+            //这里是设置轮播的，暂时注释掉。XL
+            // var arr = document.getElementsByClassName("slide");
+            // for (var i = 0; i < arr.length; i++) {
+            //     arr[i].style.top = i * 600 + "px";
+            // }
+
         }
+
         function TopMove() {
-            var arr=document.getElementsByClassName("slide");
-            for(var i=0;i<arr.length;i++){
-                var top=parseFloat(arr[i].style.top);
-                top-=2;
-                var height=600;
-                if(top<=-height){
-                    top=(arr.length-1)*height;
+            var arr = document.getElementsByClassName("slide");
+            for (var i = 0; i < arr.length; i++) {
+                var top = parseFloat(arr[i].style.top);
+                top -= 2;
+                var height = 600;
+                if (top <= -height) {
+                    top = (arr.length - 1) * height;
                     clearInterval(moveId);
                 }
-                arr[i].style.top=top+"px";
+                arr[i].style.top = top + "px";
             }
         }
+
         function divInterval() {
-            moveId=setInterval(TopMove,10);
+            moveId = setInterval(TopMove, 10);
         }
-        timeId=setInterval(divInterval,7000);
+
+        timeId = setInterval(divInterval, 7000);
+
         function stop() {
             clearInterval(timeId);
         }
+
         function start() {
             clearInterval(timeId);
-            timeId=setInterval(divInterval,7000);
+            timeId = setInterval(divInterval, 7000);
         }
-        onblur=function () {
+
+        onblur = function () {
             stop();
         }
-        onfocus=function () {
+        onfocus = function () {
             start();
         }
+
         //我的发布---数据库
         function release() {
-            var release=document.getElementById("release");
-            var guanzhu=document.getElementById("guanzhu");
-            var zan=document.getElementById("zan");
-            var comments=document.getElementById("comments");
-            if(release.style.display!='block'){
-                release.style.display='block';
-                guanzhu.style.display='none';
-                zan.style.display='none';
-                comments.style.display='none';
+            var release = document.getElementById("release");
+            var guanzhu = document.getElementById("guanzhu");
+            var zan = document.getElementById("zan");
+            var comments = document.getElementById("comments");
+            if (release.style.display != 'block') {
+                release.style.display = 'block';
+                guanzhu.style.display = 'none';
+                zan.style.display = 'none';
+                comments.style.display = 'none';
             }
             // //删除所有新闻tr，但是这个没有效果
-             var trfb=document.getElementById("Name_time").getElementsByTagName("tr");
-             var trfblength=trfb.length;
-             for(var h=0;h<trfblength;h++){
+            var trfb = document.getElementById("Name_time").getElementsByTagName("tr");
+            var trfblength = trfb.length;
+            for (var h = 0; h < trfblength; h++) {
                 document.getElementById("Name_time").removeChild(trfb[0]);
             }
 
-            var id=localStorage.getItem("id");
-            var name=localStorage.getItem("name");
+            var id = localStorage.getItem("id");
+            var name = localStorage.getItem("name");
             var NewsMyData = [];//存放对于的点赞对象的数组
             var request = new XMLHttpRequest();
             request.open("GET", " http://139.199.55.139:8080/api/news/myNews?" +
@@ -470,71 +581,73 @@ width: 65px;
             request.onreadystatechange = function () {
                 if (request.readyState === 4 && request.status === 200) {
                     var json = JSON.parse(request.responseText);
-                    if (json.status == "200"){
+                    if (json.status == "200") {
                         for (var i = 0; i < json["data"].length; i++) {
-                            NewsMyData[i]=json["data"][i];
+                            NewsMyData[i] = json["data"][i];
                         }
                         //显示点赞的新闻
                         for (var j = 0; j < json["data"].length; j++) {
                             //第一行---用户名+时间
-                            var Na_TimeTr=document.createElement("tr");
+                            var Na_TimeTr = document.createElement("tr");
                             var Nametd = document.createElement("td");
                             var Timetd = document.createElement("td");
                             Na_TimeTr.appendChild(Nametd);
                             Na_TimeTr.appendChild(Timetd);
-                            Nametd.innerHTML=name;
-                            Nametd.className=Nametd;
-                            Timetd.innerHTML=NewsMyData[j]["n_release"];
+                            Nametd.innerHTML = name;
+                            Nametd.className = Nametd;
+                            Timetd.innerHTML = NewsMyData[j]["n_release"];
 //第三行----删除新闻按钮
-                            var talkTr=document.createElement("tr");
-                            var newstd3=document.createElement("td");
+                            var talkTr = document.createElement("tr");
+                            var newstd3 = document.createElement("td");
 
-                            var deleteNews=document.createElement("img");
+                            var deleteNews = document.createElement("img");
                             (function (num) {
-                                deleteNews.onclick = function(){
+                                deleteNews.onclick = function () {
                                     delete_news(NewsMyData[num]["n_id"]);
                                 };
                             })(j);
-                            deleteNews.src="images/back1.png";
-                            deleteNews.className="deteleNewsImg";
+                            deleteNews.src = "images/back1.png";
+                            deleteNews.className = "deteleNewsImg";
                             talkTr.appendChild(newstd3);
                             newstd3.appendChild(deleteNews);
 
                             //第二行-----新闻标题和图片
-                            var newstr=document.createElement("tr");
-                            var newstd1=document.createElement("td");
-                            var newstd2=document.createElement("td");
-                            var news_img=document.createElement("img");
-                            var news_a=document.createElement("a");
+                            var newstr = document.createElement("tr");
+                            var newstd1 = document.createElement("td");
+                            var newstd2 = document.createElement("td");
+                            var news_img = document.createElement("img");
+                            var news_a = document.createElement("a");
                             newstr.appendChild(newstd1);
                             newstr.appendChild(newstd2);
                             newstd1.appendChild(news_img);
                             newstd2.appendChild(news_a);
 
-                            news_img.src=NewsMyData[j]["n_img_url"];
-                            news_a.innerHTML=NewsMyData[j]["n_title"];
-                            news_img.className="likenewsimg";
-                            news_a.className="eslipise_new";
+                            news_img.src = NewsMyData[j]["n_img_url"];
+                            news_a.innerHTML = NewsMyData[j]["n_title"];
+                            news_img.className = "likenewsimg";
+                            news_a.className = "eslipise_new";
 
                             document.getElementById("Name_time").appendChild(Na_TimeTr);
                             document.getElementById("Name_time").appendChild(talkTr);
                             document.getElementById("Name_time").appendChild(newstr);
                         }
+
                         //删除新闻
-                        function delete_news(value){
-                            var n_id=value;
+                        function delete_news(value) {
+                            var n_id = value;
                             alert(n_id);
                             var request = new XMLHttpRequest();
-                            request.open("GET"," http://139.199.55.139:8080/api/news/deleteNews?" +
-                                "n_id="+n_id);
+                            request.open("GET", " http://139.199.55.139:8080/api/news/deleteNews?" +
+                                "n_id=" + n_id);
                             request.send();
                             request.onreadystatechange = function () {
-                                if(request.readyState===4&&request.status===200){
-                                    var json=JSON.parse(request.responseText);
-                                    if(json.status=="200"){
+                                if (request.readyState === 4 && request.status === 200) {
+                                    var json = JSON.parse(request.responseText);
+                                    if (json.status == "200") {
                                         alert(json.message);
 
-                                    }if(json.status=="500"){
+                                    }
+                                    if (json.status == "500") {
                                         alert("删除失败");
                                     }
                                 }
@@ -544,6 +657,7 @@ width: 65px;
                 }//end-   if(json.status=="200")
             };//end- request.onreadystatechange = function ()
         }
+
         //关注---数据库
         function guanzhu() {
             var release = document.getElementById("release");
@@ -557,27 +671,20 @@ width: 65px;
                 comments.style.display = 'none';
             }
 
-            // //删除所有新闻tr，但是这个没有效果
-            var focus_tr=document.getElementById("focusMy").getElementsByTagName("tr");
-            var focus_trlength=focus_tr.length;
-            for(var h=0;h<focus_trlength;h++){
-                document.getElementById("focusMy").removeChild(focus_tr[0]);
-            }
-
             var id = localStorage.getItem("id");
             var focussdata = [];//存放对于的点赞对象的数组
             var request = new XMLHttpRequest();
             request.open("GET", " http://139.199.55.139:8080/api/follow/myFollow?" +
                 "u_id=" + id);
             request.send();
-            // alert(id);
+            alert(id);
             request.onreadystatechange = function () {
                 if (request.readyState === 4 && request.status === 200) {
                     var json = JSON.parse(request.responseText);
                     if (json.status == "200") {
                         for (var i = 0; i < json["data"].length; i++) {
                             focussdata[i] = json["data"][i];
-                            // alert(json.message);
+                            alert(json.message);
                         }
                         for (var j = 0; j < json["data"].length; j++) {
                             //第一行--名
@@ -586,15 +693,8 @@ width: 65px;
                             var td2 = document.createElement("td");
                             var td3 = document.createElement("td");
                             var td1Img = document.createElement("img");
-                            // var td2_lab=document.createElement("span");
                             var tdName = document.createElement("td");
                             var tdBtn = document.createElement("button");
-                            (function (num) {
-                                tdBtn.onclick = function(){
-                                    var id=localStorage.getItem("id");
-                                    focus_Btn(id,focussdata[num]["u_id"]);
-                                };
-                            })(j);
 
                             childtr1.appendChild(td1);
                             childtr1.appendChild(td2);
@@ -604,39 +704,17 @@ width: 65px;
                             td3.appendChild(tdBtn);
 
                             td1Img.src = focussdata[j]["u_photo"];
-                            td1Img.className="focusImg";
                             tdName.innerHTML = focussdata[j]["u_name"];
-                            tdName.className="focus_Name";
-                            tdBtn.innerText = "已关注";
-                            tdBtn.className="focus_Btn";
+                            tdBtn.innerText = "关注";
 
                             document.getElementById("focusMy").appendChild(childtr1);
                         }
-                        //取消关注
-                        function focus_Btn(r1,r2) {
-                            var id=r1;
-                            var f_ufid=r2;
-                            var request = new XMLHttpRequest();
 
-                            request.open("GET"," http://139.199.55.139:8080/api/follow/deleteFollow?" +
-                                "u_id="+id+"&f_ufid="+f_ufid);
-                            request.send();
-                            request.onreadystatechange = function () {
-                                if(request.readyState===4&&request.status===200){
-                                    // alert(id);
-                                    var json=JSON.parse(request.responseText);
-                                    if(json.status=="200"){
-                                        alert(json.message);
-                                    }if(json.status=="500"){
-                                        alert("取关失败");
-                                    }
-                                }
-                            };
-                        }
                     }
                 }
             }
         }
+
         //点赞-数据库
         function zan() {
             //跳转
@@ -651,9 +729,9 @@ width: 65px;
                 comments.style.display = 'none';
             }
             // //删除所有新闻tr，但是这个没有效果
-            var trlike=document.getElementById("like_news").getElementsByTagName("tr");
-            var trlikelength=trlike.length;
-            for(var h=0;h<trlikelength;h++){
+            var trlike = document.getElementById("like_news").getElementsByTagName("tr");
+            var trlikelength = trlike.length;
+            for (var h = 0; h < trlikelength; h++) {
                 // alert("要删除的新闻的个数"+trarray.length);
                 document.getElementById("like_news").removeChild(trlike[0]);
 
@@ -668,9 +746,9 @@ width: 65px;
             request.onreadystatechange = function () {
                 if (request.readyState === 4 && request.status === 200) {
                     var json = JSON.parse(request.responseText);
-                    if (json.status == "200"){
+                    if (json.status == "200") {
                         for (var i = 0; i < json["data"].length; i++) {
-                            likedata[i]=json["data"][i];
+                            likedata[i] = json["data"][i];
                         }
                         //显示点赞的新闻
                         for (var j = 0; j < json["data"].length; j++) {
@@ -685,35 +763,36 @@ width: 65px;
                             tdFirst.appendChild(tdFimg);
                             tdSecond.appendChild(tdSa);
 
-                            tdFimg.src = likedata[j]["n_img_url"] ;
-                            tdSa.innerHTML =likedata[j]["n_title"];
+                            tdFimg.src = likedata[j]["n_img_url"];
+                            tdSa.innerHTML = likedata[j]["n_title"];
                             tdFimg.className = "likenewsimg";
                         }
                     }
                 }
             };
         }
+
         //评论--数据库
         function comments() {
-            var release=document.getElementById("release");
-            var guanzhu=document.getElementById("guanzhu");
-            var zan=document.getElementById("zan");
-            var comments=document.getElementById("comments");
-            if(comments.style.display!='block'){
-                comments.style.display='block';
-                release.style.display='none';
-                guanzhu.style.display='none';
-                zan.style.display='none';
+            var release = document.getElementById("release");
+            var guanzhu = document.getElementById("guanzhu");
+            var zan = document.getElementById("zan");
+            var comments = document.getElementById("comments");
+            if (comments.style.display != 'block') {
+                comments.style.display = 'block';
+                release.style.display = 'none';
+                guanzhu.style.display = 'none';
+                zan.style.display = 'none';
             }
             // //删除所有新闻tr，但是这个没有效果
-            var trcomms=document.getElementById("commentsNew").getElementsByTagName("tr");
-            var trcommlength=trcomms.length;
-            for(var h=0;h<trcommlength;h++){
+            var trcomms = document.getElementById("commentsNew").getElementsByTagName("tr");
+            var trcommlength = trcomms.length;
+            for (var h = 0; h < trcommlength; h++) {
                 document.getElementById("commentsNew").removeChild(trcomms[0]);
             }
 
-            var id=localStorage.getItem("id");
-            var name=localStorage.getItem("name");
+            var id = localStorage.getItem("id");
+            var name = localStorage.getItem("name");
             var commentsdata = [];//存放对于的点赞对象的数组
             var request = new XMLHttpRequest();
             request.open("GET", " http://139.199.55.139:8080/api/remark/getMyRemark?" +
@@ -722,59 +801,62 @@ width: 65px;
             request.onreadystatechange = function () {
                 if (request.readyState === 4 && request.status === 200) {
                     var json = JSON.parse(request.responseText);
-                    if (json.status == "200"){
+                    if (json.status == "200") {
                         // alert(name);
                         for (var i = 0; i < json["data"].length; i++) {
-                            commentsdata[i]=json["data"][i];
+                            commentsdata[i] = json["data"][i];
                         }
                         for (var j = 0; j < json["data"].length; j++) {
                             //第一行--名
                             var childtr1 = document.createElement("tr");
-                            var name_td=document.createElement("td");
-                            var comms_td=document.createElement("td");
+                            var name_td = document.createElement("td");
+                            var comms_td = document.createElement("td");
 
                             childtr1.appendChild(name_td);
                             childtr1.appendChild(comms_td);
 
-                            name_td.innerHTML=name+":";
-                            comms_td.innerHTML=commentsdata[j]["r_content"];
-                            comms_td.className="comms";
+                            name_td.innerHTML = name + ":";
+                            comms_td.innerHTML = commentsdata[j]["r_content"];
+                            comms_td.className = "comms";
 
                             //第二行--显示新闻标题
-                            var childtr2=document.createElement("tr");
-                            var dele_comms=document.createElement("td");
-                            var comms_title=document.createElement("td");
-                            var deleBtn=document.createElement("button");
+                            var childtr2 = document.createElement("tr");
+                            var dele_comms = document.createElement("td");
+                            var comms_title = document.createElement("td");
+                            var deleBtn = document.createElement("button");
                             (function (num) {
-                                deleBtn.onclick = function(){
+                                deleBtn.onclick = function () {
                                     dele_Btn(commentsdata[num]["r_id"]);
                                 };
                             })(j);
 
-                            comms_title.style.cssText="border:1px solid #F00;border-radius: 5px;";
+                            comms_title.style.cssText = "border:1px solid #F00;border-radius: 5px;";
                             childtr2.appendChild(dele_comms);
                             childtr2.appendChild(comms_title);
                             dele_comms.appendChild(deleBtn);
-                            deleBtn.innerText="删除";
-                            comms_title.innerHTML=commentsdata[j]["r_ntitle"];
-                            deleBtn.style.cssText="width:50px;height:20px; margin-left: 10px;margin-right: 7px;";
+                            deleBtn.innerText = "删除";
+                            comms_title.innerHTML = commentsdata[j]["r_ntitle"];
+                            deleBtn.style.cssText = "width:50px;height:20px; margin-left: 10px;margin-right: 7px;";
 
                             document.getElementById("commentsNew").appendChild(childtr1);
                             document.getElementById("commentsNew").appendChild(childtr2);
                         }
+
                         //删除评论
                         function dele_Btn(value) {
-                            var r_id=value;
+                            var r_id = value;
                             var request = new XMLHttpRequest();
-                            request.open("GET"," http://139.199.55.139:8080/api/remark/deleteNewsRemark?" +
-                                "r_id="+r_id);
-                            request.send();alert(r_id);
+                            request.open("GET", " http://139.199.55.139:8080/api/remark/deleteNewsRemark?" +
+                                "r_id=" + r_id);
+                            request.send();
+                            alert(r_id);
                             request.onreadystatechange = function () {
-                                if(request.readyState===4&&request.status===200){
-                                    var json=JSON.parse(request.responseText);
-                                    if(json.status=="200"){
+                                if (request.readyState === 4 && request.status === 200) {
+                                    var json = JSON.parse(request.responseText);
+                                    if (json.status == "200") {
                                         alert(json.message);
-                                    }if(json.status=="500"){
+                                    }
+                                    if (json.status == "500") {
                                         alert("删除失败");
                                     }
                                 }
@@ -788,226 +870,245 @@ width: 65px;
 
 
         }
+
         //修改头像页面，更换头像
         function changeImg(val) {
-            document.getElementById("showing").src=val;
+            document.getElementById("showing").src = val;
         }
-        //修改资料
+
+        //修改资料--点击修改资料之后，轮播图的这个位置就变成了修改资料的页面
         function alter() {
-            var lunbo=document.getElementById("lunbo");
-            var addNews=document.getElementById("addNews");
-            var alterInfo=document.getElementById("alterInfo");
-            var news_Conent=document.getElementById("news_Conent");
-            if(alterInfo.style.display!='block'){
-                alterInfo.style.display='block';
-                addNews.style.display='none';
-                lunbo.style.display='none';
-                news_Conent.style.display='none';
+            var lunbo = document.getElementById("lunbo");
+            var addNews = document.getElementById("addNews");
+            var alterInfo = document.getElementById("alterInfo");
+            var news_Conent = document.getElementById("news_Conent");
+            if (alterInfo.style.display != 'block') {
+                alterInfo.style.display = 'block';
+                addNews.style.display = 'none';
+                lunbo.style.display = 'none';
+                news_Conent.style.display = 'none';
             }
         }
+
         //发布
         function addnew() {
-            var lunbo=document.getElementById("lunbo");
-            var addNews=document.getElementById("addNews");
-            var alterInfo=document.getElementById("alterInfo");
-            var news_Conent=document.getElementById("news_Conent");
-            if(addNews.style.display!='block'){
-                addNews.style.display='block';
-                alterInfo.style.display='none';
-                lunbo.style.display='none';
-                news_Conent.style.display='none';
+            var lunbo = document.getElementById("lunbo");
+            var addNews = document.getElementById("addNews");
+            var alterInfo = document.getElementById("alterInfo");
+            var news_Conent = document.getElementById("news_Conent");
+            if (addNews.style.display != 'block') {
+                addNews.style.display = 'block';
+                alterInfo.style.display = 'none';
+                lunbo.style.display = 'none';
+                news_Conent.style.display = 'none';
             }
 
         }
+
         //轮播
         function xiangxi() {
-            var lunbo=document.getElementById("lunbo");
-            var addNews=document.getElementById("addNews");
-            var alterInfo=document.getElementById("alterInfo");
-            if(lunbo.style.display!='block'){
-                lunbo.style.display='block';
-                addNews.style.display='none';
-                alterInfo.style.display='none';
+            var lunbo = document.getElementById("lunbo");
+            var addNews = document.getElementById("addNews");
+            var alterInfo = document.getElementById("alterInfo");
+            if (lunbo.style.display != 'block') {
+                lunbo.style.display = 'block';
+                addNews.style.display = 'none';
+                alterInfo.style.display = 'none';
             }
         }
+
         //取消关注
         function GZ() {
             var con;
-            if(document.getElementById("cancelfoucs").innerHTML=="已关注"){
-                con=confirm("确定取消关注吗？");
-                if(con==true){
+            if (document.getElementById("cancelfoucs").innerHTML == "已关注") {
+                con = confirm("确定取消关注吗？");
+                if (con == true) {
                     alert("取消关注成功！");
                     document.getElementById("nn1").remove();
                     // document.getElementById("cancelfoucs").innerHTML="关注";
                 }
             }
         }
+
         //查看评论
         function talk_rearch() {
-            var comments_rearch=document.getElementById("comments_rearch");
-            if(comments_rearch.style.display!='block'){
-                comments_rearch.style.display='block';
-            }else{
-                comments_rearch.style.display='none';
+            var comments_rearch = document.getElementById("comments_rearch");
+            if (comments_rearch.style.display != 'block') {
+                comments_rearch.style.display = 'block';
+            } else {
+                comments_rearch.style.display = 'none';
             }
 
         }
+
         //删除评论
         function delete_talk() {
             var con;
-            con=confirm("确定要删除这条评论吗？？？")
-            if(con==true){
+            con = confirm("确定要删除这条评论吗？？？")
+            if (con == true) {
                 alert("删除成功！");
                 document.getElementById("talk1").remove();
             }
         }
+
         //点赞
         function link_like() {
-            if( document.getElementById("like").style.color!="#f00"){
-                document.getElementById("like").style.color="#f00";
-            }}
+            if (document.getElementById("like").style.color != "#f00") {
+                document.getElementById("like").style.color = "#f00";
+            }
+        }
+
         //登录-数据库
         function userLogin() {
-                var online= localStorage.getItem("online");
-                if(online!=null && online=="1"){
-                    var request=new XMLHttpRequest();
-                    var id=localStorage.getItem("id");
-                    if(id!=null&&id!=""){
-                        request.open("GET","http://139.199.55.139:8080/api/user/logout?u_id="+id);
-                        request.send();
-                        request.onreadystatechange=function () {
-                            if(request.readyState===4&&request.status===200){
-                                var json=JSON.parse(request.responseText);
-                                if(json.status=="200"){
-                                    alert(json.message);
-                                    localStorage.clear();
-                                    window.location.reload();
-                                }else if(json.status=="500"){
-                                    alert("注销失败！");
-                                }
+            var online = localStorage.getItem("online");
+            if (online != null && online == "1") {
+                var request = new XMLHttpRequest();
+                var id = localStorage.getItem("id");
+                if (id != null && id != "") {
+                    request.open("GET", "http://139.199.55.139:8080/api/user/logout?u_id=" + id);
+                    request.send();
+                    request.onreadystatechange = function () {
+                        if (request.readyState === 4 && request.status === 200) {
+                            var json = JSON.parse(request.responseText);
+                            if (json.status == "200") {
+                                alert(json.message);
+                                localStorage.clear();
+                                window.location.reload();
+                            } else if (json.status == "500") {
+                                alert("注销失败！");
                             }
-
                         }
-                    }
 
-            }else  {
-                window.location.href="login.html";
+                    }
+                }
+
+            } else {
+                window.location.href = "login.html";
             }
 
         }
+
         //点击回复
         function huifu() {
-            var huifu=document.getElementById("huifu");
-            if(huifu.style.display!='block'){
-                huifu.style.display='block';
+            var huifu = document.getElementById("huifu");
+            if (huifu.style.display != 'block') {
+                huifu.style.display = 'block';
             }
         }
+
         //回复消息
         function send_info() {
-            var info_text=document.getElementById("info_text").value;
-            var huifu=document.getElementById("huifu");
-            var huifuResult=document.getElementById("huifuResult");
+            var info_text = document.getElementById("info_text").value;
+            var huifu = document.getElementById("huifu");
+            var huifuResult = document.getElementById("huifuResult");
 
-            if(info_text.length==0){
+            if (info_text.length == 0) {
                 alert("回复信息不能为空");
-            }else if(info_text.length>0){
-                huifuResult.style.display='block';
-                huifu.style.display='none';
+            } else if (info_text.length > 0) {
+                huifuResult.style.display = 'block';
+                huifu.style.display = 'none';
 
-                document.getElementById("info_hf").innerHTML=info_text;
+                document.getElementById("info_hf").innerHTML = info_text;
 
             }
         }
+
         //查看详情
         function new_content() {
-            var news_Conent=document.getElementById("news_Conent");
-            var lunbo=document.getElementById("lunbo");
-            if(news_Conent.style.display!='block'){
-                news_Conent.style.display='block';
-                lunbo.style.display='none';
+            var news_Conent = document.getElementById("news_Conent");
+            var lunbo = document.getElementById("lunbo");
+            if (news_Conent.style.display != 'block') {
+                news_Conent.style.display = 'block';
+                lunbo.style.display = 'none';
             }
         }
+
         //关注作者
         function attention() {
             var con;
-            if(document.getElementById("foucs_fr").innerHTML=="已关注"){
+            if (document.getElementById("foucs_fr").innerHTML == "已关注") {
                 alert("请到 “我的关注” 操作");
-            }else{
-                con=confirm("确定关注吗？");
-                if(con==true){
+            } else {
+                con = confirm("确定关注吗？");
+                if (con == true) {
                     alert("关注成功！");
-                    document.getElementById("foucs_fr").innerHTML="已关注";
+                    document.getElementById("foucs_fr").innerHTML = "已关注";
                 }
             }
         }
+
         //发布评论
         function create() {
-            var comm=document.getElementById("comment").value;
+            var comm = document.getElementById("comment").value;
             // var commResult=document.getElementById("commentResult").value;
-            if(comm.length>0){
-                document.getElementById("commentResult").innerHTML=comm;
-                document.getElementById("comment").value="";
-            }else if(comm.length==0){
+            if (comm.length > 0) {
+                document.getElementById("commentResult").innerHTML = comm;
+                document.getElementById("comment").value = "";
+            } else if (comm.length == 0) {
                 //
                 alert("评论内容不能为空！");
             }
         }
+
         function huifu1() {
-            var huifu=document.getElementById("huifu1");
-            if(huifu.style.display!='block'){
-                huifu.style.display='block';
+            var huifu = document.getElementById("huifu1");
+            if (huifu.style.display != 'block') {
+                huifu.style.display = 'block';
             }
         }
+
         //个人中心
         function trans_info() {
-            var logining=document.getElementById("logining");
-            var logined=document.getElementById("logined");
-            if(logined.style.display!='block'){
-                logined.style.display='block';
-                logining.style.display='none';
+            var logining = document.getElementById("logining");
+            var logined = document.getElementById("logined");
+            if (logined.style.display != 'block') {
+                logined.style.display = 'block';
+                logining.style.display = 'none';
             }
         }
+
         //返回评论页面
         function go_comms() {
-            var logining=document.getElementById("logining");
-            var logined=document.getElementById("logined");
-            if( logining.style.display!='block'){
-                logining.style.display='block';
-                logined.style.display='none';
+            var logining = document.getElementById("logining");
+            var logined = document.getElementById("logined");
+            if (logining.style.display != 'block') {
+                logining.style.display = 'block';
+                logined.style.display = 'none';
             }
 
         }
+
         //修改资料-数据库
         function save_info() {
-            var id=localStorage.getItem("id");
+            var id = localStorage.getItem("id");
             // alert(id);
             var request = new XMLHttpRequest();
             request.open("POST", "http://139.199.55.139:8080/api/user/updateInfo?");
-            if(document.getElementById("name1").value==""){
-                document.getElementById("name1").value=localStorage.getItem("name");
-            }else if(document.getElementById("password1").value==""){
-                document.getElementById("password1").value=localStorage.getItem("password");
-            }else if(document.getElementById("phone1").value==""){
-                document.getElementById("phone1").value=localStorage.getItem("phone");
+            if (document.getElementById("name1").value == "") {
+                document.getElementById("name1").value = localStorage.getItem("name");
+            } else if (document.getElementById("password1").value == "") {
+                document.getElementById("password1").value = localStorage.getItem("password");
+            } else if (document.getElementById("phone1").value == "") {
+                document.getElementById("phone1").value = localStorage.getItem("phone");
             }
-            var data = "u_id=" + id + "&u_name=" + document.getElementById("name1").value +'&u_password='+ document.getElementById("password1").value
-                + '&u_phone='+document.getElementById("phone1").value;
+            var data = "u_id=" + id + "&u_name=" + document.getElementById("name1").value + '&u_password=' + document.getElementById("password1").value
+                + '&u_phone=' + document.getElementById("phone1").value;
 
             request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             request.send(data);
             request.onreadystatechange = function () {
 
-                if(request.readyState===4&&request.status===200){
+                if (request.readyState === 4 && request.status === 200) {
                     var json = JSON.parse(request.responseText);
                     if (json.status == "200") {
-                        localStorage.setItem("id",json.data["u_id"]);
-                        localStorage.setItem("name",json.data["u_name"]);
-                        localStorage.setItem("password",json.data["u_password"]);
-                        localStorage.setItem("photo",json.data["u_photo"]);
-                        localStorage.setItem("regist",json.data["u_regist"]);
-                        localStorage.setItem("login",json.data["u_login"]);
-                        localStorage.setItem("phone",json.data["u_phone"]);
-                        localStorage.setItem("online",json.data["u_online"]);
+                        localStorage.setItem("id", json.data["u_id"]);
+                        localStorage.setItem("name", json.data["u_name"]);
+                        localStorage.setItem("password", json.data["u_password"]);
+                        localStorage.setItem("photo", json.data["u_photo"]);
+                        localStorage.setItem("regist", json.data["u_regist"]);
+                        localStorage.setItem("login", json.data["u_login"]);
+                        localStorage.setItem("phone", json.data["u_phone"]);
+                        localStorage.setItem("online", json.data["u_online"]);
                         alert(json.message);
                     } else if (json.status == "500") {
                         alert("更新失败！");
@@ -1017,31 +1118,32 @@ width: 65px;
 
             }
         }
+
         //发布新闻---数据库
-        function fabu(){
-            if(document.getElementById("title_news").value==""||document.getElementById("news_content").value==""){
+        function fabu() {
+            if (document.getElementById("title_news").value == "" || document.getElementById("news_content").value == "") {
                 alert("输入为空");
-            }else{
-                var myselect=document.getElementById("fbnewstype");
-                var index=myselect.selectedIndex ;
+            } else {
+                var myselect = document.getElementById("fbnewstype");
+                var index = myselect.selectedIndex;
 
                 myselect.options[index].value;
 
-                var id=localStorage.getItem("id");
+                var id = localStorage.getItem("id");
 
                 var request = new XMLHttpRequest();
 
                 request.open("POST", "http://139.199.55.139:8080/api/news/insertNews?");
 
-                var data = "u_author_id=" + id + "&n_title=" + document.getElementById("title_news").value+
-                    "&n_type="+myselect.options[index].value +"&news_content="+document.getElementById("news_content").value;
+                var data = "u_author_id=" + id + "&n_title=" + document.getElementById("title_news").value +
+                    "&n_type=" + myselect.options[index].value + "&news_content=" + document.getElementById("news_content").value;
 
                 request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
                 request.send(data);
                 // alert(id);
                 request.onreadystatechange = function () {
-                    if(request.readyState===4 &&request.status===200){
+                    if (request.readyState === 4 && request.status === 200) {
 
                         var json = JSON.parse(request.responseText);
 
@@ -1059,86 +1161,82 @@ width: 65px;
 </head>
 <body>
 <div class="news">
-<!--    //导航栏-->
+    <!--    //导航栏-->
     <div class="newsTypeBar">
-        <nav >
+        <nav>
             <ul id="newsnav"></ul>
 
         </nav>
 
     </div>
-<!--    分类-->
+    <!--    分类-->
     <div class="newsType">
-        <!--        //新闻热点-->
+        <!--        //新闻热点XL-->
         <div id="daily_recommd" style="background: #ffffff;border-radius: 8px;">
-            <td><img src="images/hot_news.png" width="40" height="40"></td><td>新闻列表</td>
+            <td><img src="images/hot_news.png" width="40" height="40"></td>
+            <td>新闻列表</td>
             <hr>
-<!--            这个table里面会显示对应的新闻XL,一个新闻是一个tr-->
-            <table id="daily_recommds" style="margin-left: 18px;" >
+            <!--            这个table里面会显示对应的新闻XL,一个新闻是一个tr-->
+            <table id="daily_recommds" style="margin-left: 18px;">
 
             </table>
         </div>
     </div>
-<!--    新闻轮播-->
-    <div id="lunbo" class="newsDetails" onmouseover="stop()" onmouseout="start()" style="" >
-        <div id="son1"  class="slide">
-            <h1>外媒：科学家发现史上最强大超新星 或两太阳合并形成</h1>
-            <hr>
-            <img class="news_img" src="images/new3.jpg">
-            <h4 class="eslipise_new"><a  href="#" title="查看详情" onclick="new_content()">参考消息网4月14日报道据德新社伦敦4月14日报道，
-                来自英国和美国的科学家在周一发表的一份研究报告中说，与普通超新星相比，
-                有史以来观测到的最大恒星爆炸能量是其10倍，亮度是其500倍。</a></h4>
-            <p class="ckxq"><a  href="#" title="查看详情" onclick="new_content() ">查看详情</a></p>
-
-        </div>
-        <div id="son2" class="slide">
-            <h1>外媒：科学家发现史上最强大超新星 或两太阳合并形成</h1>
-            <hr>
-            <img class="news_img" src="images/new3.jpg">
-            <h4 class="eslipise_new"><a  href="#" title="查看详情">参考消息网4月14日报道据德新社伦敦4月14日报道，
-                来自英国和美国的科学家在周一发表的一份研究报告中说，与普通超新星相比，
-                有史以来观测到的最大恒星爆炸能量是其10倍，亮度是其500倍。</a></h4>
-            <p class="ckxq"><a  href="#" title="查看详情">查看详情</a></p>
-        </div>
-        <div id="son3" class="slide"></div>
+    <!--    新闻轮播-->
+    <div id="lunbo" class="newsDetails" onmouseover="stop()" onmouseout="start()" style="">
+        <!--            自动生成轮播图的新闻轮播XL-->
+        <!--        <div   class="slide">-->
+        <!--            <hr>-->
+        <!--            <h1>外媒：科学家发现史上最强大超新星 或两太阳合并形成</h1>-->
+        <!--            <hr>-->
+        <!--            <img class="news_img" src="images/new3.jpg">-->
+        <!--            <h4 class="eslipise_new"><a  href="#" title="查看详情" onclick="new_content()">参考消息网4月14日报道据德新社伦敦4月14日报道，-->
+        <!--                来自英国和美国的科学家在周一发表的一份研究报告中说，与普通超新星相比，-->
+        <!--                有史以来观测到的最大恒星爆炸能量是其10倍，亮度是其500倍。</a></h4>-->
+        <!--            <p class="ckxq"><a  href="#" title="查看详情" onclick="new_content() ">查看详情</a></p>-->
+        <!--        </div>-->
     </div>
-<!--    新闻详情-->
+    <!--    新闻详情-->
     <div id="news_Conent" class="newsDetails" style="display: none">
-        <div class="box1_content" style="width: 120%;height: 600px;overflow-y: scroll;overflow-x: hidden;background-color: #ffffff;">
+        <div class="box1_content"
+             style="width: 120%;height: 600px;overflow-y: scroll;overflow-x: hidden;background-color: #ffffff;">
             <div class="box2_content" style="height: 90%;width: 80%;margin-left:  23px;margin-bottom: 5%">
-        <h1>外媒：科学家发现史上最强大超新星 或两太阳合并形成</h1>
-        <table style="margin-top: -15px;margin-left: 5%">
-            <tr>
-                <td rowspan="2" width="50px;" style="font-size: 15px;"><img src="images/head.png" width="38px;"></td>
-                <td  style="font-size: 14px;" width="370px;">小小粉刷匠</td>
-                <td  rowspan="2" width="100">
-                    <button id="foucs_fr" onclick="attention()" style="background: #30b8e1; border-radius: 8px;color: #ffffff;width: 80px;">关注</button>
-                </td>
-            </tr>
-            <tr>
-                <td style="font-size: 11px;">04-27 yue</td>
-            </tr>
-        </table>
-        <hr>
-        <p class="psuoj">原标题：外媒：科学家发现史上最强大超新星 或由两个太阳合并形成</p>
+                <h1>外媒：科学家发现史上最强大超新星 或两太阳合并形成</h1>
+                <table style="margin-top: -15px;margin-left: 5%">
+                    <tr>
+                        <td rowspan="2" width="50px;" style="font-size: 15px;"><img src="images/head.png" width="38px;">
+                        </td>
+                        <td style="font-size: 14px;" width="370px;">小小粉刷匠</td>
+                        <td rowspan="2" width="100">
+                            <button id="foucs_fr" onclick="attention()"
+                                    style="background: #30b8e1; border-radius: 8px;color: #ffffff;width: 80px;">关注
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 11px;">04-27 yue</td>
+                    </tr>
+                </table>
+                <hr>
+                <p class="psuoj">原标题：外媒：科学家发现史上最强大超新星 或由两个太阳合并形成</p>
 
-        <p class="psuoj"> 参考消息网4月14日报道据德新社伦敦4月14日报道，来自英国和美国的科学家在周一发表的一份研究报告中说，
-            与普通超新星相比，有史以来观测到的最大恒星爆炸能量是其10倍，亮度是其500倍。</p>
+                <p class="psuoj"> 参考消息网4月14日报道据德新社伦敦4月14日报道，来自英国和美国的科学家在周一发表的一份研究报告中说，
+                    与普通超新星相比，有史以来观测到的最大恒星爆炸能量是其10倍，亮度是其500倍。</p>
 
-        <p class="psuoj">英国伯明翰大学和美国哈佛-史密森天体物理学中心的天文学家称，他们发现的SN2016aps是“来自巨大恒星、具有超常能量的超新星”。
+                <p class="psuoj">英国伯明翰大学和美国哈佛-史密森天体物理学中心的天文学家称，他们发现的SN2016aps是“来自巨大恒星、具有超常能量的超新星”。
 
-            研究报告的作者之一埃多·伯杰说，除了大小和亮度，这颗超新星的其他特点也很“惊人”。</p>
+                    研究报告的作者之一埃多·伯杰说，除了大小和亮度，这颗超新星的其他特点也很“惊人”。</p>
 
-        <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。
+                <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。
 
-            报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>
+                    报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>
 
-        <p class="psuoj">科学家希望，SN2016aps的发现能带来其他类似超新星的探测，并有助于回顾宇宙早期的状况。</p>
-        <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。
+                <p class="psuoj">科学家希望，SN2016aps的发现能带来其他类似超新星的探测，并有助于回顾宇宙早期的状况。</p>
+                <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。
 
-            报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>
+                    报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>
 
-        <p class="psuoj">科学家希望，SN2016aps的发现能带来其他类似超新星的探测，并有助于回顾宇宙早期的状况。</p>
+                <p class="psuoj">科学家希望，SN2016aps的发现能带来其他类似超新星的探测，并有助于回顾宇宙早期的状况。</p>
                 <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。
 
                     报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>
@@ -1151,135 +1249,146 @@ width: 65px;
                         <td><img src="images/cotake.png" width="30"></td>
                     </tr>
                 </table>
-             <hr>
+                <hr>
             </div>
         </div>
 
     </div>
-<!--    发布新闻-->
+    <!--    发布新闻-->
     <div class="newsDetails" id="addNews" style="display: none">
-                <h2>添加新闻</h2>
-                <table style="padding-left: 20px;">
+        <h2>添加新闻</h2>
+        <table style="padding-left: 20px;">
 
-                    <tr >
-                        <td>新闻标题：</td>
-                        <td><textarea id="title_news" required="required" cols="30" rows="2"></textarea> </td>
-                    </tr>
-                    <tr>
-                        <td>新闻类别：</td>
-                        <td>
-                            <select id="fbnewstype">
+            <tr>
+                <td>新闻标题：</td>
+                <td><textarea id="title_news" required="required" cols="30" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td>新闻类别：</td>
+                <td>
+                    <select id="fbnewstype">
 
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>发布内容：</td>
-                        <td><textarea id="news_content" required="required" cols="50" rows="6"></textarea></td>
-                    </tr>
-                    <tr>
-                        <td>图片/视频：</td>
-                        <td><input  type="file"/></td>
-                    </tr>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>发布内容：</td>
+                <td><textarea id="news_content" required="required" cols="50" rows="6"></textarea></td>
+            </tr>
+            <tr>
+                <td>图片/视频：</td>
+                <td><input type="file"/></td>
+            </tr>
 
-                    <tr>
-                        <td ></td>
-                        <td><button onclick="xiangxi()">取消</button><button onclick="fabu()" style="margin-left: 280px;">发布</button> </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </div>
-<!--    修改信息-->
-   <div id="alterInfo" class="newsDetails" style="display: none">
-       <h2>修改资料</h2>
-       <table class="alter_ziliao">
-           <tr >
-               <td >头&nbsp;&nbsp;&nbsp;像：</td>
-               <td width="100px;" style="margin-left: 15px;"><img src="" id="showing" name="showing" width="120px" height="120px;" style="border-radius: 10%"></td>
-               <td ><select onchange="changeImg(this.value)">
-                   <option value="images/title_head2.jpg">title_head2.jpg</option>
-                   <option value="images/title_head3.jpg">title_head3.jpg</option>
-
-               </select></td>
-           </tr>
-           <tr>
-               <td>昵&nbsp;&nbsp;&nbsp;称：</td>
-               <td><input id="name1" type="text" style="height: 23px;" placeholder="请修改输入昵称"> </td>
-           </tr>
-<!--           <tr>-->
-<!--               <td>性&nbsp;&nbsp;&nbsp;别：</td>-->
-<!--               <td><input name="sex" type="radio" checked="checked"/>男</td>-->
-<!--               <td><input name="sex" type="radio"/>女</td>-->
-<!--           </tr>-->
-           <tr>
-               <td>手机号：</td>
-               <td><input id="phone1" type="text" style="height: 23px;" placeholder="请输入新的手机号"></td>
-           </tr>
-           <tr>
-               <td>密&nbsp;&nbsp;&nbsp;码：</td>
-               <td><input id="password1" type="password" style="height: 23px;"placeholder="请输入密码"></td>
-           </tr>
-
-
-       </table>
-       <p id="resultsss"></p>
-       <button  id="save_info" onclick="save_info()" style="margin-left: 270px;margin-top: 20px">确定</button>
-   </div>
-</div>
+            <tr>
+                <td></td>
+                <td>
+                    <button onclick="xiangxi()">取消</button>
+                    <button onclick="fabu()" style="margin-left: 280px;">发布</button>
+                </td>
+                <td></td>
+            </tr>
+        </table>
     </div>
+    <!--    修改信息-->
+    <div id="alterInfo" class="newsDetails" style="display: none">
+        <h2>修改资料</h2>
+        <table class="alter_ziliao">
+            <tr>
+                <td>头&nbsp;&nbsp;&nbsp;像：</td>
+                <td width="100px;" style="margin-left: 15px;"><img src="" id="showing" name="showing" width="120px"
+                                                                   height="120px;" style="border-radius: 10%"></td>
+                <td><select onchange="changeImg(this.value)">
+                    <option value="images/title_head2.jpg">title_head2.jpg</option>
+                    <option value="images/title_head3.jpg">title_head3.jpg</option>
+
+                </select></td>
+            </tr>
+            <tr>
+                <td>昵&nbsp;&nbsp;&nbsp;称：</td>
+                <td><input id="name1" type="text" style="height: 23px;" placeholder="请修改输入昵称"></td>
+            </tr>
+            <!--           <tr>-->
+            <!--               <td>性&nbsp;&nbsp;&nbsp;别：</td>-->
+            <!--               <td><input name="sex" type="radio" checked="checked"/>男</td>-->
+            <!--               <td><input name="sex" type="radio"/>女</td>-->
+            <!--           </tr>-->
+            <tr>
+                <td>手机号：</td>
+                <td><input id="phone1" type="text" style="height: 23px;" placeholder="请输入新的手机号"></td>
+            </tr>
+            <tr>
+                <td>密&nbsp;&nbsp;&nbsp;码：</td>
+                <td><input id="password1" type="password" style="height: 23px;" placeholder="请输入密码"></td>
+            </tr>
+
+
+        </table>
+        <p id="resultsss"></p>
+        <button id="save_info" onclick="save_info()" style="margin-left: 270px;margin-top: 20px">确定</button>
+    </div>
+</div>
+</div>
 </div>
 
 <div class="Myinfo">
-<!--    未登录-->
+    <!--    未登录-->
     <div id="logining" style="width: 100%;height: 100%;">
-      <div id="box1" style="height: 75%">
-        <div style="height:20%;">
+        <div id="box1" style="height: 75%">
+            <div style="height:20%;">
 
-            <img id="photo" src="images/head.png" style="margin-left:160px;margin-top: 8px;width: 55px;height: 55px;">
+                <img id="photo" src="images/head.png"
+                     style="margin-left:160px;margin-top: 8px;width: 55px;height: 55px;">
 
-            <p style="margin-top: 3px;margin-left:100px;">
-                <button onclick="trans_info()">个人中心</button>
-                <button id="Userlogin" style="margin-left: 20px;" onclick="userLogin()">登&nbsp;录</button></p>
-        </div>
-        <hr>
-        <div id="comment_box" style="height:75%;font-size: 16px;background: #ffffff">
-            <p  style="font-size: 16px;margin-top: 5px;margin-left: 5px;">
-                <img src="images/talkk.png" width="25px;" height="25px" >
-            </p>
-            <span id="talk_Name1">王子轩</span>
-            <label>:</label>
-            <span style="font-size: 16px;width: 250px;">OMG !是我师傅！</span>
+                <p style="margin-top: 3px;margin-left:100px;">
+                    <button onclick="trans_info()">个人中心</button>
+                    <button id="Userlogin" style="margin-left: 20px;" onclick="userLogin()">登&nbsp;录</button>
+                </p>
+            </div>
+            <hr>
+            <div id="comment_box" style="height:75%;font-size: 16px;background: #ffffff">
+                <p style="font-size: 16px;margin-top: 5px;margin-left: 5px;">
+                    <img src="images/talkk.png" width="25px;" height="25px">
+                </p>
+                <span id="talk_Name1">王子轩</span>
+                <label>:</label>
+                <span style="font-size: 16px;width: 250px;">OMG !是我师傅！</span>
 
-            <button style="font-size: 10px;color: #7c7c7c;" onclick="huifu1()" >回复</button><br>
-            <span id="huifuResult1" style="margin-left: 8px;font-size: 12px;display: none">我
+                <button style="font-size: 10px;color: #7c7c7c;" onclick="huifu1()">回复</button>
+                <br>
+                <span id="huifuResult1" style="margin-left: 8px;font-size: 12px;display: none">我
                                     <span style="color: blue;margin-left: 3px;font-size: 10px;">回复</span>
 
                                     <span style="margin-left: 5px;">:</span>
                                     <span id="info_hf1" style="font-size: 13px;"></span>
                                 </span>
-            <p id="huifu1"style="margin-top: 5px;margin-left: 18px;display: none" >
-                <input type="text" id="info_text1" style="border-radius: 5px;width: 180px;height: 20px;font-size: 12px;" placeholder="回复消息">
-                <button style="background: #56B4DC;border-radius: 3px;" onclick="send_info()">发送</button>
+                <p id="huifu1" style="margin-top: 5px;margin-left: 18px;display: none">
+                    <input type="text" id="info_text1"
+                           style="border-radius: 5px;width: 180px;height: 20px;font-size: 12px;" placeholder="回复消息">
+                    <button style="background: #56B4DC;border-radius: 3px;" onclick="send_info()">发送</button>
+                </p>
+                <p id="commentResult" style="margin-left: 5px;"></p>
+            </div>
+        </div>
+        <hr>
+        <div style="height: 26%;margin-top: -8px;">
+            <p style="font-size: 16px;margin-top: 8px;margin-left: 5px;">评论区：</p>
+            <textarea id="comment" style="margin-left:50px;margin-top: -12px;width: 270px;height: 70px;"
+                      placeholder="请开始您的表演...."></textarea>
+            <p style="margin-top: 5px;">
+                <button style="width: 50px;height: 20px;margin-left: 80px;" onclick="reset()">重置</button>
+                <button style="width: 50px;height: 20px;margin-left: 70px;" onclick="create()">发表</button>
             </p>
-            <p id="commentResult" style="margin-left: 5px;"></p>
         </div>
     </div>
-    <hr>
-    <div style="height: 26%;margin-top: -8px;">
-        <p style="font-size: 16px;margin-top: 8px;margin-left: 5px;">评论区：</p>
-        <textarea id="comment" style="margin-left:50px;margin-top: -12px;width: 270px;height: 70px;" placeholder="请开始您的表演...."></textarea>
-        <p style="margin-top: 5px;"> <button style="width: 50px;height: 20px;margin-left: 80px;" onclick="reset()">重置</button>
-            <button style="width: 50px;height: 20px;margin-left: 70px;" onclick="create()">发表</button>
-        </p>
-     </div>
-</div>
-<!--登录之后-->
+    <!--登录之后-->
     <div id="logined" style=" display: none">
         <table>
             <tr>
-                <td  width="80" colspan="2"><img id="photoi" src="images/head.png" width="60" height="60" style="margin-left: 10px;margin-top: 3px;"> </td>
-                <td  width="200" colspan="2"><label id="name" style="font-size: 20px;">用户名</label></td>
-                <td><p style="font-size: 14px;" onclick="alter()"><a href="#">修改资料</a> </p >
+                <td width="80" colspan="2"><img id="photoi" src="images/head.png" width="60" height="60"
+                                                style="margin-left: 10px;margin-top: 3px;"></td>
+                <td width="200" colspan="2"><label id="name" style="font-size: 20px;">用户名</label></td>
+                <td><p style="font-size: 14px;" onclick="alter()"><a href="#">修改资料</a></p>
                     <p style="font-size: 14px;" onclick="go_comms()"><a href="#">去评论</a></p></td>
             </tr>
 
@@ -1291,30 +1400,66 @@ width: 65px;
                 <li style="margin-left: 25px;"><a href="#" onclick="guanzhu()"> 关注</a></li>
                 <li style="margin-left: 25px;"><a href="#" onclick="zan()"> 点赞</a></li>
                 <li style="margin-left: 25px;"><a href="#" onclick="comments()">评论</a></li>
-                <li style="margin-left: 40px;"><img src="images/add.png" width="28" height="28" style="margin-top: -3px;" onclick="addnew()"></li>
+                <li style="margin-left: 40px;"><img src="images/add.png" width="28" height="28"
+                                                    style="margin-top: -3px;" onclick="addnew()"></li>
             </ul>
 
         </nav>
         <hr>
-        <div class="box" >
-            <div  style="width: 120%;height:100%;overflow-y: scroll;overflow-x: hidden;">
+        <div class="box">
+            <div style="width: 120%;height:100%;overflow-y: scroll;overflow-x: hidden;">
                 <!--        发布-->
-                <div id="release" class="box2" >
-                        <table id="Name_time">
-                        </table>
+                <div id="release" class="box2">
+                    <table id="Name_time">
+                    </table>
 
-            </div>
+                </div>
                 <!--        关注-->
                 <div id="guanzhu" class="box2" style="display: none">
                     <table id="focusMy">
 
                     </table>
+                    <!--                    <details style="margin-left: 15px;margin-top: 3%" open>-->
+                    <!--                        <summary >公众号</summary>-->
+                    <!--                        <table style="margin-top: 1%;margin-left: 2%">-->
+                    <!--                            <tr id="nn1">-->
+                    <!--                                <td  width="50px"><img src="images/head.png" width="40" height="40"></td>-->
+                    <!--                                <td width="200px;">新闻小助理</td>-->
+                    <!--                                <td><button id="cancelfoucs" onclick="GZ()" style="border-radius: 5px;background: #ffffff">已关注</button></td>-->
+                    <!--                            </tr>-->
+                    <!--                            <tr >-->
+                    <!--                                <td  width="50px"><img src="images/head.png" width="40" height="40"></td>-->
+                    <!--                                <td width="200px;">小丸子童话集</td>-->
+                    <!--                                <td><button  style="border-radius: 5px;background: #ffffff">已关注</button></td>-->
+                    <!--                            </tr>-->
+                    <!--                        </table>-->
+                    <!--                    </details>-->
+                    <!--                    <details style="margin-left: 15px;" open>-->
+                    <!--                        <summary >好友关注</summary>-->
+                    <!--                        <table style="margin-top: 1%;margin-left: 2%">-->
+                    <!--                            <tr >-->
+                    <!--                                <td  width="50px"><img src="images/head.png" width="40" height="40"></td>-->
+                    <!--                                <td width="200px;">易</td>-->
+                    <!--                                <td><button  style="border-radius: 5px;background: #ffffff">已关注</button></td>-->
+                    <!--                            </tr>-->
+                    <!--                            <tr >-->
+                    <!--                                <td  width="50px"><img src="images/head.png" width="40" height="40"></td>-->
+                    <!--                                <td width="200px;">🐏</td>-->
+                    <!--                                <td><button style="border-radius: 5px;background: #ffffff">已关注</button></td>-->
+                    <!--                            </tr>-->
 
+
+                    <!--                        </table>-->
+
+                    <!--                    </details>-->
                 </div>
                 <!--         点赞-->
-                <div id="zan" class="box2"style="display: none" >
-
-                    <table id="like_news" style="margin-left: 18px;" >
+                <div id="zan" class="box2" style="display: none">
+                    <p style="margin-top: 5px;"><label style="margin-left: 15px;font-size: 18px;">我</label>
+                        <label id="zan_time" style="font-size: 12px;margin-left: 20px;">04月21日20：18</label>
+                    </p>
+                    <p style="margin-left: 22px;font-size: 16px;margin-top: -10px;">赞了</p>
+                    <table id="like_news" style="margin-left: 18px;">
 
                     </table>
                     <hr>
@@ -1328,9 +1473,9 @@ width: 65px;
                 </div>
 
 
+            </div>
         </div>
     </div>
-</div>
 </div>
 </body>
 </html>
