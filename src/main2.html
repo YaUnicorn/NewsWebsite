@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
     <style>
         /*左边*/
         .news{
@@ -175,9 +176,6 @@
             margin-left: 310%;
 width: 65px;
         }
-        /*.focus_Name{*/
-        /*    margin-left: 50%;*/
-        /*}*/
 
     </style>
     <script>
@@ -388,11 +386,14 @@ width: 65px;
                 }
             };
         }
+
         // 轮播图
         onload=function () {
             navlist();
             fbnavlist();
 
+            Data_Realse();
+            Data_guanzhu();
             if(online==1){
                 document.getElementById("Userlogin").innerHTML='退出登录';
             }else {
@@ -409,6 +410,8 @@ width: 65px;
             for(var i=0;i<arr.length;i++){
                 arr[i].style.top=i*600+"px";
             }
+
+
         }
         function TopMove() {
             var arr=document.getElementsByClassName("slide");
@@ -441,21 +444,11 @@ width: 65px;
             start();
         }
         //我的发布---数据库
-        function release() {
-            var release=document.getElementById("release");
-            var guanzhu=document.getElementById("guanzhu");
-            var zan=document.getElementById("zan");
-            var comments=document.getElementById("comments");
-            if(release.style.display!='block'){
-                release.style.display='block';
-                guanzhu.style.display='none';
-                zan.style.display='none';
-                comments.style.display='none';
-            }
+        function Data_Realse() {
             // //删除所有新闻tr，但是这个没有效果
-             var trfb=document.getElementById("Name_time").getElementsByTagName("tr");
-             var trfblength=trfb.length;
-             for(var h=0;h<trfblength;h++){
+            var trfb=document.getElementById("Name_time").getElementsByTagName("tr");
+            var trfblength=trfb.length;
+            for(var h=0;h<trfblength;h++){
                 document.getElementById("Name_time").removeChild(trfb[0]);
             }
 
@@ -544,18 +537,21 @@ width: 65px;
                 }//end-   if(json.status=="200")
             };//end- request.onreadystatechange = function ()
         }
-        //关注---数据库
-        function guanzhu() {
-            var release = document.getElementById("release");
-            var guanzhu = document.getElementById("guanzhu");
-            var zan = document.getElementById("zan");
-            var comments = document.getElementById("comments");
-            if (guanzhu.style.display != 'block') {
-                guanzhu.style.display = 'block';
-                release.style.display = 'none';
-                zan.style.display = 'none';
-                comments.style.display = 'none';
+        function release() {
+            var release=document.getElementById("release");
+            var guanzhu=document.getElementById("guanzhu");
+            var zan=document.getElementById("zan");
+            var comments=document.getElementById("comments");
+            if(release.style.display!='block'){
+                release.style.display='block';
+                guanzhu.style.display='none';
+                zan.style.display='none';
+                comments.style.display='none';
             }
+            // Data_Realse();
+        }
+        //关注---数据库
+        function Data_guanzhu() {
 
             // //删除所有新闻tr，但是这个没有效果
             var focus_tr=document.getElementById("focusMy").getElementsByTagName("tr");
@@ -636,6 +632,19 @@ width: 65px;
                     }
                 }
             }
+        }
+        function guanzhu() {
+            var release = document.getElementById("release");
+            var guanzhu = document.getElementById("guanzhu");
+            var zan = document.getElementById("zan");
+            var comments = document.getElementById("comments");
+            if (guanzhu.style.display != 'block') {
+                guanzhu.style.display = 'block';
+                release.style.display = 'none';
+                zan.style.display = 'none';
+                comments.style.display = 'none';
+            }
+            Data_guanzhu();
         }
         //点赞-数据库
         function zan() {
@@ -778,15 +787,11 @@ width: 65px;
                                         alert("删除失败");
                                     }
                                 }
-
                             };
-
                         };
                     }
                 }
             };
-
-
         }
         //修改头像页面，更换头像
         function changeImg(val) {
@@ -1047,6 +1052,7 @@ width: 65px;
 
                         if (json.status == "200") {
                             alert(json.message);
+
                         } else if (json.status == "500") {
                             document.getElementById("createResult").innerHTML = json.message;
                         }
@@ -1055,6 +1061,7 @@ width: 65px;
                 }
             }
         }
+
     </script>
 </head>
 <body>
@@ -1313,7 +1320,6 @@ width: 65px;
                 </div>
                 <!--         点赞-->
                 <div id="zan" class="box2"style="display: none" >
-
                     <table id="like_news" style="margin-left: 18px;" >
 
                     </table>
@@ -1326,8 +1332,6 @@ width: 65px;
 
                     </table>
                 </div>
-
-
         </div>
     </div>
 </div>
