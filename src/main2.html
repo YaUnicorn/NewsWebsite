@@ -184,43 +184,38 @@ width: 65px;
         var name=localStorage.getItem("name");
         var online=localStorage.getItem("online");
        //新闻导航栏--数据库
-        //默认显示综合的新闻XL
-        function defaultNews(){
+        //默认显示综合的新闻XL--------------------------------------------------------------------基本代码都是在这里的
+        function defaultNews() {
             var request = new XMLHttpRequest();
-            request.open("GET"," http://139.199.55.139:8080/api/news/selectNewsByType?" +
-                "n_type="+"3");
+            request.open("GET", " http://139.199.55.139:8080/api/news/selectNewsByType?" +
+                "n_type=" + "3");
             request.send();
             request.onreadystatechange = function () {
-                if(request.readyState===4 && request.status===200){
+                if (request.readyState === 4 && request.status === 200) {
 
-                    var json=JSON.parse(request.responseText);//json解析返回的数据
-                    if(json.status=="200"){
+                    var json = JSON.parse(request.responseText);//json解析返回的数据
+                    if (json.status == "200") {
 
                         var sametypeth = 0;//设置一个数，用于记录id为3的新闻的数量XL
-                        var newsdatath=[];//存放对应新闻id的信息对象 数组
-                        var newsith=0;
-                        for(var f=0;f<json["data"].length;f++){
-                            if(json["data"][f]["n_type"]=="3"){
+                        var newsdatath = [];//存放对应新闻id的信息对象 数组
+                        var newsith = 0;
+                        for (var f = 0; f < json["data"].length; f++) {
+                            if (json["data"][f]["n_type"] == "3") {
                                 sametypeth++;
-                                newsdatath[newsith++]=json["data"][f];
-
+                                newsdatath[newsith++] = json["data"][f];
                             }
                         }//end-for
+                        for (var g = 0; g < sametypeth; g++) {
 
-
-                        for(var g=0;g<sametypeth;g++){
-
-                            var childnewth =document.createElement("tr");//一个新闻就是table中的一个tr
+                            var childnewth = document.createElement("tr");//一个新闻就是table中的一个tr
                             var tdFirstth = document.createElement("td");//第一行
                             var tdSecondth = document.createElement("td");//第二行
-                            var spanFirstth=document.createElement("sapn");//第二行第一个标签放发布时间
+                            var spanFirstth = document.createElement("sapn");//第二行第一个标签放发布时间
                             // var spanSecond=document.createElement("sapn");//第二行第二个标签放发布作者 暂时没有使用到
-                            var tdFimgth =document.createElement("img");//放在第一个td里用来显示新闻图片
-                            var tdSath=document.createElement("a");//放在第二个td里用来放新闻缩略标题
+                            var tdFimgth = document.createElement("img");//放在第一个td里用来显示新闻图片
+                            var tdSath = document.createElement("a");//放在第二个td里用来放新闻缩略标题
                             // 标签之间的关系层次
-
                             document.getElementById("daily_recommds").appendChild(childnewth);
-
                             childnewth.appendChild(tdFirstth);
                             childnewth.appendChild(tdSecondth);
                             tdFirstth.appendChild(tdFimgth);
@@ -229,138 +224,266 @@ width: 65px;
                             tdSecondth.appendChild(spanFirstth);
                             // tdSecond.appendChild(spanSecondth);
                             // tdFimgth.className="newsXLimg";
-                            tdFimgth.style.width="80px";
-                            tdFimgth.style.height="60px";
-                            tdFimgth.style.borderRadius="5px";
-                            tdFimgth.src=newsdatath[g]["n_img_url"];
-                            tdSath.innerHTML=newsdatath[g]["n_title"];
-                            spanFirstth.innerHTML=newsdatath[g]["n_release"];
-                            spanFirstth.style.fontSize="4px";
-                        }
+                            tdFimgth.style.width = "80px";
+                            tdFimgth.style.height = "60px";
+                            tdFimgth.style.borderRadius = "5px";
+                            tdFimgth.src = newsdatath[g]["n_img_url"];
+                            tdSath.innerHTML = newsdatath[g]["n_title"];
+                            spanFirstth.innerHTML = newsdatath[g]["n_release"];
+                            spanFirstth.style.fontSize = "4px";
+
+                        }//end-for
+
                     }
                 }
             };
         }
+        //默认显示综合的新闻轮播图XL
+        function defaultLunBo(){
+            var request = new XMLHttpRequest();
+            request.open("GET"," http://139.199.55.139:8080/api/news/selectNewsByType?" +
+                "n_type="+3);//传递所点击的li标签的index自定义属性，里面存放着新闻种类的id.
+            request.send();
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200) {
+                    var json = JSON.parse(request.responseText);//json解析返回的数据
+                    if (json.status == "200") {
+                        var newsnum=0;//用于记录一个类别新闻的数量
+                        var newsContent=[];//准备存放轮播图中的新闻
+                        var newslunboi=0;
+                        for(var i=0;i<json["data"].length;i++){
+                            if(3==json["data"][i]["n_type"]){
+                                newsnum++;
+                                newsContent[newslunboi++]=json["data"][i];
+                            }
+                        }//end-for
+                        for(var j=0;j<newsnum;j++){
+                            var divChild=document.createElement("div");//轮播模块中的一个轮播新闻图
+                            divChild.className="slide";
+                            document.getElementById("lunbo").appendChild(divChild);
+                            divChild.appendChild(document.createElement("hr"));
+                            var h1Obj=document.createElement("h1");//h1新闻大标题
+                            h1Obj.innerHTML=newsContent[j]["n_title"];
+                            divChild.appendChild(h1Obj);
+                            divChild.appendChild( divChild.appendChild(document.createElement("hr")));
+                            var imgObj = document.createElement("img");//存放图片
+                            imgObj.className="news_img";
+                            imgObj.src=newsContent[j]["n_img_url"];
+                            divChild.appendChild(imgObj);
+                            var h4Obj=document.createElement("h4");//h4新闻前言
+                            var aObj=document.createElement("a");//h4中的a,用于点击
+                            aObj.href="#";
+                            h4Obj.className="eslipise_new";
+                            divChild.appendChild(h4Obj);
+                            h4Obj.appendChild(aObj);
+                            //aObj.onclick=lunboclick;//点击h4中a标签文字的一个点击事件。暂时还没写。
+                            var pObj=document.createElement("p");
+                            pObj.className="ckxq";
+                            divChild.appendChild(pObj);
+                            var aObj2=document.createElement("a");
+                            aObj2.href="#";
+                            aObj2.innerHTML="查看详情";
+                            pObj.appendChild(aObj2);
+
+
+                        }//end-for
+                        var arr = document.getElementsByClassName("slide");
+                        for (var i = 0; i < arr.length; i++) {
+                            arr[i].style.top = i * 600 + "px";
+                        }
+
+                    }
+                }
+            };//end-request.onreadystatechange = function ()
+        }
+        //点击导航栏的新闻类别显示对应的新闻缩略图
+        function navli_suolue(p){
+            //删除新闻板块的所有新闻
+            var trarray = document.getElementById("daily_recommds").getElementsByTagName("tr");
+            var trlength = trarray.length;
+            for (var h = 0; h < trlength; h++) {
+                document.getElementById("daily_recommds").removeChild(trarray[0]);
+            }
+            //第一件事情：li的字体颜全部色变成黑色；第二件事情：被点击的字体颜色变成蓝色
+            var navli_array=document.getElementById("newsnav").getElementsByTagName("li");
+            for (var t = 0; t <navli_array.length; t++) {
+                navli_array[t].getElementsByTagName("a")[0].style.color = "#000000";
+            }
+            //第二件事情：被点击的字体颜色变成蓝色
+            p.getElementsByTagName("a")[0].style.color = "#a4a3d1";
+            var index_type_id = p.getAttribute("index");//index_type_id是所点击的新闻类别的对应id
+            //点击新闻种类name之后，要向数据库提交新闻id，获取对应新闻id的新闻内容
+            // 两件事情：第一件事情就是移除全部新闻，第二件事件显示所点击的li所对应的新闻缩略
+
+            var request = new XMLHttpRequest();
+            request.open("GET", " http://139.199.55.139:8080/api/news/selectNewsByType?" +
+                "n_type=" + p.getAttribute("index"));//传递所点击的li标签的index自定义属性，里面存放着新闻种类的id.
+            request.send();
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200) {
+                    var json = JSON.parse(request.responseText);//json解析返回的数据
+                    if (json.status == "200") {
+                        var sametype = 0;//设置一个数，用于记录同一id的新闻的数量XL
+                        var newsdata = [];//存放对应新闻id的信息对象 数组
+                        var newsi = 0;
+                        for (var d = 0; d < json["data"].length; d++) {
+                            if (index_type_id == json["data"][d]["n_type"]) {
+                                sametype++;
+                                newsdata[newsi++] = json["data"][d];
+
+                            }
+                        }//end-for
+
+                        for (var e = 0; e < sametype; e++) {
+                            var childnew = document.createElement("tr");//一个新闻就是table中的一个tr
+                            var tdFirst = document.createElement("td");//第一行
+                            var tdSecond = document.createElement("td");//第二行
+                            var spanFirst = document.createElement("sapn");//第二行第一个标签放发布时间
+                            // var spanSecond=document.createElement("sapn");//第二行第二个标签放发布作者 暂时没有使用到
+                            var tdFimg = document.createElement("img");//放在第一个td里用来显示新闻图片
+                            var tdSa = document.createElement("a");//放在第二个td里用来放新闻缩略标题
+                            // 标签之间的关系层次
+                            document.getElementById("daily_recommds").appendChild(childnew);
+                            childnew.appendChild(tdFirst);
+                            childnew.appendChild(tdSecond);
+                            tdFirst.appendChild(tdFimg);
+                            tdSecond.appendChild(tdSa);
+                            tdSecond.appendChild(document.createElement("br"));//换行，将新闻缩略标题和新闻发布时间换行分离
+                            tdSecond.appendChild(spanFirst);
+                            // tdSecond.appendChild(spanSecond);
+                            // tdFimg.className="newsXLimg";
+                            tdFimg.style.width = "80px";
+                            tdFimg.style.height = "60px";
+                            tdFimg.style.borderRadius = "5px";
+                            tdFimg.src = newsdata[e]["n_img_url"];
+                            tdSa.innerHTML = newsdata[e]["n_title"];
+                            spanFirst.innerHTML = newsdata[e]["n_release"];
+                            spanFirst.style.fontSize = "4px";
+                        }
+                        // alert("数据库中该类别的对应的新闻个数"+sametype);//弹框显示数据库传来的对应的新闻个数
+                        //点击事件之后动态生成的tr和之前就显示的tr的个数，生成tr之后执行这个弹框，但是动态生成的tr是在弹框之后才显示的
+                        // alert("弹框结束之后，页面上的新闻总数"+document.getElementById("daily_recommds").getElementsByTagName("tr").length);
+                    }//end-if(json.status=="200")
+                }
+            };//end- request.onreadystatechange = function ()
+        }
+        // 轮播图自动生成新闻开始咯--------------------
+        function lunboFunction(w){
+            var divarray = document.getElementById("lunbo").getElementsByTagName("div");
+            var divlength = divarray.length;
+            //删除新闻轮播图中的新闻。
+            for (var h = 0; h < divlength; h++) {
+                document.getElementById("lunbo").removeChild(divarray[0]);
+            }
+            var request = new XMLHttpRequest();
+            request.open("GET"," http://139.199.55.139:8080/api/news/selectNewsByType?" +
+                "n_type="+w);//传递所点击的li标签的index自定义属性，里面存放着新闻种类的id.
+            request.send();
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200) {
+                    var json = JSON.parse(request.responseText);//json解析返回的数据
+                    if (json.status == "200") {
+                        var newsnum=0;//用于记录一个类别新闻的数量
+                        var newsContent=[];//准备存放轮播图中的新闻
+                        var newslunboi=0;
+                        for(var i=0;i<json["data"].length;i++){
+                            if(w==json["data"][i]["n_type"]){
+                                newsnum++;
+                                newsContent[newslunboi++]=json["data"][i];
+                            }
+                        }//end-for
+
+                        for(var j=0;j<newsnum;j++){
+                            var divChild=document.createElement("div");//轮播模块中的一个轮播新闻图
+                            divChild.className="slide";
+                            document.getElementById("lunbo").appendChild(divChild);
+                            divChild.appendChild(document.createElement("hr"));
+                            var h1Obj=document.createElement("h1");//h1新闻大标题
+                            h1Obj.innerHTML=newsContent[j]["n_title"];
+                            divChild.appendChild(h1Obj);
+                            divChild.appendChild( divChild.appendChild(document.createElement("hr")));
+                            var imgObj = document.createElement("img");//存放图片
+                            imgObj.className="news_img";
+                            imgObj.src=newsContent[j]["n_img_url"];
+                            divChild.appendChild(imgObj);
+                            var h4Obj=document.createElement("h4");//h4新闻前言
+                            var aObj=document.createElement("a");//h4中的a,用于点击
+                            aObj.href="#";
+                            h4Obj.className="eslipise_new";
+                            divChild.appendChild(h4Obj);
+                            h4Obj.appendChild(aObj);
+                            //aObj.onclick=lunboclick;//点击h4中a标签文字的一个点击事件。暂时还没写。
+                            var pObj=document.createElement("p");
+                            pObj.className="ckxq";
+                            divChild.appendChild(pObj);
+                            var aObj2=document.createElement("a");
+                            aObj2.href="#";
+                            aObj2.innerHTML="查看详情";
+                            pObj.appendChild(aObj2);
+
+
+                        }//end-for
+                        var arr = document.getElementsByClassName("slide");
+                        for (var i = 0; i < arr.length; i++) {
+                            arr[i].style.top = i * 600 + "px";
+                        }
+
+                    }
+                }
+            };//end-request.onreadystatechange = function ()
+        }
         //这里我需要有完成动态获取数据库中的导航标题名称XL
         function navlist() {
-            var newsType_name=[];//存放获取到的新闻的名字  一个数组XL
-            var newsType_id=[];//存放获取到的对应的新闻的id 一个数组XL
-
-            //现在要做的事情就是默认显示的是综合的新闻--------------------------------------
-
-            defaultNews();
-
-
-            //一开始就发起请求获取新闻类别
+            var newsType_name = [];//存放获取到的新闻的名字  一个数组XL
+            var newsType_id = [];//存放获取到的对应的新闻的id 一个数组XL
+            defaultNews();//默认显示综合的新闻缩略
+            defaultLunBo();//默认显示综合的新闻轮播
+            //默认显示的是综合的新闻轮播,还没有做。------------
             var request = new XMLHttpRequest();//创建一个XMLHttpRequest
-            request.open("GET","http://139.199.55.139:8080/api/news/getType");
+            request.open("GET", "http://139.199.55.139:8080/api/news/getType");
             request.send();
-            request.onreadystatechange = function (){
-                if(request.readyState===4 && request.status===200){
-                    var json=JSON.parse(request.responseText);//获取json代码
-                    if(json.status=="200"){
-                        for(var i=0;i<json["data"].length;i++){
-                            newsType_name[i]=json["data"][i]["type_name"];
-                            newsType_id[i]=json["data"][i]["type_id"];
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200) {
+                    var json = JSON.parse(request.responseText);//获取json代码
+                    if (json.status == "200") {
+                        for (var i = 0; i < json["data"].length; i++) {
+                            newsType_name[i] = json["data"][i]["type_name"];
+                            newsType_id[i] = json["data"][i]["type_id"];
                         }//end-for
-                        //现在已经获取到了返回的新闻类别信息了，准备动态显示新闻类别
-                        for(var j=0;j<newsType_name.length;j++){
-                            var child=document.createElement("li");//创建li标签
-                            var a=document.createElement("a");//创建a标签
-                            var str="   |   ";
-                            a.href="#";
-                            a.innerHTML=newsType_name[j]+str;//ul>li>a标签里是新闻类别的名字
-                            a.style.color="#000000";
+                        for (var j = 0; j < newsType_name.length; j++) {
+                            var child = document.createElement("li");//创建li标签
+                            var a = document.createElement("a");//创建a标签
+                            var str = "   |   ";
+                            a.href = "#";
+                            a.innerHTML = newsType_name[j] + str;//ul>li>a标签里是新闻类别的名字
+                            a.style.color = "#000000";
                             child.appendChild(a);//中动态添加a标签
                             document.getElementById("newsnav").appendChild(child);//ul中动态添加li标签
                         }//end-for
 
                         //接下来的任务：点击导航栏上面的标签，显示对应的新闻。
-                        var navli=document.getElementById("newsnav").getElementsByTagName("li");
-                        for(var k=0;k<newsType_name.length;k++){
-
+                        var navli = document.getElementById("newsnav").getElementsByTagName("li");
+                        for (var k = 0; k < newsType_name.length; k++) {
                             //第一件事情，给li标签添加自定义属性index来存放新闻种类id
                             //目前是体育6，军事5，娱乐4，综合3；默认是综合被选中，颜色是淡蓝色
-                            navli[k].setAttribute("index",newsType_id[k]);
-                            if(navli[k].getAttribute("index")==3){
-                                navli[k].getElementsByTagName("a")[0].style.color="#a4a3d1";
+                            navli[k].setAttribute("index", newsType_id[k]);
+                            if (navli[k].getAttribute("index") == 3) {
+                                navli[k].getElementsByTagName("a")[0].style.color = "#a4a3d1";
                             }
-                            //为每一个li注册点击事件
-                            navli[k].onclick=function(){
-                                //删除所有新闻tr，但是这个没有效果 现在已经有效果了，记住循环的内部是删除数组中的对象，那么数组的长度就是动态变化的，另外数组的第一个元素删除，那么数组的序号就死动态变化的，
-                                var trarray=document.getElementById("daily_recommds").getElementsByTagName("tr");
-                                var trlength=trarray.length;
-                                for(var h=0;h<trlength;h++){
-                                    document.getElementById("daily_recommds").removeChild(trarray[0]);
-                                }
-
-                                //第一件事情：li的字体颜全部色变成黑色；第二件事情：被点击的字体颜色变成蓝色
-                                for(var t=0;t<navli.length;t++){
-                                    navli[t].getElementsByTagName("a")[0].style.color="#000000";
-                                }
-                                //第二件事情：被点击的字体颜色变成蓝色
-                                this.getElementsByTagName("a")[0].style.color="#a4a3d1";
-                                var index_type_id=this.getAttribute("index");//index_type_id是所点击的新闻类别的对应id
-                                //点击新闻种类name之后，要向数据库提交新闻id，获取对应新闻id的新闻内容
-                                // 两件事情：第一件事情就是移除全部新闻，第二件事件显示所点击的li所对应的新闻缩略
-
-                                var request = new XMLHttpRequest();
-                                request.open("GET"," http://139.199.55.139:8080/api/news/selectNewsByType?" +
-                                    "n_type="+this.getAttribute("index"));//传递所点击的li标签的index自定义属性，里面存放着新闻种类的id.
-                                request.send();
-                                request.onreadystatechange = function () {
-                                    if(request.readyState===4 && request.status===200){
-                                        var json=JSON.parse(request.responseText);//json解析返回的数据
-                                        if(json.status=="200"){
-                                            var sametype = 0;//设置一个数，用于记录同一id的新闻的数量XL
-                                            var newsdata=[];//存放对应新闻id的信息对象 数组
-                                            var newsi=0;
-                                            for(var d=0;d<json["data"].length;d++){
-                                                if(index_type_id==json["data"][d]["n_type"]){
-                                                    sametype++;
-                                                    newsdata[newsi++]=json["data"][d];
-
-                                                }
-                                            }//end-for
-
-                                            for(var e=0;e<sametype;e++){
-                                                var childnew =document.createElement("tr");//一个新闻就是table中的一个tr
-                                                var tdFirst = document.createElement("td");//第一行
-                                                var tdSecond = document.createElement("td");//第二行
-                                                var spanFirst=document.createElement("sapn");//第二行第一个标签放发布时间
-                                                // var spanSecond=document.createElement("sapn");//第二行第二个标签放发布作者 暂时没有使用到
-                                                var tdFimg =document.createElement("img");//放在第一个td里用来显示新闻图片
-                                                var tdSa=document.createElement("a");//放在第二个td里用来放新闻缩略标题
-                                                // 标签之间的关系层次
-                                                document.getElementById("daily_recommds").appendChild(childnew);
-                                                childnew.appendChild(tdFirst);
-                                                childnew.appendChild(tdSecond);
-                                                tdFirst.appendChild(tdFimg);
-                                                tdSecond.appendChild(tdSa);
-                                                tdSecond.appendChild(document.createElement("br"));//换行，将新闻缩略标题和新闻发布时间换行分离
-                                                tdSecond.appendChild(spanFirst);
-                                                // tdSecond.appendChild(spanSecond);
-                                                // tdFimg.className="newsXLimg";
-                                                tdFimg.style.width="80px";
-                                                tdFimg.style.height="60px";
-                                                tdFimg.style.borderRadius="5px";
-                                                tdFimg.src=newsdata[e]["n_img_url"];
-                                                tdSa.innerHTML=newsdata[e]["n_title"];
-                                                spanFirst.innerHTML=newsdata[e]["n_release"];
-                                                spanFirst.style.fontSize="4px";
-                                            }
-                                            // alert("数据库中该类别的对应的新闻个数"+sametype);//弹框显示数据库传来的对应的新闻个数
-                                            //点击事件之后动态生成的tr和之前就显示的tr的个数，生成tr之后执行这个弹框，但是动态生成的tr是在弹框之后才显示的
-                                            // alert("弹框结束之后，页面上的新闻总数"+document.getElementById("daily_recommds").getElementsByTagName("tr").length);
-                                        }//end-if(json.status=="200")
-                                    }
+                            (function(num){
+                                navli[num].onclick=function(){
+                                    navli_suolue(navli[num]);//点击导航栏上的新闻类别显示新闻缩略
+                                    lunboFunction(navli[num].getAttribute("index"));//点击导航栏上的新闻类别显示新闻轮播
                                 };
-                            }  //end-navli[].onclick事件 为每一个li创建的注册事件结束了。
-                        }
+                            })(k)
+                        }//end-for
                     };//end-内if(json.status=="200")
-                }
+                }// if (request.readyState === 4 && request.status === 200)
             };//end- request.onreadystatechange
         }//end-function navlist()
+        //XL写的菜鸡代码都在这里-----------------------------------------------------------------------------------------------------------------
+
+
         //发布新闻中新闻类型的select函数--数据库
         function fbnavlist(){
             var newsType_name=[];//存放获取到的新闻的名字  一个数组XL
@@ -387,7 +510,6 @@ width: 65px;
                 }
             };
         }
-
         // 轮播图
         onload=function () {
             navlist();
@@ -406,12 +528,6 @@ width: 65px;
             if(photos!=null&& photos!=""){
                 document.getElementById("photo").src=photos;
                 document.getElementById("photoi").src=photos;}
-
-            var arr=document.getElementsByClassName("slide");
-            for(var i=0;i<arr.length;i++){
-                arr[i].style.top=i*600+"px";
-            }
-
 
         }
         function TopMove() {
@@ -1089,26 +1205,16 @@ width: 65px;
     </div>
 <!--    新闻轮播-->
     <div id="lunbo" class="newsDetails" onmouseover="stop()" onmouseout="start()" style="" >
-        <div id="son1"  class="slide">
-            <h1>外媒：科学家发现史上最强大超新星 或两太阳合并形成</h1>
-            <hr>
-            <img class="news_img" src="images/new3.jpg">
-            <h4 class="eslipise_new"><a  href="#" title="查看详情" onclick="new_content()">参考消息网4月14日报道据德新社伦敦4月14日报道，
-                来自英国和美国的科学家在周一发表的一份研究报告中说，与普通超新星相比，
-                有史以来观测到的最大恒星爆炸能量是其10倍，亮度是其500倍。</a></h4>
-            <p class="ckxq"><a  href="#" title="查看详情" onclick="new_content() ">查看详情</a></p>
+<!--        <div id="son1"  class="slide">-->
+<!--            <h1>外媒：科学家发现史上最强大超新星 或两太阳合并形成</h1>-->
+<!--            <hr>-->
+<!--            <img class="news_img" src="images/new3.jpg">-->
+<!--            <h4 class="eslipise_new"><a  href="#" title="查看详情" onclick="new_content()">参考消息网4月14日报道据德新社伦敦4月14日报道，-->
+<!--                来自英国和美国的科学家在周一发表的一份研究报告中说，与普通超新星相比，-->
+<!--                有史以来观测到的最大恒星爆炸能量是其10倍，亮度是其500倍。</a></h4>-->
+<!--            <p class="ckxq"><a  href="#" title="查看详情" onclick="new_content() ">查看详情</a></p>-->
 
-        </div>
-        <div id="son2" class="slide">
-            <h1>外媒：科学家发现史上最强大超新星 或两太阳合并形成</h1>
-            <hr>
-            <img class="news_img" src="images/new3.jpg">
-            <h4 class="eslipise_new"><a  href="#" title="查看详情">参考消息网4月14日报道据德新社伦敦4月14日报道，
-                来自英国和美国的科学家在周一发表的一份研究报告中说，与普通超新星相比，
-                有史以来观测到的最大恒星爆炸能量是其10倍，亮度是其500倍。</a></h4>
-            <p class="ckxq"><a  href="#" title="查看详情">查看详情</a></p>
-        </div>
-        <div id="son3" class="slide"></div>
+<!--        </div>-->
     </div>
 <!--    新闻详情-->
     <div id="news_Conent" class="newsDetails" style="display: none">
