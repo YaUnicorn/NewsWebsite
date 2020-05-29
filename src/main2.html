@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <link rel="stylesheet" href="layui/css/layui.css" >
     <style>
         /*左边*/
         .news{
@@ -17,6 +17,7 @@
             height: 100%;width: 68%;
             display: inline;
             overflow: hidden;
+            background: #393D49;
         }
         /*123*/
         /*右边*/
@@ -26,7 +27,8 @@
             border-radius: 5px;
             width: 28%;height: 100%;
             position: absolute;
-            margin-left: 950px;
+            /*margin-left: 950px;*/
+            margin-left:70%;
         }
         body{
             background: whitesmoke;
@@ -40,7 +42,7 @@
             position: absolute;
             height: 93.5%;
             width: 35%;
-            margin-top:40px;
+            margin-top:60px;
         }
         /*新闻分类导航栏*/
         .newsTypeBar{
@@ -58,10 +60,11 @@
             border-radius: 5px;
             position: relative;
             height: 93.5%;
-            width: 64%;
-            margin-top:40px;
-            margin-left: 35.5%;
+            width: 65%;
+            margin-top:60px;
+            margin-left: 35%;
             overflow: hidden;
+            background: #ffffff;
         }
         a{
             text-decoration: none;
@@ -128,16 +131,17 @@
             font-size: 16px;
             margin-left: 12px;
             margin-top: 3px;
-            background: #e6e6e6;
+            /*background: #e6e6e6;*/
+            background: #6ce26c;
             border-radius: 5px;
         }
         .box{
             width: 100%;
-            height: 500px;
+            height:80.5%;
             box-sizing: border-box;
             border: 1px solid #666;
             border-radius: 5px;
-            margin-top: -9px;
+            margin-top: -11px;
 
             /*定位*/
             position: absolute;
@@ -145,7 +149,7 @@
             margin-bottom: 20px;
         }
         .box2{
-           height: 100%;width: 90%;margin-bottom: 20px;
+            height: 100%;width: 90%;margin-bottom: 20px;
         }
         h1{margin-top: 8px;font-family:楷体;}
         .news_img{width: 88%;margin-left: 6%;border-radius: 8px;}
@@ -175,15 +179,65 @@
         }
         .focus_Btn{
             margin-left: 310%;
-width: 65px;
+            width: 65px;
+        }
+        .linkStyle{font-size: 32px;font-family: 楷体;
         }
 
     </style>
+    <script src="layui/layui.js"></script>
+    <script src="//res.layui.com/layui/dist/layui.js" charset="utf-8"></script>
+<!--    <script>-->
+<!--        layui.use('upload', function(){-->
+<!--            var upload = layui.upload;-->
+
+<!--            //执行实例-->
+<!--            var uploadInst = upload.render({-->
+<!--                elem: '#test1' //绑定元素-->
+<!--                ,url: '/upload/' //上传接口-->
+<!--                ,done: function(res){-->
+<!--                    //上传完毕回调-->
+<!--                }-->
+<!--                ,error: function(){-->
+<!--                    //请求异常回调-->
+<!--                }-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
     <script>
+        //注意：导航 依赖 element 模块，否则无法进行功能性操作
+        layui.use('element', function(){
+            var element = layui.element;
+
+            //…
+        });
+        layui.use('element', function(){
+            var element = layui.element;
+
+            //一些事件监听
+            element.on('tab(demo)', function(data){
+                console.log(data);
+            });
+        });
+    </script>
+    <script>
+        //Demo
+        layui.use('form', function(){
+            var form = layui.form;
+
+            //监听提交
+            form.on('submit(formDemo)', function(data){
+                layer.msg(JSON.stringify(data.field));
+                return false;
+            });
+        });
+    </script>
+    <script>
+
         var photos=localStorage.getItem("photoes");
         var name=localStorage.getItem("name");
         var online=localStorage.getItem("online");
-       //新闻导航栏--数据库
+        //新闻导航栏--数据库
         //默认显示综合的新闻XL--------------------------------------------------------------------基本代码都是在这里的
         function defaultNews() {
             var request = new XMLHttpRequest();
@@ -307,10 +361,13 @@ width: 65px;
             //第一件事情：li的字体颜全部色变成黑色；第二件事情：被点击的字体颜色变成蓝色
             var navli_array=document.getElementById("newsnav").getElementsByTagName("li");
             for (var t = 0; t <navli_array.length; t++) {
-                navli_array[t].getElementsByTagName("a")[0].style.color = "#000000";
+                navli_array[t].getElementsByTagName("a")[0].style.color = "#ffffff";
+                navli_array[t].getElementsByTagName("a")[0].className="linkStyle";
+
             }
             //第二件事情：被点击的字体颜色变成蓝色
             p.getElementsByTagName("a")[0].style.color = "#a4a3d1";
+
             var index_type_id = p.getAttribute("index");//index_type_id是所点击的新闻类别的对应id
             //点击新闻种类name之后，要向数据库提交新闻id，获取对应新闻id的新闻内容
             // 两件事情：第一件事情就是移除全部新闻，第二件事件显示所点击的li所对应的新闻缩略
@@ -456,8 +513,11 @@ width: 65px;
                             var str = "   |   ";
                             a.href = "#";
                             a.innerHTML = newsType_name[j] + str;//ul>li>a标签里是新闻类别的名字
-                            a.style.color = "#000000";
+                            a.style.color = "#ffffff";
                             child.appendChild(a);//中动态添加a标签
+                            child.className="layui-nav-item";
+                            // child.style.cssFloat="left";
+                            a.className="linkStyle";
                             document.getElementById("newsnav").appendChild(child);//ul中动态添加li标签
                         }//end-for
 
@@ -482,8 +542,6 @@ width: 65px;
             };//end- request.onreadystatechange
         }//end-function navlist()
         //XL写的菜鸡代码都在这里-----------------------------------------------------------------------------------------------------------------
-
-
         //发布新闻中新闻类型的select函数--数据库
         function fbnavlist(){
             var newsType_name=[];//存放获取到的新闻的名字  一个数组XL
@@ -988,29 +1046,56 @@ width: 65px;
             if( document.getElementById("like").style.color!="#f00"){
                 document.getElementById("like").style.color="#f00";
             }}
+        //退出登录
+        function BackLogin() {
+            var request=new XMLHttpRequest();
+            var id=localStorage.getItem("id");
+            request.open("GET","http://139.199.55.139:8080/api/user/logout?u_id="+id);
+            request.send();
+            request.onreadystatechange=function () {
+                if(request.readyState===4&&request.status===200){
+                    var json=JSON.parse(request.responseText);
+                    if(json.status=="200"){
+                        alert(json.message);
+                        localStorage.clear();
+                        window.location.reload();
+                        var logining=document.getElementById("logining");
+                        var logined=document.getElementById("logined");
+                        if(logining.style.display!='block'){
+                            logined.style.display='none';
+                            logining.style.display='block';
+                        }
+
+                    }else if(json.status=="500"){
+                        alert("注销失败！");
+                    }
+                }
+
+            }
+        }
         //登录-数据库
         function userLogin() {
-                var online= localStorage.getItem("online");
-                if(online!=null && online=="1"){
-                    var request=new XMLHttpRequest();
-                    var id=localStorage.getItem("id");
-                    if(id!=null&&id!=""){
-                        request.open("GET","http://139.199.55.139:8080/api/user/logout?u_id="+id);
-                        request.send();
-                        request.onreadystatechange=function () {
-                            if(request.readyState===4&&request.status===200){
-                                var json=JSON.parse(request.responseText);
-                                if(json.status=="200"){
-                                    alert(json.message);
-                                    localStorage.clear();
-                                    window.location.reload();
-                                }else if(json.status=="500"){
-                                    alert("注销失败！");
-                                }
+            var online= localStorage.getItem("online");
+            if(online!=null && online=="1"){
+                var request=new XMLHttpRequest();
+                var id=localStorage.getItem("id");
+                if(id!=null&&id!=""){
+                    request.open("GET","http://139.199.55.139:8080/api/user/logout?u_id="+id);
+                    request.send();
+                    request.onreadystatechange=function () {
+                        if(request.readyState===4&&request.status===200){
+                            var json=JSON.parse(request.responseText);
+                            if(json.status=="200"){
+                                alert(json.message);
+                                localStorage.clear();
+                                window.location.reload();
+                            }else if(json.status=="500"){
+                                alert("注销失败！");
                             }
-
                         }
+
                     }
+                }
 
             }else  {
                 window.location.href="login.html";
@@ -1082,12 +1167,18 @@ width: 65px;
         }
         //个人中心
         function trans_info() {
-            var logining=document.getElementById("logining");
-            var logined=document.getElementById("logined");
-            if(logined.style.display!='block'){
-                logined.style.display='block';
-                logining.style.display='none';
+            var id=localStorage.getItem("id");
+            if(id!=null){
+                var logining=document.getElementById("logining");
+                var logined=document.getElementById("logined");
+                if(logined.style.display!='block'){
+                    logined.style.display='block';
+                    logining.style.display='none';
+                }
+            }else{
+                alert("请先登录");
             }
+
         }
         //返回评论页面
         function go_comms() {
@@ -1102,15 +1193,16 @@ width: 65px;
         //修改资料-数据库
         function save_info() {
             var id=localStorage.getItem("id");
-            // alert(id);
+            alert(id);
             var request = new XMLHttpRequest();
             request.open("POST", "http://139.199.55.139:8080/api/user/updateInfo?");
             if(document.getElementById("name1").value==""){
                 document.getElementById("name1").value=localStorage.getItem("name");
-            }else if(document.getElementById("password1").value==""){
-                document.getElementById("password1").value=localStorage.getItem("password");
             }else if(document.getElementById("phone1").value==""){
                 document.getElementById("phone1").value=localStorage.getItem("phone");
+            }
+            else if(document.getElementById("password1").value==""){
+                document.getElementById("password1").value=localStorage.getItem("password");
             }
             var data = "u_id=" + id + "&u_name=" + document.getElementById("name1").value +'&u_password='+ document.getElementById("password1").value
                 + '&u_phone='+document.getElementById("phone1").value;
@@ -1118,7 +1210,6 @@ width: 65px;
             request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             request.send(data);
             request.onreadystatechange = function () {
-
                 if(request.readyState===4&&request.status===200){
                     var json = JSON.parse(request.responseText);
                     if (json.status == "200") {
@@ -1133,7 +1224,6 @@ width: 65px;
                         alert(json.message);
                     } else if (json.status == "500") {
                         alert("更新失败！");
-
                     }
                 }
 
@@ -1179,80 +1269,89 @@ width: 65px;
             }
         }
 
+
     </script>
 </head>
 <body>
 <div class="news">
-<!--    //导航栏-->
+    <!--    //导航栏-->
     <div class="newsTypeBar">
-        <nav >
-            <ul id="newsnav"></ul>
 
-        </nav>
+        <ul class="layui-nav" lay-filter="" id="newsnav" >
+
+        </ul>
+
+        <script>
+            //注意：导航 依赖 element 模块，否则无法进行功能性操作
+            layui.use('element', function(){
+                var element = layui.element;
+                //…
+            });
+        </script>
 
     </div>
-<!--    分类-->
+    <!--    分类-->
     <div class="newsType">
         <!--        //新闻热点-->
         <div id="daily_recommd" style="background: #ffffff;border-radius: 8px;">
             <td><img src="images/hot_news.png" width="40" height="40"></td><td>新闻列表</td>
             <hr>
-<!--            这个table里面会显示对应的新闻XL,一个新闻是一个tr-->
+            <!--            这个table里面会显示对应的新闻XL,一个新闻是一个tr-->
             <table id="daily_recommds" style="margin-left: 18px;" >
 
             </table>
         </div>
     </div>
-<!--    新闻轮播-->
-    <div id="lunbo" class="newsDetails" onmouseover="stop()" onmouseout="start()" style="" >
-<!--        <div id="son1"  class="slide">-->
-<!--            <h1>外媒：科学家发现史上最强大超新星 或两太阳合并形成</h1>-->
-<!--            <hr>-->
-<!--            <img class="news_img" src="images/new3.jpg">-->
-<!--            <h4 class="eslipise_new"><a  href="#" title="查看详情" onclick="new_content()">参考消息网4月14日报道据德新社伦敦4月14日报道，-->
-<!--                来自英国和美国的科学家在周一发表的一份研究报告中说，与普通超新星相比，-->
-<!--                有史以来观测到的最大恒星爆炸能量是其10倍，亮度是其500倍。</a></h4>-->
-<!--            <p class="ckxq"><a  href="#" title="查看详情" onclick="new_content() ">查看详情</a></p>-->
+    <!--    新闻轮播-->
+    <div id="lunbo" class="newsDetails" onmouseover="stop()" onmouseout="start()" style="display: none" >
+        <!--        <div id="son1"  class="slide">-->
+        <!--            <h1>外媒：科学家发现史上最强大超新星 或两太阳合并形成</h1>-->
+        <!--            <hr>-->
+        <!--            <img class="news_img" src="images/new3.jpg">-->
+        <!--            <h4 class="eslipise_new"><a  href="#" title="查看详情" onclick="new_content()">参考消息网4月14日报道据德新社伦敦4月14日报道，-->
+        <!--                来自英国和美国的科学家在周一发表的一份研究报告中说，与普通超新星相比，-->
+        <!--                有史以来观测到的最大恒星爆炸能量是其10倍，亮度是其500倍。</a></h4>-->
+        <!--            <p class="ckxq"><a  href="#" title="查看详情" onclick="new_content() ">查看详情</a></p>-->
 
-<!--        </div>-->
+        <!--        </div>-->
     </div>
-<!--    新闻详情-->
+    <!--    新闻详情-->
     <div id="news_Conent" class="newsDetails" style="display: none">
         <div class="box1_content" style="width: 120%;height: 600px;overflow-y: scroll;overflow-x: hidden;background-color: #ffffff;">
             <div class="box2_content" style="height: 90%;width: 80%;margin-left:  23px;margin-bottom: 5%">
-        <h1>外媒：科学家发现史上最强大超新星 或两太阳合并形成</h1>
-        <table style="margin-top: -15px;margin-left: 5%">
-            <tr>
-                <td rowspan="2" width="50px;" style="font-size: 15px;"><img src="images/head.png" width="38px;"></td>
-                <td  style="font-size: 14px;" width="370px;">小小粉刷匠</td>
-                <td  rowspan="2" width="100">
-                    <button id="foucs_fr" onclick="attention()" style="background: #30b8e1; border-radius: 8px;color: #ffffff;width: 80px;">关注</button>
-                </td>
-            </tr>
-            <tr>
-                <td style="font-size: 11px;">04-27 yue</td>
-            </tr>
-        </table>
-        <hr>
-        <p class="psuoj">原标题：外媒：科学家发现史上最强大超新星 或由两个太阳合并形成</p>
+                <h1>外媒：科学家发现史上最强大超新星 或两太阳合并形成</h1>
+                <table style="margin-top: -15px;margin-left: 5%">
+                    <tr>
+                        <td rowspan="2" width="50px;" style="font-size: 15px;"><img src="images/head.png" width="38px;"></td>
+                        <td  style="font-size: 14px;" width="370px;">小小粉刷匠</td>
+                        <td  rowspan="2" width="100">
+                            <button id="foucs_fr" onclick="attention()" style="background: #30b8e1; border-radius: 8px;color: #ffffff;width: 80px;">关注</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 11px;">04-27 yue</td>
+                    </tr>
+                </table>
+                <hr>
+                <p class="psuoj">原标题：外媒：科学家发现史上最强大超新星 或由两个太阳合并形成</p>
 
-        <p class="psuoj"> 参考消息网4月14日报道据德新社伦敦4月14日报道，来自英国和美国的科学家在周一发表的一份研究报告中说，
-            与普通超新星相比，有史以来观测到的最大恒星爆炸能量是其10倍，亮度是其500倍。</p>
+                <p class="psuoj"> 参考消息网4月14日报道据德新社伦敦4月14日报道，来自英国和美国的科学家在周一发表的一份研究报告中说，
+                    与普通超新星相比，有史以来观测到的最大恒星爆炸能量是其10倍，亮度是其500倍。</p>
 
-        <p class="psuoj">英国伯明翰大学和美国哈佛-史密森天体物理学中心的天文学家称，他们发现的SN2016aps是“来自巨大恒星、具有超常能量的超新星”。
+                <p class="psuoj">英国伯明翰大学和美国哈佛-史密森天体物理学中心的天文学家称，他们发现的SN2016aps是“来自巨大恒星、具有超常能量的超新星”。
 
-            研究报告的作者之一埃多·伯杰说，除了大小和亮度，这颗超新星的其他特点也很“惊人”。</p>
+                    研究报告的作者之一埃多·伯杰说，除了大小和亮度，这颗超新星的其他特点也很“惊人”。</p>
 
-        <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。
+                <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。
 
-            报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>
+                    报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>
 
-        <p class="psuoj">科学家希望，SN2016aps的发现能带来其他类似超新星的探测，并有助于回顾宇宙早期的状况。</p>
-        <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。
+                <p class="psuoj">科学家希望，SN2016aps的发现能带来其他类似超新星的探测，并有助于回顾宇宙早期的状况。</p>
+                <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。
 
-            报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>
+                    报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>
 
-        <p class="psuoj">科学家希望，SN2016aps的发现能带来其他类似超新星的探测，并有助于回顾宇宙早期的状况。</p>
+                <p class="psuoj">科学家希望，SN2016aps的发现能带来其他类似超新星的探测，并有助于回顾宇宙早期的状况。</p>
                 <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。
 
                     报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>
@@ -1265,159 +1364,176 @@ width: 65px;
                         <td><img src="images/cotake.png" width="30"></td>
                     </tr>
                 </table>
-             <hr>
+                <hr>
             </div>
         </div>
 
     </div>
-<!--    发布新闻-->
+    <!--    发布新闻-->
     <div class="newsDetails" id="addNews" style="display: none">
-                <h2>添加新闻</h2>
-                <table style="padding-left: 20px;">
+        <h2>添加新闻</h2>
+        <table style="padding-left: 20px;">
 
-                    <tr >
-                        <td>新闻标题：</td>
-                        <td><textarea id="title_news" required="required" cols="30" rows="2"></textarea> </td>
-                    </tr>
-                    <tr>
-                        <td>新闻类别：</td>
-                        <td>
-                            <select id="fbnewstype">
+            <tr >
+                <td>新闻标题：</td>
+                <td><textarea id="title_news" required="required" cols="30" rows="2"></textarea> </td>
+            </tr>
+            <tr>
+                <td>新闻类别：</td>
+                <td>
+                    <select id="fbnewstype">
 
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>发布内容：</td>
-                        <td><textarea id="news_content" required="required" cols="50" rows="6"></textarea></td>
-                    </tr>
-                    <tr>
-                        <td>图片/视频：</td>
-                        <td><input  type="file"/></td>
-                    </tr>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>发布内容：</td>
+                <td><textarea id="news_content" required="required" cols="50" rows="6"></textarea></td>
+            </tr>
+            <tr>
+                <td>图片/视频：</td>
+                <td><input  type="file"/></td>
+            </tr>
 
-                    <tr>
-                        <td ></td>
-                        <td><button onclick="xiangxi()">取消</button><button onclick="fabu()" style="margin-left: 280px;">发布</button> </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </div>
-<!--    修改信息-->
-   <div id="alterInfo" class="newsDetails" style="display: none">
-       <h2>修改资料</h2>
-       <table class="alter_ziliao">
-           <tr >
-               <td >头&nbsp;&nbsp;&nbsp;像：</td>
-               <td width="100px;" style="margin-left: 15px;"><img src="" id="showing" name="showing" width="120px" height="120px;" style="border-radius: 10%"></td>
-               <td ><select onchange="changeImg(this.value)">
-                   <option value="images/title_head2.jpg">title_head2.jpg</option>
-                   <option value="images/title_head3.jpg">title_head3.jpg</option>
-
-               </select></td>
-           </tr>
-           <tr>
-               <td>昵&nbsp;&nbsp;&nbsp;称：</td>
-               <td><input id="name1" type="text" style="height: 23px;" placeholder="请修改输入昵称"> </td>
-           </tr>
-<!--           <tr>-->
-<!--               <td>性&nbsp;&nbsp;&nbsp;别：</td>-->
-<!--               <td><input name="sex" type="radio" checked="checked"/>男</td>-->
-<!--               <td><input name="sex" type="radio"/>女</td>-->
-<!--           </tr>-->
-           <tr>
-               <td>手机号：</td>
-               <td><input id="phone1" type="text" style="height: 23px;" placeholder="请输入新的手机号"></td>
-           </tr>
-           <tr>
-               <td>密&nbsp;&nbsp;&nbsp;码：</td>
-               <td><input id="password1" type="password" style="height: 23px;"placeholder="请输入密码"></td>
-           </tr>
-
-
-       </table>
-       <p id="resultsss"></p>
-       <button  id="save_info" onclick="save_info()" style="margin-left: 270px;margin-top: 20px">确定</button>
-   </div>
-</div>
+            <tr>
+                <td ></td>
+                <td><button onclick="xiangxi()">取消</button><button onclick="fabu()" style="margin-left: 280px;">发布</button> </td>
+                <td></td>
+            </tr>
+        </table>
     </div>
+    <!--    修改信息-->
+    <div id="alterInfo" class="newsDetails" >
+        <h2 class="layui-bg-green" style="height: 33px;font-size: 24px;font-family: 楷体"><label style="margin-left: 82.5%">修改资料</label></h2>
+        <form class="layui-form" action="" style="margin-top: 10px;">
+        <div class="layui-form-item">
+            <label class="layui-form-label">头像</label>
+            <div class="layui-input-block">
+                <img src="" id="showing" name="showing" width="120px" height="120px;" style="border-radius: 10%">
+                <button onchange="changeImg(this.value)" type="button" class="layui-btn" id="test1">
+                    <i class="layui-icon">&#xe67c;</i>上传图片
+                </button>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">昵称</label>
+            <div class="layui-input-block">
+                <input id="name1"  type="text"  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" style="width: 200px;">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">手机号</label>
+            <div class="layui-input-inline">
+                <input id="phone1" type="text" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" style="width: 200px;">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-inline">
+                <input  id="password1"  type="password"  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" style="width: 200px;">
+            </div>
+        </div>
+            <table style="margin-left: 2%">
+                <tr>
+                    <td><button  id="save_info" onclick="save_info()" class="layui-btn" style="margin-left: 100px;margin-top: 20px">确定</button></td>
+                    <td><input type="reset" id="Realter" class="layui-btn" style="margin-left: 50px;margin-top: 20px"> </td>
+                </tr>
+            </table>
+    </form>
+
+    </div>
+</div>
+</div>
 </div>
 
 <div class="Myinfo">
-<!--    未登录-->
+    <!--    未登录-->
     <div id="logining" style="width: 100%;height: 100%;">
-      <div id="box1" style="height: 75%">
-        <div style="height:20%;">
+        <div id="box1" style="height: 75%">
+            <div style="height:22%;background: #393D49" >
 
-            <img id="photo" src="images/head.png" style="margin-left:160px;margin-top: 8px;width: 55px;height: 55px;">
+                <img id="photo" src="images/head.png" style="margin-left:160px;margin-top: 8px;width: 55px;height: 55px;">
 
-            <p style="margin-top: 3px;margin-left:100px;">
-                <button onclick="trans_info()">个人中心</button>
-                <button id="Userlogin" style="margin-left: 20px;" onclick="userLogin()">登&nbsp;录</button></p>
-        </div>
-        <hr>
-        <div id="comment_box" style="height:75%;font-size: 16px;background: #ffffff">
-            <p  style="font-size: 16px;margin-top: 5px;margin-left: 5px;">
-                <img src="images/talkk.png" width="25px;" height="25px" >
-            </p>
-            <span id="talk_Name1">王子轩</span>
-            <label>:</label>
-            <span style="font-size: 16px;width: 250px;">OMG !是我师傅！</span>
+                <p style="margin-top: 3px;margin-left:100px;">
+                    <button onclick="trans_info()" class="layui-btn layui-btn-radius" style="height: 30px;">个人中心</button>
+                    <button id="Userlogin"  	class="layui-btn layui-btn-radius" style="margin-left: 20px;height: 28px;" onclick="userLogin()">登&nbsp;录</button></p>
+            </div>
+            <!--            评论区-->
+            <div id="comment_box" style="height:75%;margin-top: -5px;font-size: 16px;background: #ffffff">
+                <p  style="font-size: 16px;margin-top: 5px;margin-left: 5px;">
+                    <img src="images/talkk.png" width="25px;" height="25px" >
+                </p>
+                <span id="talk_Name1">王子轩</span>
+                <label>:</label>
+                <span style="font-size: 16px;width: 250px;">OMG !是我师傅！</span>
 
-            <button style="font-size: 10px;color: #7c7c7c;" onclick="huifu1()" >回复</button><br>
-            <span id="huifuResult1" style="margin-left: 8px;font-size: 12px;display: none">我
+                <button style="font-size: 10px;color: #7c7c7c;" onclick="huifu1()" >回复</button><br>
+                <span id="huifuResult1" style="margin-left: 8px;font-size: 12px;display: none">我
                                     <span style="color: blue;margin-left: 3px;font-size: 10px;">回复</span>
 
                                     <span style="margin-left: 5px;">:</span>
                                     <span id="info_hf1" style="font-size: 13px;"></span>
                                 </span>
-            <p id="huifu1"style="margin-top: 5px;margin-left: 18px;display: none" >
-                <input type="text" id="info_text1" style="border-radius: 5px;width: 180px;height: 20px;font-size: 12px;" placeholder="回复消息">
-                <button style="background: #56B4DC;border-radius: 3px;" onclick="send_info()">发送</button>
+                <p id="huifu1"style="margin-top: 5px;margin-left: 18px;display: none" >
+                    <input type="text" id="info_text1" style="border-radius: 5px;width: 180px;height: 20px;font-size: 12px;" placeholder="回复消息">
+                    <button style="background: #56B4DC;border-radius: 3px;" onclick="send_info()">发送</button>
+                </p>
+                <p id="commentResult" style="margin-left: 5px;"></p>
+            </div>
+        </div>
+        <!--        发表评论-->
+        <div style="height: 27.2%;margin-top: -22px; background: #393D49">
+            <p style="font-size: 16px;margin-top: 8px;margin-left: 5px;color: #ffffff;">评论区：</p>
+            <textarea id="comment" name="" required lay-verify="required" placeholder="请输入" class="layui-textarea" style="margin-left: 10px;width:95%;margin-top: 3px;"></textarea>
+            <p style="margin-top: 8px;"> <button class="layui-btn layui-btn-radius" style="width:70px;height: 30px;margin-left: 80px;" onclick="reset()">重置</button>
+                <button class="layui-btn layui-btn-radius"  style="width: 70px;height: 30px;margin-left: 70px;" onclick="create()">发表</button>
             </p>
-            <p id="commentResult" style="margin-left: 5px;"></p>
         </div>
     </div>
-    <hr>
-    <div style="height: 26%;margin-top: -8px;">
-        <p style="font-size: 16px;margin-top: 8px;margin-left: 5px;">评论区：</p>
-        <textarea id="comment" style="margin-left:50px;margin-top: -12px;width: 270px;height: 70px;" placeholder="请开始您的表演...."></textarea>
-        <p style="margin-top: 5px;"> <button style="width: 50px;height: 20px;margin-left: 80px;" onclick="reset()">重置</button>
-            <button style="width: 50px;height: 20px;margin-left: 70px;" onclick="create()">发表</button>
-        </p>
-     </div>
-</div>
-<!--登录之后-->
-    <div id="logined" style=" display: none">
+    <!--登录之后-->
+    <div id="logined" style="background:#393D49;display: none ">
         <table>
             <tr>
                 <td  width="80" colspan="2"><img id="photoi" src="images/head.png" width="60" height="60" style="margin-left: 10px;margin-top: 3px;"> </td>
-                <td  width="200" colspan="2"><label id="name" style="font-size: 20px;">用户名</label></td>
-                <td><p style="font-size: 14px;" onclick="alter()"><a href="#">修改资料</a> </p >
-                    <p style="font-size: 14px;" onclick="go_comms()"><a href="#">去评论</a></p></td>
-            </tr>
+                <td  width="180" colspan="2"><label id="name" style="font-size: 20px;color: #ffffff">用户名</label></td>
+                <td>
+                    <ul class="layui-nav">
+                        <li class="layui-nav-item">
+                            <a href="">设置</a>
+                            <dl class="layui-nav-child">
+                                <dd><a href="javascript:;" onclick="alter()">修改信息</a></dd>
+                                <dd><a href="javascript:;" onclick="go_comms()">返回</a></dd>
+                                <dd><a href="javascript:;" onclick="BackLogin()">退出</a></dd>
+                            </dl>
+                        </li>
+                    </ul>
 
+                    <!--                    <p style="font-size: 14px;" onclick="alter()"><a href="#" style="color: #ffffff" >修改资料</a> </p >-->
+                    <!--                    <p style="font-size: 14px;" onclick="go_comms()"><a href="#"style="color: #ffffff">去评论</a></p>-->
+                </td>
+            </tr>
         </table>
         <hr>
-        <nav>
-            <ul>
-                <li style="margin-left: 20px;"><a href="#" onclick="release()">发布</a></li>
-                <li style="margin-left: 25px;"><a href="#" onclick="guanzhu()"> 关注</a></li>
-                <li style="margin-left: 25px;"><a href="#" onclick="zan()"> 点赞</a></li>
-                <li style="margin-left: 25px;"><a href="#" onclick="comments()">评论</a></li>
-                <li style="margin-left: 40px;"><img src="images/add.png" width="28" height="28" style="margin-top: -3px;" onclick="addnew()"></li>
-            </ul>
+        <nav style="margin-top: 5px;">
+                <ul>
+                <li style="margin-left: 20px;"><a href="#" onclick="release()"style="color: #ffffff">发布</a></li>
+                <li style="margin-left: 25px;"><a href="#" onclick="guanzhu()"style="color: #ffffff"> 关注</a></li>
+                <li style="margin-left: 25px;"><a href="#" onclick="zan()"style="color: #ffffff"> 点赞</a></li>
+                <li style="margin-left: 25px;"><a href="#" onclick="comments()"style="color: #ffffff">评论</a></li>
+                <li style="margin-left: 25px;"> <button type="button" class="layui-btn layui-btn-radius" onclick="addnew()" style="width: 90px;height: 30px;">添加新闻</button></li>
 
+<!--                <li style="margin-left: 40px;"><img src="images/add.png" width="28" height="28" style="margin-top: -3px;" onclick="addnew()"></li>-->
+            </ul>
         </nav>
         <hr>
         <div class="box" >
-            <div  style="width: 120%;height:100%;overflow-y: scroll;overflow-x: hidden;">
+            <div  style="width: 105%;height:100%;overflow-y: scroll;overflow-x: hidden;">
                 <!--        发布-->
                 <div id="release" class="box2" >
-                        <table id="Name_time">
-                        </table>
+                    <table id="Name_time">
+                    </table>
 
-            </div>
+                </div>
                 <!--        关注-->
                 <div id="guanzhu" class="box2" style="display: none">
                     <table id="focusMy">
@@ -1433,16 +1549,16 @@ width: 65px;
                     <hr>
                     <p id="zanResult"></p>
                 </div>
-<!--                11-->
                 <!--         评论-->
                 <div id="comments" class="box2" style="display: none">
                     <table id="commentsNew" style="margin-left: 10px;">
 
                     </table>
                 </div>
+            </div>
         </div>
     </div>
 </div>
-</div>
+
 </body>
 </html>
