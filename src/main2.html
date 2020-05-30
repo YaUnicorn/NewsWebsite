@@ -320,8 +320,15 @@
         }
 
         //点击缩略新闻和点击轮播新闻都可以查看详细新闻----5.30add
-        function new_detail(d) {
-            console.log("所点击的新闻n_id是" + d);
+        function new_detail(n_id,u_author_id) {
+
+            var my_id=localStorage.getItem("id");
+            var new_id=n_id;
+            var new_author_id=u_author_id;
+
+            console.log("当前登录的id是" + my_id);
+            console.log("所点击的新闻n_id是" + new_id);
+            console.log("所点击的新闻的发布者是"+new_author_id);
 
 
             var newboxflag = document.getElementById("newdaily_box2");
@@ -332,7 +339,8 @@
             var newdailyObj = document.createElement("div");
             newdailyObj.className = "box2_content";
             newdailyObj.id = "newdaily_box2";
-            newdailyObj.setAttribute("n_id", d)//给详细新闻页面中获取到的新闻块div设置一个n_id用于辨别这个新闻。
+            newdailyObj.setAttribute("n_id",new_id )//给详细新闻页面中获取到的新闻块div设置一个n_id用于辨别这个新闻。
+            newdailyObj.setAttribute("u_author_id", new_author_id)//给详细新闻页面中获取到的新闻块div设置一个u_author_id自定义属性用于辨别这个新闻。
             newdailyObj.setAttribute('style', 'height:90%;width:80%;margin-left:23px;margin-bottom:5%');
             document.getElementById("newdaily_box1").appendChild(newdailyObj);
             var imgObj = document.createElement("img");
@@ -433,6 +441,7 @@
 
                             var childnewth = document.createElement("tr");//一个新闻就是table中的一个tr
                             childnewth.setAttribute("n_id", newsdatath[g]["n_id"])//5.30(2)
+                            childnewth.setAttribute("u_author_id",newsdatath[g]["u_author_id"]);//5.30(3)add
                             var tdFirstth = document.createElement("td");//第一行
                             var tdSecondth = document.createElement("td");//第二行
                             var spanFirstth = document.createElement("sapn");//第二行第一个标签放发布时间
@@ -468,7 +477,7 @@
                             (function (num) {
                                 trObj[num].addEventListener("click", function () {
                                     new_content();
-                                    new_detail(trObj[num].getAttribute("n_id"));
+                                    new_detail(trObj[num].getAttribute("n_id"),trObj[num].getAttribute("u_author_id"));
                                 })
                             })(i);
                         }//end-for
@@ -500,6 +509,7 @@
                         for (var j = 0; j < newsnum; j++) {
                             var divChild = document.createElement("div");//轮播模块中的一个轮播新闻图
                             divChild.setAttribute("n_id", newsContent[j]["n_id"]);//5.30(2)add
+                            divChild.setAttribute("u_author_id",newsContent[j]["u_author_id"]);//5.30(3)add
                             divChild.className = "slide";
                             document.getElementById("lunbo").appendChild(divChild);
                             divChild.appendChild(document.createElement("hr"));
@@ -529,7 +539,7 @@
                             (function (num) {
                                 divObj[num].addEventListener("click", function () {
                                     new_content();
-                                    new_detail(divObj[num].getAttribute("n_id"));
+                                    new_detail(divObj[num].getAttribute("n_id"),divObj[num].getAttribute("u_author_id"));
                                 })
                             })(i);
                         }//end-for
@@ -582,6 +592,7 @@
                         for (var e = 0; e < sametype; e++) {
                             var childnew = document.createElement("tr");//一个新闻就是table中的一个tr
                             childnew.setAttribute("n_id", newsdata[e]["n_id"]);//5.30(2)add
+                            childnew.setAttribute("u_author_id",newsdata[e]["u_author_id"]);//5.30(3)add
                             var tdFirst = document.createElement("td");//第一行
                             var tdSecond = document.createElement("td");//第二行
                             var spanFirst = document.createElement("sapn");//第二行第一个标签放发布时间
@@ -616,7 +627,7 @@
                             (function (num) {
                                 trObj[num].addEventListener("click", function () {
                                     new_content();
-                                    new_detail(trObj[num].getAttribute("n_id"));
+                                    new_detail(trObj[num].getAttribute("n_id"),trObj[num].getAttribute("u_author_id"));
 
                                 })
                             })(i);
@@ -656,6 +667,7 @@
                         for (var j = 0; j < newsnum; j++) {
                             var divChild = document.createElement("div");//轮播模块中的一个轮播新闻图
                             divChild.setAttribute("n_id", newsContent[j]["n_id"]);//给每一个轮播新闻设置一个index，5.30(2)
+                            divChild.setAttribute("u_author_id",newsContent[j]["u_author_id"]);//5.30(3)add
                             divChild.className = "slide";
                             document.getElementById("lunbo").appendChild(divChild);
                             divChild.appendChild(document.createElement("hr"));
@@ -686,7 +698,7 @@
                             (function (num) {
                                 divObj[num].addEventListener("click", function () {
                                     new_content();
-                                    new_detail(divObj[num].getAttribute("n_id"));
+                                    new_detail(divObj[num].getAttribute("n_id"),divObj[num].getAttribute("u_author_id"));
                                 })
                             })(i);
                         }//end-for
