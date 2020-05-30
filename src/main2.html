@@ -78,18 +78,19 @@
         nav ul li{
             display: inline;font-size: 18px;
         }
-        #son1{
-            /*background-color: #6ce26c;*/
-            width: 100%;
-        }
-        #son2{
-            background-color: lightskyblue;
-            /*width: 900px;*/
-        }
-        #son3{
-            background-color: beige;
-            /*width: 900px;*/
-        }
+        /*轮播图中的轮播新闻没有写son1,son2,son3这个id名，所以注释XL*/
+        /*#son1{*/
+        /*    !*background-color: #6ce26c;*!*/
+        /*    width: 100%;*/
+        /*}*/
+        /*#son2{*/
+        /*    background-color: lightskyblue;*/
+        /*    !*width: 900px;*!*/
+        /*}*/
+        /*#son3{*/
+        /*    background-color: beige;*/
+        /*    !*width: 900px;*!*/
+        /*}*/
         .slide{
             width: 100%;
             height: 600px;
@@ -183,6 +184,13 @@
         }
         .linkStyle{font-size: 32px;font-family: 楷体;
         }
+        /*详细新闻界面中所点击的×号的样式设置*/
+        .newdaily_back{
+            width:20px;
+            hieht:20px;
+            position:absolute;
+            right:15px;
+        }
 
     </style>
     <script src="layui/layui.js"></script>
@@ -238,7 +246,110 @@
         var name=localStorage.getItem("name");
         var online=localStorage.getItem("online");
         //新闻导航栏--数据库
-        //默认显示综合的新闻XL--------------------------------------------------------------------基本代码都是在这里的
+        //详细新闻中有一个取消信息回退的×号按钮 5.29add----------------------------------------------
+        function newdailyback(){
+            var lunbo=document.getElementById("lunbo");
+            var addNews=document.getElementById("addNews");
+            var alterInfo=document.getElementById("alterInfo");
+            var news_Conent = document.getElementById("news_Conent");
+            if(news_Conent.style.display=='block'){
+                news_Conent.style.display='none';
+                addNews.style.display='none';
+                alterInfo.style.display='none';
+                lunbo.style.display='block';
+            }
+        }
+
+        //点击缩略新闻和点击轮播新闻都可以查看详细新闻----5.30add
+        function new_detail(d){
+            console.log("所点击的新闻n_id是"+d);
+
+
+            var newboxflag=document.getElementById("newdaily_box2");
+            if(newboxflag){
+                console.log("有详细新闻的盒子存在,要做一个删除操作");
+                document.getElementById("newdaily_box1").removeChild(document.getElementById("newdaily_box1").firstElementChild);
+            }
+            var newdailyObj=document.createElement("div");
+            newdailyObj.className="box2_content";
+            newdailyObj.id="newdaily_box2";
+            newdailyObj.setAttribute("n_id",d)//给详细新闻页面中获取到的新闻块div设置一个n_id用于辨别这个新闻。
+            newdailyObj.setAttribute('style','height:90%;width:80%;margin-left:23px;margin-bottom:5%');
+            document.getElementById("newdaily_box1").appendChild(newdailyObj);
+            var imgObj=document.createElement("img");
+            imgObj.src="images/back1.png";
+            imgObj.onclick=newdailyback;
+            imgObj.className="newdaily_back";
+            newdailyObj.appendChild(imgObj);
+            var h1Obj=document.createElement("h1");
+            h1Obj.innerHTML="标题";//次处需要使用获取到的新闻标题
+            newdailyObj.appendChild(h1Obj);
+            var tableTop=document.createElement("table");
+            tableTop.setAttribute('style','margin-top:-15px;margin-left:5%');
+            newdailyObj.appendChild(tableTop);
+            var trFirst=document.createElement("tr");//这个tr是为了显示头像，昵称和关注按钮的
+            tableTop.appendChild(trFirst);
+            var td1photo=document.createElement("td");
+            td1photo.rowSpan="2";
+            td1photo.setAttribute('style','width:50px;font-size:15px');
+            trFirst.appendChild(td1photo);
+            var imgphoto=document.createElement("img");
+            imgphoto.src="images/head.png";
+            imgphoto.setAttribute('style','width:38px');
+            td1photo.appendChild(imgphoto);
+            var td2name=document.createElement("td");
+            td2name.setAttribute('style','width:370px;font-size:14px');
+            td2name.innerHTML="昵称";
+            trFirst.appendChild(td2name);
+            var td3=document.createElement("td");
+            td3.rowSpan="2";
+            td3.setAttribute('style','width:100px');
+            var buttonfocus=document.createElement("button");
+            buttonfocus.id="foucs_fr";//设置关注按钮的id名
+            buttonfocus.onclick=attention;//设置关注的点击事件
+            buttonfocus.setAttribute('style','background:#30b8e1;border-radius:8px;color:#ffffff;width:80px');
+            buttonfocus.innerHTML="关注";
+            trFirst.appendChild(td3);
+            td3.appendChild(buttonfocus);
+            var trSecond=document.createElement("tr");//这个tr里放的是日期
+            var tddate=document.createElement("td");
+            tddate.setAttribute('style','font-size:11px');
+            tddate.innerHTML="日期";
+            tableTop.appendChild(trSecond);
+            trSecond.appendChild(tddate);
+            newdailyObj.appendChild(document.createElement("hr"));
+            var divP=document.createElement("div");
+            var pObj=document.createElement("p");
+            pObj.innerHTML="内容";
+            pObj.className="psuoj";
+            newdailyObj.appendChild(divP);
+            divP.appendChild(pObj);
+            var tableB=document.createElement("table");
+            tableB.setAttribute('style','margin-button:8px');
+            newdailyObj.appendChild(tableB);
+            var trB=document.createElement("tr");
+            tableB.appendChild(trB);
+            var tdkong=document.createElement("td");
+            tdkong.setAttribute('style','width:420px');
+            trB.appendChild(tdkong);
+            var tdzan=document.createElement("td");
+            tdzan.setAttribute('style','width:60px');
+            var imgzan=document.createElement("img");
+            imgzan.src="images/zan.png";
+            imgzan.width=30;//这里需要添加点赞的点击事件
+            trB.appendChild(tdzan);
+            tdzan.appendChild(imgzan);
+            var tdcomment=document.createElement("td");
+            var imgcomment=document.createElement("img");
+            imgcomment.width=30;
+            imgcomment.src="images/cotake.png";//这里需要添加评论的点击事件
+            trB.appendChild(tdcomment);
+            tdcomment.appendChild(imgcomment);
+            newdailyObj.appendChild(document.createElement("hr"));
+
+
+        }
+        //默认显示综合的新闻XL
         function defaultNews() {
             var request = new XMLHttpRequest();
             request.open("GET", " http://139.199.55.139:8080/api/news/selectNewsByType?" +
@@ -287,6 +398,16 @@
                             spanFirstth.style.fontSize = "4px";
 
                         }//end-for
+                        //点击新闻缩略图中的一个缩略新闻，那么就传一个新闻的n_id给new_detail()这个函数，用于显示详细界面5.29add
+                        var trObj= document.getElementById("daily_recommds").getElementsByTagName("tr");
+                        for(var i=0;i<trObj.length;i++){
+                            (function(num){
+                                trObj[num].addEventListener("click",function () {
+                                    new_content();
+                                    new_detail(trObj[num].getAttribute("n_id"));
+                                })
+                            })(i);
+                        }//end-for
 
                     }
                 }
@@ -325,26 +446,27 @@
                             imgObj.src=newsContent[j]["n_img_url"];
                             divChild.appendChild(imgObj);
                             var h4Obj=document.createElement("h4");//h4新闻前言
-                            var aObj=document.createElement("a");//h4中的a,用于点击
-                            aObj.href="#";
                             h4Obj.className="eslipise_new";
                             divChild.appendChild(h4Obj);
-                            h4Obj.appendChild(aObj);
-                            //aObj.onclick=lunboclick;//点击h4中a标签文字的一个点击事件。暂时还没写。
                             var pObj=document.createElement("p");
                             pObj.className="ckxq";
                             divChild.appendChild(pObj);
-                            var aObj2=document.createElement("a");
-                            aObj2.href="#";
-                            aObj2.innerHTML="查看详情";
-                            pObj.appendChild(aObj2);
-
-
                         }//end-for
                         var arr = document.getElementsByClassName("slide");
                         for (var i = 0; i < arr.length; i++) {
                             arr[i].style.top = i * 600 + "px";
-                        }
+                        }//end-for
+
+                        //点击新闻轮播图中的一个轮播新闻，那么就传一个新闻的n_id给new_detail()这个函数，用于显示详细界面5.29add
+                        var divObj= document.getElementById("lunbo").getElementsByTagName("div");
+                        for(var i=0;i<divObj.length;i++){
+                            (function(num){
+                                divObj[num].addEventListener("click",function () {
+                                    new_content();
+                                    new_detail(divObj[num].getAttribute("n_id"));
+                                })
+                            })(i);
+                        }//end-for
 
                     }
                 }
@@ -416,10 +538,20 @@
                             tdSa.innerHTML = newsdata[e]["n_title"];
                             spanFirst.innerHTML = newsdata[e]["n_release"];
                             spanFirst.style.fontSize = "4px";
-                        }
-                        // alert("数据库中该类别的对应的新闻个数"+sametype);//弹框显示数据库传来的对应的新闻个数
-                        //点击事件之后动态生成的tr和之前就显示的tr的个数，生成tr之后执行这个弹框，但是动态生成的tr是在弹框之后才显示的
-                        // alert("弹框结束之后，页面上的新闻总数"+document.getElementById("daily_recommds").getElementsByTagName("tr").length);
+                        }//end-for
+
+                        //点击新闻缩略图中的一个缩略新闻，那么就传一个新闻的n_id给new_detail()这个函数，用于显示详细界面5.29add
+                        var trObj= document.getElementById("daily_recommds").getElementsByTagName("tr");
+                        for(var i=0;i<trObj.length;i++){
+                            (function(num){
+                                trObj[num].addEventListener("click",function () {
+                                    new_content();
+                                    new_detail(trObj[num].getAttribute("n_id"));
+
+                                })
+                            })(i);
+                        }//end-for
+
                     }//end-if(json.status=="200")
                 }
             };//end- request.onreadystatechange = function ()
@@ -464,26 +596,28 @@
                             imgObj.src=newsContent[j]["n_img_url"];
                             divChild.appendChild(imgObj);
                             var h4Obj=document.createElement("h4");//h4新闻前言
-                            var aObj=document.createElement("a");//h4中的a,用于点击
-                            aObj.href="#";
                             h4Obj.className="eslipise_new";
                             divChild.appendChild(h4Obj);
-                            h4Obj.appendChild(aObj);
                             //aObj.onclick=lunboclick;//点击h4中a标签文字的一个点击事件。暂时还没写。
                             var pObj=document.createElement("p");
                             pObj.className="ckxq";
                             divChild.appendChild(pObj);
-                            var aObj2=document.createElement("a");
-                            aObj2.href="#";
-                            aObj2.innerHTML="查看详情";
-                            pObj.appendChild(aObj2);
-
-
                         }//end-for
                         var arr = document.getElementsByClassName("slide");
                         for (var i = 0; i < arr.length; i++) {
                             arr[i].style.top = i * 600 + "px";
-                        }
+                        }//end-for
+
+                        //点击新闻轮播图中的一个轮播新闻，那么就传一个新闻的n_id给new_detail()这个函数，用于显示详细界面5.29add
+                        var divObj= document.getElementById("lunbo").getElementsByTagName("div");
+                        for(var i=0;i<divObj.length;i++){
+                            (function(num){
+                                divObj[num].addEventListener("click",function () {
+                                    new_content();
+                                    new_detail(divObj[num].getAttribute("n_id"));
+                                })
+                            })(i);
+                        }//end-for
 
                     }
                 }
@@ -1303,7 +1437,7 @@
         </div>
     </div>
     <!--    新闻轮播-->
-    <div id="lunbo" class="newsDetails" onmouseover="stop()" onmouseout="start()" style="display: none" >
+    <div id="lunbo" class="newsDetails" onmouseover="stop()" onmouseout="start()"  >
         <!--        <div id="son1"  class="slide">-->
         <!--            <h1>外媒：科学家发现史上最强大超新星 或两太阳合并形成</h1>-->
         <!--            <hr>-->
@@ -1317,93 +1451,132 @@
     </div>
     <!--    新闻详情-->
     <div id="news_Conent" class="newsDetails" style="display: none">
-        <div class="box1_content" style="width: 120%;height: 600px;overflow-y: scroll;overflow-x: hidden;background-color: #ffffff;">
-            <div class="box2_content" style="height: 90%;width: 80%;margin-left:  23px;margin-bottom: 5%">
-                <h1>外媒：科学家发现史上最强大超新星 或两太阳合并形成</h1>
-                <table style="margin-top: -15px;margin-left: 5%">
-                    <tr>
-                        <td rowspan="2" width="50px;" style="font-size: 15px;"><img src="images/head.png" width="38px;"></td>
-                        <td  style="font-size: 14px;" width="370px;">小小粉刷匠</td>
-                        <td  rowspan="2" width="100">
-                            <button id="foucs_fr" onclick="attention()" style="background: #30b8e1; border-radius: 8px;color: #ffffff;width: 80px;">关注</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="font-size: 11px;">04-27 yue</td>
-                    </tr>
-                </table>
-                <hr>
-                <p class="psuoj">原标题：外媒：科学家发现史上最强大超新星 或由两个太阳合并形成</p>
+        <div id="newdaily_box1" class="box1_content" style="width: 120%;height: 600px;overflow-y: scroll;overflow-x: hidden;background-color: #ffffff;">
+<!--            <div class="box2_content" style="height: 90%;width: 80%;margin-left:  23px;margin-bottom: 5%">-->
+<!--                <h1>外媒：科学家发现史上最强大超新星 或两太阳合并形成</h1>-->
+<!--                <table style="margin-top: -15px;margin-left: 5%">-->
+<!--                    <tr>-->
+<!--                        <td rowspan="2" width="50px;" style="font-size: 15px;"><img src="images/head.png" width="38px;"></td>-->
+<!--                        <td  style="font-size: 14px;" width="370px;">小小粉刷匠</td>-->
+<!--                        <td  rowspan="2" width="100">-->
+<!--                            <button id="foucs_fr" onclick="attention()" style="background: #30b8e1; border-radius: 8px;color: #ffffff;width: 80px;">关注</button>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td style="font-size: 11px;">04-27 yue</td>-->
+<!--                    </tr>-->
+<!--                </table>-->
+<!--                <hr>-->
+<!--                <p class="psuoj">原标题：外媒：科学家发现史上最强大超新星 或由两个太阳合并形成</p>-->
 
-                <p class="psuoj"> 参考消息网4月14日报道据德新社伦敦4月14日报道，来自英国和美国的科学家在周一发表的一份研究报告中说，
-                    与普通超新星相比，有史以来观测到的最大恒星爆炸能量是其10倍，亮度是其500倍。</p>
+<!--                <p class="psuoj"> 参考消息网4月14日报道据德新社伦敦4月14日报道，来自英国和美国的科学家在周一发表的一份研究报告中说，-->
+<!--                    与普通超新星相比，有史以来观测到的最大恒星爆炸能量是其10倍，亮度是其500倍。</p>-->
 
-                <p class="psuoj">英国伯明翰大学和美国哈佛-史密森天体物理学中心的天文学家称，他们发现的SN2016aps是“来自巨大恒星、具有超常能量的超新星”。
+<!--                <p class="psuoj">英国伯明翰大学和美国哈佛-史密森天体物理学中心的天文学家称，他们发现的SN2016aps是“来自巨大恒星、具有超常能量的超新星”。-->
 
-                    研究报告的作者之一埃多·伯杰说，除了大小和亮度，这颗超新星的其他特点也很“惊人”。</p>
+<!--                    研究报告的作者之一埃多·伯杰说，除了大小和亮度，这颗超新星的其他特点也很“惊人”。</p>-->
 
-                <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。
+<!--                <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。-->
 
-                    报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>
+<!--                    报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>-->
 
-                <p class="psuoj">科学家希望，SN2016aps的发现能带来其他类似超新星的探测，并有助于回顾宇宙早期的状况。</p>
-                <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。
+<!--                <p class="psuoj">科学家希望，SN2016aps的发现能带来其他类似超新星的探测，并有助于回顾宇宙早期的状况。</p>-->
+<!--                <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。-->
 
-                    报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>
+<!--                    报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>-->
 
-                <p class="psuoj">科学家希望，SN2016aps的发现能带来其他类似超新星的探测，并有助于回顾宇宙早期的状况。</p>
-                <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。
+<!--                <p class="psuoj">科学家希望，SN2016aps的发现能带来其他类似超新星的探测，并有助于回顾宇宙早期的状况。</p>-->
+<!--                <p class="psuoj"> 报道称，这种超新星通过可见光散发的能量仅占1%，但SN2016aps的这一比例高得多。据估计，SN2016aps蕴含的能量相当于2乘以10的35次方吨TNT炸药。-->
 
-                    报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>
+<!--                    报道还称，由于爆炸云含有异常多的氢，天文学家认为这颗超新星最初是由两个太阳合并形成的。</p>-->
 
-                <p class="psuoj">科学家希望，SN2016aps的发现能带来其他类似超新星的探测，并有助于回顾宇宙早期的状况。</p>
-                <table style="margin-bottom: 8px;">
-                    <tr>
-                        <td width="420px"></td>
-                        <td width="60px;"><img src="images/zan.png" width="30"></td>
-                        <td><img src="images/cotake.png" width="30"></td>
-                    </tr>
-                </table>
-                <hr>
-            </div>
+<!--                <p class="psuoj">科学家希望，SN2016aps的发现能带来其他类似超新星的探测，并有助于回顾宇宙早期的状况。</p>-->
+<!--                <table style="margin-bottom: 8px;">-->
+<!--                    <tr>-->
+<!--                        <td width="420px"></td>-->
+<!--                        <td width="60px;"><img src="images/zan.png" width="30"></td>-->
+<!--                        <td><img src="images/cotake.png" width="30"></td>-->
+<!--                    </tr>-->
+<!--                </table>-->
+<!--                <hr>-->
+<!--            </div>-->
         </div>
 
     </div>
     <!--    发布新闻-->
-    <div class="newsDetails" id="addNews" style="display: none">
-        <h2>添加新闻</h2>
-        <table style="padding-left: 20px;">
+    <div class="newsDetails" id="addNews"style="display: none">
+        <h2 class="layui-bg-green" style="height: 33px;font-size: 24px;font-family: 楷体"><label style="margin-left: 82.5%">发布新闻</label></h2>
+        <form class="layui-form" action="" style="margin-top: 20px;margin-left: 20px;">
+            <div class="layui-form-item">
+                <label class="layui-form-label">新闻标题</label>
+                <div class="layui-input-block">
+                    <textarea id="title_news" required="required" cols="50" rows="2"></textarea>
+                </div>
+            </div>
 
-            <tr >
-                <td>新闻标题：</td>
-                <td><textarea id="title_news" required="required" cols="30" rows="2"></textarea> </td>
-            </tr>
-            <tr>
-                <td>新闻类别：</td>
-                <td>
-                    <select id="fbnewstype">
+            <div class="layui-form-item">
+                <label class="layui-form-label">新闻类别</label>
+                <div class="layui-input-block" style="width:200px; ">
+
+                    <select id="fbnewstype" >-->
 
                     </select>
-                </td>
-            </tr>
-            <tr>
-                <td>发布内容：</td>
-                <td><textarea id="news_content" required="required" cols="50" rows="6"></textarea></td>
-            </tr>
-            <tr>
-                <td>图片/视频：</td>
-                <td><input  type="file"/></td>
-            </tr>
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">发布内容</label>
+                <div class="layui-input-block" style="width: 450px;">
+                    <textarea id="news_content" name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">图片/视频</label>
+                <div class="layui-input-block">
+                    <button  type="button" class="layui-btn" >
+                        <i class="layui-icon">&#xe67c;</i>上传图片/视频
+                    </button>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button onclick="fabu()" class="layui-btn" lay-submit lay-filter="formDemo">发布</button>
+                    <button class="layui-btn" onclick="xiangxi()">取消</button>
+                </div>
+            </div>
+        </form>
+<!--        <h2>添加新闻</h2>-->
+<!--        <table style="padding-left: 20px;">-->
 
-            <tr>
-                <td ></td>
-                <td><button onclick="xiangxi()">取消</button><button onclick="fabu()" style="margin-left: 280px;">发布</button> </td>
-                <td></td>
-            </tr>
-        </table>
+<!--            <tr >-->
+<!--                <td>新闻标题：</td>-->
+<!--                <td><textarea id="title_news" required="required" cols="30" rows="2"></textarea> </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>新闻类别：</td>-->
+<!--                <td>-->
+<!--                    <select id="fbnewstype">-->
+
+<!--                    </select>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>发布内容：</td>-->
+<!--                <td><textarea id="news_content" required="required" cols="50" rows="6"></textarea></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>图片/视频：</td>-->
+<!--                <td><input  type="file"/></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td ></td>-->
+<!--                <td><button onclick="xiangxi()">取消</button>
+<button onclick="fabu()" style="margin-left: 280px;">发布</button> </td>-->
+<!--                <td></td>-->
+<!--            </tr>-->
+<!--        </table>-->
     </div>
     <!--    修改信息-->
-    <div id="alterInfo" class="newsDetails" >
+    <div id="alterInfo" class="newsDetails"  style="display: none" >
         <h2 class="layui-bg-green" style="height: 33px;font-size: 24px;font-family: 楷体"><label style="margin-left: 82.5%">修改资料</label></h2>
         <form class="layui-form" action="" style="margin-top: 10px;">
         <div class="layui-form-item">
@@ -1436,7 +1609,7 @@
             <table style="margin-left: 2%">
                 <tr>
                     <td><button  id="save_info" onclick="save_info()" class="layui-btn" style="margin-left: 100px;margin-top: 20px">确定</button></td>
-                    <td><input type="reset" id="Realter" class="layui-btn" style="margin-left: 50px;margin-top: 20px"> </td>
+                    <td><input type="reset" id="Realter" class="layui-btn" style="margin-left: 50px;margin-top: 20px"></td>
                 </tr>
             </table>
     </form>
