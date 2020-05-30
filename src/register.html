@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>注册界面</title>
     <link href="main.css" rel="stylesheet">
+    <link rel="stylesheet" href="layui/css/layui.css" >
     <style type="text/css">
         #canvas{
             cursor: pointer;
@@ -26,40 +27,51 @@
 </head>
 <body >
 <div class="box2">
-    <div style="height: 60px;font-size: 30px;">
-            <div style="padding: 12px" >
-            <img src="images/back-line.png" width="20px" onclick="goback()"/>
-                <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;完善信息</strong>
+    <div style="height: 60px;font-size: 30px;background: #393D49">
+        <div style="padding: 12px">
+            <a href="#" style="text-decoration: none"> <i class="layui-icon layui-icon-left"style="color: #ffffff;font-size: 28px" onclick="goback()"></i></a>
+            <strong style="font-size: 35px;color: #ffffff;font-family: 楷体;margin-left: 23%">完善信息</strong>
         </div>
+
     </div>
-    <hr style="background: #87cefa;height: 4px;border-radius: 8px">
     <form name="register" method="post" action="register.html" style="margin-top: 25px;margin-left: 50px">
-        <p >
-            <img src="images/phone.png" width="25px" > : &nbsp;&nbsp;
-            <input type="number" id="phone" required="required"    placeholder=" Phone" style="height: 25px;border-radius: 8px" />
-            <span style="margin-left: 6px;color: darkgrey">请输入11位手机号</span>
-        </p>
-
-        <p >
-            <img src="images/password.png" width="25px"> : &nbsp;&nbsp;
-            <input type="password" id="password"  required="required"  style="height: 25px;border-radius: 8px" placeholder=" Password"/>
-            <span style="font-size: 8px; margin-left: 6px;color: darkgrey">请输入6位的数字</span>
-        </p>
-
+        <table style="margin-left:2%;border-collapse: separate;border-spacing: 5px 7px;">
+            <tr>
+                <td width="40px"><i class="layui-icon layui-icon-cellphone" style="font-size: 26px;"></i></td>
+                <td><input type="text" id="phone" title="请填写正确的手机号" name="title" required  lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input" style="height: 35px;width: 210px;border-radius: 5px;border-color: #393D49"></td>
+            </tr>
+            <tr >
+                <td width="40px"><i class="layui-icon layui-icon-password" style="font-size: 26px;"></i></td>
+                <td><input type="password" id="password" title="请输入6位数字" name="title" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" style="height: 35px;width: 210px;border-radius: 5px;border-color: #393D49"></td>
+            </tr>
+            <tr >
+                <td width="40px"><i class="layui-icon layui-icon-auz" style="font-size: 26px;"></i></td>
+                <td><input type="password" id="pswagin" title="与密码保持一致" name="title" required  lay-verify="required" placeholder="PasswordAgain" autocomplete="off" class="layui-input" style="height: 35px;width: 210px;border-radius: 5px;border-color: #393D49"></td>
+            </tr>
+            <tr >
+                <td width="40px"><i class="layui-icon layui-icon-vercode" style="font-size: 26px;"></i></td>
+                <td><input type="text" id="txt2"  name="title" required  lay-verify="required" placeholder="Code" autocomplete="off" class="layui-input" style="height: 35px;width: 210px;border-radius: 5px;border-color: #393D49"></td>
+            </tr>
+        </table>
         <p>
-            <img src="images/passwordAgain.png" width="25px;"> : &nbsp;&nbsp;
-            <input type="password" id="pswagin"  required="required"  style="height: 25px;border-radius: 8px" placeholder=" PasswordAgain"/>
-            <span style="font-size: 8px; margin-left: 6px;color: darkgrey">请与密码保持一致</span>
-        </p>
-        <p>
-            <img src="images/Code.png" width="25px;"> :&nbsp;&nbsp;&nbsp;
-            <input type="text" id="txt2"  style="height: 25px;border-radius: 8px" placeholder=" Code"/>
             <canvas id="canvas" width="150px" height="50px" style="margin-top: 15px;margin-left: 65px"></canvas>
-            <input type="button" value="点击换一张" onclick="drawPic()" style="margin-top: -50px;"/>
-<!--          </div>-->
+<!--            <input type="button" value="点击换一张" onclick="drawPic()" style="margin-top: -50px;"/>-->
+            <a href="#" style="text-decoration: none" title="换一张"><i onclick="drawPic()" class="layui-icon layui-icon-refresh" style="font-size: 30px;margin-left: 5px;"></i></a>
         </p>
         <p id="createResult"></p>
-            <input type="button"  id="forr" onclick="bindevent()" style="margin-top: 10px;margin-left: -5px;font-size: 25px; width: 300px;background: #87cefa;border-radius: 8px" />
+        <input type="button"  id="forr" class="layui-btn layui-btn-radius" onclick="bindevent()" style="margin-top: 20px;margin-left: -5px;font-size: 25px; width: 300px;border-radius: 8px;background: #393D49" />
+
+
+
+<!--        <p>-->
+<!--            <img src="images/Code.png" width="25px;"> :&nbsp;&nbsp;&nbsp;-->
+<!--            <input type="text" id="txt2"  style="height: 25px;border-radius: 8px" placeholder=" Code"/>-->
+<!--            <canvas id="canvas" width="150px" height="50px" style="margin-top: 15px;margin-left: 65px"></canvas>-->
+<!--            <input type="button" value="点击换一张" onclick="drawPic()" style="margin-top: -50px;"/>-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+<!--        </p>-->
+<!--        <p id="createResult"></p>-->
+<!--            <input type="button"  id="forr" onclick="bindevent()" style="margin-top: 10px;margin-left: -5px;font-size: 25px; width: 300px;background: #87cefa;border-radius: 8px" />-->
             <script>
                 function bindevent() {
                     var phone = document.getElementById("phone").value;

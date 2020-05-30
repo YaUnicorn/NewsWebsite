@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>登陆界面</title>
+    <link rel="stylesheet" href="layui/css/layui.css" >
     <link href="main.css" rel="stylesheet">
     <script language="JavaScript">
         function pd() {
@@ -62,31 +63,36 @@
 </head>
 <body >
 <div class="box" >
-    <div style="height: 60px;font-size: 30px;">
+    <div style="height: 60px;font-size: 30px;background: #393D49">
         <div style="padding: 12px">
-            <img src="images/back-line.png" width="20px" onclick="backMain()"/>
-            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登录</strong>
+            <i class="layui-icon layui-icon-left"style="color: #ffffff;font-size: 28px" onclick="backMain()"></i>
+            <strong style="font-size: 35px;color: #ffffff;font-family: 楷体;margin-left: 27%">登录</strong>
         </div>
     </div>
-    <hr style="background: #87cefa;height: 4px;border-radius: 8px">
-    <form name="login" method="post" action="" style="margin-top: 25px;margin-left: 50px">
-        <p >
-            <img src="images/phone.png" width="20px" > : &nbsp;&nbsp;
-            <input type="number" id="phone"  title="请填写正确的手机号" placeholder="请输入手机号" style="height: 25px;border-radius: 8px" />
-        </p>
-        <p >
-            <img src="images/password.png" width="20px"> : &nbsp;&nbsp;
-            <input type="password" id="password" style="height: 25px;border-radius: 8px"   title="请输入6位数字" placeholder="请输入密码"/>
-        </p>
-        <p id="msg" style="font-size: 16px;color: red"></p>
+
+    <form name="login" method="post" action="" style="margin-top: 30px;margin-left: 50px">
+        <table style="margin-left:-2%;border-collapse: separate;border-spacing: 2px 12px;">
+           <tr>
+               <td width="40px"><i class="layui-icon layui-icon-cellphone" style="font-size: 26px;"></i></td>
+               <td><input type="text" id="phone" title="请填写正确的手机号" name="title" required  lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input" style="height: 35px;width: 180px;border-radius: 5px;border-color: #393D49"></td>
+           </tr>
+           <tr style="margin-top: 10px;">
+               <td width="40px"><i class="layui-icon layui-icon-password" style="font-size: 26px;"></i></td>
+               <td><input type="password" id="password" title="请输入6位数字" name="title" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" style="height: 35px;width: 180px;border-radius: 5px;border-color: #393D49"></td>
+           </tr>
+            <tr>
+                <td colspan="2"><p id="msg" style="font-size: 18px;color: red;font-family: 楷体"></p></td>
+            </tr>
+        </table>
         <p>
-            <input type="button" value="登录" onclick="pd()" style="margin-top: 15px;margin-left:0px;background: #87cefa;  width: 220px;font-size: 25px;border-radius: 10px">
+            <input type="button" class="layui-btn layui-btn-radius" value="登录" onclick="pd()" style="margin-top: 15px;margin-left:5px;background: #393D49;  width: 220px;font-size: 25px;border-radius: 10px">
+        </p>
+        <p  style="margin-top: 30px;">
+            <label onclick="forget()"><a href="#" style="text-decoration: none;font-family: 楷体;color: #000000;font-size: 15px;margin-left: 5%"> 忘记密码</a></label>
+            <label onclick="register()"><a href="#" style="text-decoration: none;font-family: 楷体;color: #000000;font-size: 15px;margin-left: 38%"> 注册</a></label>
 
         </p>
-        <p>
-            <input type="button" value="忘记密码?"  onclick="forget()" style="margin-left: 35px;width: 70px;font-size: 8px;margin-top: 20px;border-radius: 8px"/>
-            <input type="button" value="注册"  onclick="register()" style="margin-left: 50px;border-radius: 8px"/>
-        </p>
+
      </form>
 </div>
 </div>
