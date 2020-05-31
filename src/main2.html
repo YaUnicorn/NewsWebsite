@@ -413,6 +413,11 @@
                         var h1Obj = document.createElement("h1");
 
                         h1Obj.innerHTML = json["data"][0]["n_title"];//次处需要使用获取到的新闻标题
+                         // var n_title11= json["data"][0]["n_title"];
+                        localStorage.setItem("n_title11",json["data"][0]["n_title"]);
+                        localStorage.setItem("new_id",new_id);
+                        // create(new_id,n_title11);
+
                         newdailyObj.appendChild(h1Obj);
                         var tableTop = document.createElement("table");
                         tableTop.setAttribute('style', 'margin-top:-15px;margin-left:5%');
@@ -509,14 +514,9 @@
                             buttonfocus.onclick=promptBox;
                         }//end-else
 
-
                     }//end-if (json.status == "200")
                 }//end-if (request.readyState === 4 && request.status === 200)
             }//end-request.onreadystatechange = function ()
-
-
-
-
 
         }//end-fun function new_detail(n_id,u_author_id)
 
@@ -896,49 +896,51 @@
 
         //新闻详细内容点赞
         function NewsConyent_Zan(uid1,nid1){
-            promptBox();
-
-            if(document.getElementById("zan_img").value==1){
-
-                var uid=uid1;
-                var nid=nid1;
-                var request = new XMLHttpRequest();
-                request.open("GET", " http://139.199.55.139:8080/api/like/insertLike?" +
-                    "u_id=" + uid+"&n_id="+nid);
-                request.send();
-                request.onreadystatechange = function () {
-                    if (request.readyState === 4 && request.status === 200) {
-                        var json = JSON.parse(request.responseText);
-                        if (json.status == "200") {
-                            alert(json.message);
-                            document.getElementById("zan_img").value=0;
-                            document.getElementById("zan_img").src="images/zaned.png";
+            // promptBox();
+            if(id!=null){
+                if(document.getElementById("zan_img").value==1){
+                    var uid=uid1;
+                    var nid=nid1;
+                    var request = new XMLHttpRequest();
+                    request.open("GET", " http://139.199.55.139:8080/api/like/insertLike?" +
+                        "u_id=" + uid+"&n_id="+nid);
+                    request.send();
+                    request.onreadystatechange = function () {
+                        if (request.readyState === 4 && request.status === 200) {
+                            var json = JSON.parse(request.responseText);
+                            if (json.status == "200") {
+                                alert(json.message);
+                                document.getElementById("zan_img").value=0;
+                                document.getElementById("zan_img").src="images/zaned.png";
+                            }
+                        }if (json.status == "500") {
+                            alert("失败");
                         }
-                    }if (json.status == "500") {
-                        alert("失败");
+                    }
+                }//取消点赞
+                else if(document.getElementById("zan_img").value==0){
+                    var uid=uid1;
+                    var nid=nid1;
+                    var request = new XMLHttpRequest();
+                    request.open("GET", " http://139.199.55.139:8080/api/like/deleteLike?" +
+                        "u_id=" + uid+"&n_id="+nid);
+                    request.send();
+                    request.onreadystatechange = function () {
+                        if (request.readyState === 4 && request.status === 200) {
+                            var json = JSON.parse(request.responseText);
+                            if (json.status == "200") {
+                                alert(json.message);
+                                document.getElementById("zan_img").value==1;
+                                document.getElementById("zan_img").src="images/zaning.png";
+                            }
+                        }if (json.status == "500") {
+
+                            alert("取消失败");
+                        }
                     }
                 }
-            }//取消点赞
-            else if(document.getElementById("zan_img").value==0){
-                var uid=uid1;
-                var nid=nid1;
-                var request = new XMLHttpRequest();
-                request.open("GET", " http://139.199.55.139:8080/api/like/deleteLike?" +
-                    "u_id=" + uid+"&n_id="+nid);
-                request.send();
-                request.onreadystatechange = function () {
-                    if (request.readyState === 4 && request.status === 200) {
-                        var json = JSON.parse(request.responseText);
-                        if (json.status == "200") {
-                            alert(json.message);
-                            document.getElementById("zan_img").value==1;
-                            document.getElementById("zan_img").src="images/zaning.png";
-                        }
-                    }if (json.status == "500") {
-
-                        alert("取消失败");
-                    }
-                }
+            }else{
+                alert("请先登录");
             }
         }
         //加载新闻评论
@@ -998,28 +1000,41 @@
             document.getElementById("comment").value="";
         }
         //发布评论
-        function create(n_id){
+        function create(){
 
             var id = localStorage.getItem("id");//用户id
-            var nw_id=n_id;//新闻id
-            alert(nw_id);
+            var nw_id=localStorage.getItem("new_id");
+            var tit_id=localStorage.getItem("n_title11");
+
+            // alert(tit_id);
             var request = new XMLHttpRequest();
             request.open("POST", "http://139.199.55.139:8080/api/remark/insertNewsRemark?");
 
-            var data = "r_uid=" + id + "&r_nid=" + nw_id+
-                "&r_title=" +  + "&r_content=" + document.getElementById("comment").value;
 
+            var data = "r_uid=" + id + "&r_nid=" + nw_id+
+                "&r_title="+tit_id  + "&r_content=" + document.getElementById("comment").value;
             request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             request.send(data);
-            // alert(id);
+
+            alert(nw_id);
+            alert(data);
+
             request.onreadystatechange = function () {
                 if (request.readyState === 4 && request.status === 200) {
-
                     var json = JSON.parse(request.responseText);
-
+                    // alert(json.message);
                     if (json.status == "200") {
-                        alert(json.message);
+                        var childtr1=document.createElement("tr");
+                        var td1=document.createElement("td");
+                        var td2=document.createElement("td");
+                        childtr1.appendChild(td1);
+                        childtr1.appendChild(td2);
 
+                        td1.innerHTML="我";
+
+                        document.getElementById("Comms_tab").appendChild(childtr1);
+
+                        alert(json.message);
                     } else if (json.status == "500") {
                         alert("上传失败");
                     }
@@ -1706,17 +1721,17 @@
         }
 
         //发布评论
-        function create() {
-            var comm = document.getElementById("comment").value;
-            // var commResult=document.getElementById("commentResult").value;
-            if (comm.length > 0) {
-                document.getElementById("commentResult").innerHTML = comm;
-                document.getElementById("comment").value = "";
-            } else if (comm.length == 0) {
-                //
-                alert("评论内容不能为空！");
-            }
-        }
+        // function create() {
+        //     var comm = document.getElementById("comment").value;
+        //     // var commResult=document.getElementById("commentResult").value;
+        //     if (comm.length > 0) {
+        //         document.getElementById("commentResult").innerHTML = comm;
+        //         document.getElementById("comment").value = "";
+        //     } else if (comm.length == 0) {
+        //         //
+        //         alert("评论内容不能为空！");
+        //     }
+        // }
 
         function huifu1() {
             var huifu = document.getElementById("huifu1");
