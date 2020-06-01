@@ -60,18 +60,6 @@
         </p>
         <p id="createResult"></p>
         <input type="button"  id="forr" class="layui-btn layui-btn-radius" onclick="bindevent()" style="margin-top: 20px;margin-left: -5px;font-size: 25px; width: 300px;border-radius: 8px;background: #393D49" />
-
-
-
-<!--        <p>-->
-<!--            <img src="images/Code.png" width="25px;"> :&nbsp;&nbsp;&nbsp;-->
-<!--            <input type="text" id="txt2"  style="height: 25px;border-radius: 8px" placeholder=" Code"/>-->
-<!--            <canvas id="canvas" width="150px" height="50px" style="margin-top: 15px;margin-left: 65px"></canvas>-->
-<!--            <input type="button" value="点击换一张" onclick="drawPic()" style="margin-top: -50px;"/>-->
-<!--&lt;!&ndash;          </div>&ndash;&gt;-->
-<!--        </p>-->
-<!--        <p id="createResult"></p>-->
-<!--            <input type="button"  id="forr" onclick="bindevent()" style="margin-top: 10px;margin-left: -5px;font-size: 25px; width: 300px;background: #87cefa;border-radius: 8px" />-->
             <script>
                 function bindevent() {
                     var phone = document.getElementById("phone").value;
@@ -88,7 +76,6 @@
                         alert("请输入正确的手机号！");
                     } else if (psw.length != 6) {
                         alert("密码不正确");
-
                     } else if (txt2 == "") {
                         alert("验证码为空");
                     } else if (txt2 == mcavs) {//正确
@@ -105,7 +92,7 @@
                                     var json = JSON.parse(request.responseText);
                                     if (json.status == "200") {
                                         alert(json.message);
-                                        window.location.href = "main2.html";
+                                        window.location.href = "login.html";
                                     } else if (json.status == "500") {
                                         document.getElementById("createResult").innerHTML = json.message + ",手机号已经存在!！！";
                                         document.getElementById("createResult").style.color = "red";
@@ -123,9 +110,9 @@
                                 if(request.readyState===4&&request.status===200){
                                     var json = JSON.parse(request.responseText);
                                     if (json.status == "200") {
-                                        alert(json.message);
-                                        window.location.href = "main2.html";
-                                    } else if (json.status == "500") {
+                                        alert(json.message); window.location.href = "login.html";
+
+                                    }else if (json.status == "500") {
                                         document.getElementById("createResult").innerHTML = json.message;
                                     }
                                 }
