@@ -372,7 +372,6 @@
                                 attention(my_id,f_id);
                             };
                         }
-
                     }//end-if (json.status == "200")
                 }//end- if (request.readyState === 4 && request.status === 200)
             }//end-request.onreadystatechange = function ()
@@ -483,7 +482,8 @@
                         var imgBig = document.createElement("img");//存放图片
                         imgBig.className = "news_img";
                         imgBig.src = json["data"][0]["n_img_url"];
-                        pObj.innerHTML =  json["data"][0]["n_content"];
+                        pObj.innerHTML =  json["data"][0]["n_content"].replace("\n","<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                        // pObj.innerHTML =  json["data"][0]["n_content"];
                         pObj.className = "psuoj";
                         newdailyObj.appendChild(divPB);
                         divPB.appendChild(pObj);
@@ -544,10 +544,10 @@
         }//end-fun function new_detail(n_id,u_author_id)
 
         //默认显示综合的新闻XL
-        function defaultNews() {
+        function defaultNews(ndefault_id) {
             var request = new XMLHttpRequest();
             request.open("GET", " http://139.199.55.139:8080/api/news/selectNewsByType?" +
-                "n_type=" + "3");
+                "n_type=" + ndefault_id);
             request.send();
             request.onreadystatechange = function () {
                 if (request.readyState === 4 && request.status === 200) {
@@ -559,7 +559,7 @@
                         var newsdatath = [];//存放对应新闻id的信息对象 数组
                         var newsith = 0;
                         for (var f = 0; f < json["data"].length; f++) {
-                            if (json["data"][f]["n_type"] == "3") {
+                            if (json["data"][f]["n_type"] == ndefault_id) {
                                 sametypeth++;
                                 newsdatath[newsith++] = json["data"][f];
                             }
@@ -615,10 +615,10 @@
         }
 
         //默认显示综合的新闻轮播图XL
-        function defaultLunBo() {
+        function defaultLunBo(ndefault_id) {
             var request = new XMLHttpRequest();
             request.open("GET", " http://139.199.55.139:8080/api/news/selectNewsByType?" +
-                "n_type=" + 3);//传递所点击的li标签的index自定义属性，里面存放着新闻种类的id.
+                "n_type=" + ndefault_id);//传递所点击的li标签的index自定义属性，里面存放着新闻种类的id.
             request.send();
             request.onreadystatechange = function () {
                 if (request.readyState === 4 && request.status === 200) {
@@ -628,7 +628,7 @@
                         var newsContent = [];//准备存放轮播图中的新闻
                         var newslunboi = 0;
                         for (var i = 0; i < json["data"].length; i++) {
-                            if (3 == json["data"][i]["n_type"]) {
+                            if (ndefault_id == json["data"][i]["n_type"]) {
                                 newsnum++;
                                 newsContent[newslunboi++] = json["data"][i];
                             }
@@ -839,9 +839,6 @@
         function navlist() {
             var newsType_name = [];//存放获取到的新闻的名字  一个数组XL
             var newsType_id = [];//存放获取到的对应的新闻的id 一个数组XL
-            defaultNews();//默认显示综合的新闻缩略
-            defaultLunBo();//默认显示综合的新闻轮播
-            //默认显示的是综合的新闻轮播,还没有做。------------
             var request = new XMLHttpRequest();//创建一个XMLHttpRequest
             request.open("GET", "http://139.199.55.139:8080/api/news/getType");
             request.send();
@@ -849,6 +846,11 @@
                 if (request.readyState === 4 && request.status === 200) {
                     var json = JSON.parse(request.responseText);//获取json代码
                     if (json.status == "200") {
+                        localStorage.setItem("navliDefaultId",json["data"][0]["type_id"]);
+                        var ndefault_id=localStorage.getItem("navliDefaultId");
+                        defaultNews(ndefault_id);//默认显示综合的新闻缩略
+                        defaultLunBo(ndefault_id);//默认显示综合的新闻轮播
+                        //默认显示的是综合的新闻轮播,还没有做。------------
                         for (var i = 0; i < json["data"].length; i++) {
                             newsType_name[i] = json["data"][i]["type_name"];
                             newsType_id[i] = json["data"][i]["type_id"];
@@ -873,7 +875,7 @@
                             //第一件事情，给li标签添加自定义属性index来存放新闻种类id
                             //目前是体育6，军事5，娱乐4，综合3；默认是综合被选中，颜色是淡蓝色
                             navli[k].setAttribute("index", newsType_id[k]);
-                            if (navli[k].getAttribute("index") == 3) {
+                            if (navli[k].getAttribute("index") == ndefault_id) {
                                 navli[k].getElementsByTagName("a")[0].style.color = "#a4a3d1";
                             }
                             (function (num) {
@@ -924,7 +926,7 @@
             if(id!=null){
 
                 if(document.getElementById("zan_img").value==1){
-                    // alert(document.getElementById("zan_img").value);
+
                     var uid=uid1;
                     var nid=nid1;
                     var request = new XMLHttpRequest();
@@ -956,7 +958,7 @@
                             var json = JSON.parse(request.responseText);
                             if (json.status == "200") {
                                 // alert(json.message);
-                                document.getElementById("zan_img").value==1;
+                                document.getElementById("zan_img").value=1;
                                 document.getElementById("zan_img").src="images/zaning.png";
                             }
                         }if (json.status == "500") {
@@ -971,12 +973,12 @@
         }
         //加载新闻评论
         function Content_Comms(n_id) {
-
             var new_id=n_id;
             var TalkData=[];
             var request=new XMLHttpRequest();
             request.open("GET", " http://139.199.55.139:8080/api/remark/getNewsRemark?" + "n_id="+new_id);
             request.send();
+            // alert(new_id);
             request.onreadystatechange = function () {
                 if (request.readyState === 4 && request.status === 200) {
                     var json = JSON.parse(request.responseText);
@@ -996,24 +998,20 @@
                             chitr.innerHTML = "暂时没有评论";
                             document.getElementById("Comms_tab").appendChild(chitr);
                         }
-                        // // alert(json["data"].length);
 
                         if(json["data"].length!=0){
-
-                            // document.getElementById("Comms_tab").removeChild();
                             for(var j=0;j<json["data"].length;j++){
-                             var childtr1=document.createElement("tr");
-                             var Name_td1=document.createElement("td");
-                             var Content_td2=document.createElement("td");
-                             childtr1.appendChild(Name_td1);
-                             childtr1.appendChild(Content_td2);
+                                var childtr1=document.createElement("tr");
+                                var Name_td1=document.createElement("td");
+                                var Content_td2=document.createElement("td");
+                                childtr1.appendChild(Name_td1);
+                                childtr1.appendChild(Content_td2);
 
-
-                             Name_td1.style.fontSize="16px";
-                             // Name_td1
-                             Name_td1.innerHTML=TalkData[j]["r_uid"]+":";
-                             Content_td2.innerHTML=TalkData[j]["r_content"];
-                             document.getElementById("Comms_tab").appendChild(childtr1);
+                                Name_td1.style.fontSize="16px";
+                                // Name_td1
+                                Name_td1.innerHTML=TalkData[j][0]["u_name"]+":";
+                                Content_td2.innerHTML=TalkData[j][1]["r_content"];
+                                document.getElementById("Comms_tab").appendChild(childtr1);
                                 // document.getElementById("Comms_tab").remove();
                             }
                         }
@@ -1021,50 +1019,60 @@
                     }else {
                         alter("内容格式不正确");
                     }
-        }}}
+                    document.getElementById("logining").style.display='block';
+                    document.getElementById("logined").style.display='none';
+                }}}
         //重置评论区
         function reset() {
             document.getElementById("comment").value="";
         }
         //发布评论
         function create(){
+            var name=localStorage.getItem("name");
+
                 var id = localStorage.getItem("id");//用户id
-                var nw_id=localStorage.getItem("new_id");
-                var tit_id=localStorage.getItem("n_title11");
+                if(id==null){
+                    alert("请先登录");
+                }else{
+                    var nw_id=localStorage.getItem("new_id");
+                    var tit_id=localStorage.getItem("n_title11");
 
-                // alert(tit_id);
-                var request = new XMLHttpRequest();
-                request.open("POST", "http://139.199.55.139:8080/api/remark/insertNewsRemark?");
+                    // alert(tit_id);
+                    var request = new XMLHttpRequest();
+                    request.open("POST", "http://139.199.55.139:8080/api/remark/insertNewsRemark?");
 
 
-                var data = "r_uid=" + id + "&r_nid=" + nw_id+
-                    "&r_ntitle="+tit_id  + "&r_content=" + document.getElementById("comment").value;
-                request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                request.send(data);
-                // alert(nw_id);
-                // alert(data);
-                request.onreadystatechange = function () {
+                    var data = "r_uid=" + id + "&r_nid=" + nw_id+
+                        "&r_ntitle="+tit_id  + "&r_content=" + document.getElementById("comment").value;
+                    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    request.send(data);
+                    // alert(nw_id);
+                    // alert(data);
+                    request.onreadystatechange = function () {
 
-                    if (request.readyState === 4 && request.status === 200) {
-                        var json = JSON.parse(request.responseText);
+                        if (request.readyState === 4 && request.status === 200) {
+                            var json = JSON.parse(request.responseText);
 
-                        if (json.status == "200") {
+                            if (json.status == "200") {
 
-                            var childtr1=document.createElement("tr");
-                            var td1=document.createElement("td");
-                            var td2=document.createElement("td");
-                            childtr1.appendChild(td1);
-                            childtr1.appendChild(td2);
-                            td1.innerHTML=id+":";
-                            td2.innerHTML=document.getElementById("comment").value;
-                            document.getElementById("Comms_tab").appendChild(childtr1);
-                            reset();
-                            // alert(json.message);
-                        } else if (json.status == "500") {
-                            alert("上传失败");
+                                var childtr1=document.createElement("tr");
+                                var td1=document.createElement("td");
+                                var td2=document.createElement("td");
+                                childtr1.appendChild(td1);
+                                childtr1.appendChild(td2);
+                                td1.innerHTML=name+":";
+                                td2.innerHTML=document.getElementById("comment").value;
+                                document.getElementById("Comms_tab").appendChild(childtr1);
+                                reset();
+                                // alert(json.message);
+                            } else if (json.status == "500") {
+                                alert("上传失败");
+                            }
                         }
                     }
                 }
+
+
         }
 
         // 轮播图
@@ -1221,13 +1229,10 @@
                                     var json = JSON.parse(request.responseText);
                                     if (json.status == "200") {
 
-                                        //
-                                        // alert(n_id);
                                         var baba = document.getElementById("Name_time");
                                         var imgs = baba.getElementsByTagName("img");
                                         for (var i = 0; i < imgs.length; i++) {
                                             if (n_id == imgs[i].value) {
-                                                // alert("SHUZI " + i);
                                                 var son = imgs[i].parentNode.parentNode.parentNode;
                                                 baba.removeChild(son);
                                             }
@@ -1492,7 +1497,6 @@
                                 };
                             })(j);
 
-                            // comms_title.style.cssText = "border:1px solid #F00;border-radius: 5px;";
                             // childtr2.appendChild(name_td);
                             childtr2.appendChild(comms_title);
                             childtr2.appendChild(dele_comms);
@@ -1543,11 +1547,6 @@
             };
         }
 
-        //修改头像页面，更换头像
-        function changeImg(val) {
-            document.getElementById("showing").src = val;
-        }
-
         //修改资料
         function alter() {
             var lunbo = document.getElementById("lunbo");
@@ -1589,47 +1588,6 @@
                 alterInfo.style.display = 'none';
             }
         }
-
-        //取消关注
-        function GZ() {
-            var con;
-            if (document.getElementById("cancelfoucs").innerHTML == "已关注") {
-                con = confirm("确定取消关注吗？");
-                if (con == true) {
-                    alert("取消关注成功！");
-                    document.getElementById("nn1").remove();
-                    // document.getElementById("cancelfoucs").innerHTML="关注";
-                }
-            }
-        }
-
-        // //查看评论
-        // function talk_rearch() {
-        //     var comments_rearch = document.getElementById("comments_rearch");
-        //     if (comments_rearch.style.display != 'block') {
-        //         comments_rearch.style.display = 'block';
-        //     } else {
-        //         comments_rearch.style.display = 'none';
-        //     }
-        //
-        // }
-
-        // //删除评论
-        // function delete_talk() {
-        //     var con;
-        //     con = confirm("确定要删除这条评论吗？？？")
-        //     if (con == true) {
-        //         alert("删除成功！");
-        //         document.getElementById("talk1").remove();
-        //     }
-        // }
-
-        // //点赞
-        // function link_like() {
-        //     if (document.getElementById("like").style.color != "#f00") {
-        //         document.getElementById("like").style.color = "#f00";
-        //     }
-        // }
 
         //退出登录
         function BackLogin() {
