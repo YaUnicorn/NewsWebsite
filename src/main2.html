@@ -21,7 +21,6 @@
             background: #393D49;
         }
 
-        /*123*/
         /*右边*/
         .Myinfo {
             box-sizing: border-box;
@@ -36,7 +35,6 @@
 
         body {
             background: whitesmoke;
-            /*background: #f4f4f4;*/
         }
 
         /*新闻分类*/
@@ -94,19 +92,6 @@
             font-size: 18px;
         }
 
-        /*轮播图中的轮播新闻没有写son1,son2,son3这个id名，所以注释XL*/
-        /*#son1{*/
-        /*    !*background-color: #6ce26c;*!*/
-        /*    width: 100%;*/
-        /*}*/
-        /*#son2{*/
-        /*    background-color: lightskyblue;*/
-        /*    !*width: 900px;*!*/
-        /*}*/
-        /*#son3{*/
-        /*    background-color: beige;*/
-        /*    !*width: 900px;*!*/
-        /*}*/
         .slide {
             width: 100%;
             height: 600px;
@@ -129,8 +114,6 @@
             margin-top: 1px;
             margin-left: 8px;
             max-width: 360px;
-            /*white-space: nowrap;*/
-
         }
 
         .eslipise_new {
@@ -138,7 +121,6 @@
             font-size: 16px;
             margin-left: 12px;
             margin-top: 3px;
-
         }
 
         .comms {
@@ -148,12 +130,11 @@
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 3;
-            max-width: 300%;
+            max-width: 300px;
             font-size: 16px;
-            margin-left: 12px;
-            margin-top: 3px;
+            margin-left:25px;
+            margin-top: 5px;
             /*background: #e6e6e6;*/
-            background: #6ce26c;
             border-radius: 5px;
         }
 
@@ -169,11 +150,12 @@
             position: absolute;
             overflow: hidden;
             margin-bottom: 20px;
+            background: #FFFFFF;
         }
 
         .box2 {
             height: 100%;
-            width: 90%;
+            width: 100%;
             margin-bottom: 20px;
         }
 
@@ -201,17 +183,20 @@
             height: 70px;
             border-radius: 5px;
             margin-left: 15%;
+            margin-top: 5px;
         }
 
         .Nametd {
-            margin-left: 100%;
+            /*margin-left: 100%;*/
             width: 80px;
+            font-size: 20px;
+
         }
 
         .deteleNewsImg {
             height: 20px;
             width: 20px;
-            margin-left: 400%;
+            margin-left: 10%;
         }
 
         .news_title {
@@ -219,23 +204,22 @@
         }
 
         .focusImg {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 15px;
-            margin-left: 10%;
-            margin-top: 8px;
+            margin-left:16px;
+            margin-top: 10px;
         }
 
         .focus_Btn {
-            margin-left: 310%;
+            margin-left: 160%;
             width: 65px;
         }
 
         .linkStyle {
-            font-size: 32px;
+            font-size: 20px;
             font-family: 楷体;
         }
-
         /*详细新闻界面中所点击的×号的样式设置*/
         .newdaily_back {
             width: 20px;
@@ -243,27 +227,71 @@
             position: absolute;
             right: 15px;
         }
+        .news_titles{
+            text-indent: 1em;
+            font-weight: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            margin-left: 20px;
+            font-size: 18px;
+            width: 240px;
+        }
+        .User{
+            /*background:#009688 ;*/
+            /*font-size: 18px;*/
+            margin-top: 15px;
+        }
+        .Tim_td{
+            width: 240px;
+        }
+        .tdFimg{width: 80px;height: 60px;border-radius:5px;margin-top: 4px;padding-bottom:9px;}
+        .tdSa{
+            /*text-indent: 1em;*/
+            font-weight: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            margin-left: 8px;
+            font-size: 15px;
+            margin-top: 0px;
+            padding-right: 4px;
+            /*width: 240px;*/
+        }
+        .spanFirst2{
+            margin-top: 0px;
+            /*margin-left: 55%}*/margin-left: 110px;}
+        .focus_Name{font-size:18px;margin-left: 20px;width: 150px;}
+        .td0Class{width: 60px;}
+        .likenewsimg2{width: 55px;height: 55px;margin-top: 15px;}
+        .zan_titles{margin-left: 15px;}
+        .comms_title{width: 280px;margin-left: 8%;}
+        .chidtr11{margin-top: 8px;margin-left: 10px;}
+        .Name_tdC{margin-left: 20px;}
+        .comment_box{
+            box-sizing: border-box;
+            border: 1px solid #666;
+            border-radius: 5px;
+            /*定位*/
+            position: absolute;
+            /*top:20%;*/
+            left: 0%;
+            height: 56.5%;
+            width: 100%;
+            display: inline;
+            overflow: hidden;
+            /*height:75%;*/
+            margin-top: 0px;font-size: 16px;background: #ffffff
+        }
 
+     /*/
     </style>
     <script src="layui/layui.js"></script>
     <script src="//res.layui.com/layui/dist/layui.js" charset="utf-8"></script>
-    <!--    <script>-->
-    <!--        layui.use('upload', function(){-->
-    <!--            var upload = layui.upload;-->
-
-    <!--            //执行实例-->
-    <!--            var uploadInst = upload.render({-->
-    <!--                elem: '#test1' //绑定元素-->
-    <!--                ,url: '/upload/' //上传接口-->
-    <!--                ,done: function(res){-->
-    <!--                    //上传完毕回调-->
-    <!--                }-->
-    <!--                ,error: function(){-->
-    <!--                    //请求异常回调-->
-    <!--                }-->
-    <!--            });-->
-    <!--        });-->
-    <!--    </script>-->
     <script>
         //注意：导航 依赖 element 模块，否则无法进行功能性操作
         layui.use('element', function () {
@@ -274,7 +302,7 @@
             var element = layui.element;
             //一些事件监听
             element.on('tab(demo)', function (data) {
-                console.log(data);
+                // console.log(data);
             });
         });
     </script>
@@ -285,18 +313,52 @@
 
             //监听提交
             form.on('submit(formDemo)', function (data) {
-                layer.msg(JSON.stringify(data.field));
+                // layer.msg(JSON.stringify(data.field));
                 return false;
             });
         });
     </script>
     <script>
-
         var photos = localStorage.getItem("photoes");
         var name = localStorage.getItem("name");
         var online = localStorage.getItem("online");
         //新闻导航栏--数据库
         //详细新闻中有一个取消信息回退的×号按钮 5.29add----------------------------------------------
+        //提示弹框，您未登录，请先登录!5.31(1)
+        function promptBox(){
+            if(confirm("您未登录，请先登录!")){
+                window.location.href="login.html";
+            }else{}
+        }
+        //   5.31(1)判断是否是关注与被关注的关系参数u_id，f_ufid
+        function checkFocus(u_id,f_ufid){
+            var my_id=u_id;
+            var f_id=f_ufid;
+            var request = new XMLHttpRequest();
+            request.open("GET", " http://139.199.55.139:8080/api/follow/checkFollow?" +
+                "u_id=" + my_id+"&f_ufid="+f_id);//传递所当前登录者的id,为了获取这个id所获取到的focus_id
+            request.send();
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200) {
+                    var json = JSON.parse(request.responseText);//json解析返回的数据
+                    if (json.status == "200") {
+                        if(json.message=="已关注"){
+                            console.log(my_id+json.message+f_id);
+                            //当前登录者已经关注了新闻发布者
+                            document.getElementById("foucs_fr").innerHTML="已关注";
+                            document.getElementById("foucs_fr").onclick=function(){ alert("您已关注，请勿重复操作。若要取消关注，请去设置关注");};
+                        } else{//当前登录的用户没有关注所点击的新闻发布者
+                            document.getElementById("foucs_fr").innerHTML="关注";
+                            document.getElementById("foucs_fr").onclick=function(){
+                                attention(my_id,f_id);
+                            };
+                        }
+
+                    }//end-if (json.status == "200")
+                }//end- if (request.readyState === 4 && request.status === 200)
+            }//end-request.onreadystatechange = function ()
+        }//end- function returnFocus_id(u_id,u_fuid)
+        //详细新闻中有一个取消信息回退的×号按钮
         function newdailyback() {
             var lunbo = document.getElementById("lunbo");
             var addNews = document.getElementById("addNews");
@@ -311,94 +373,152 @@
         }
 
         //点击缩略新闻和点击轮播新闻都可以查看详细新闻----5.30add
-        function new_detail(d) {
-            console.log("所点击的新闻n_id是" + d);
+        function new_detail(n_id,u_author_id) {
+
+            var my_id=localStorage.getItem("id");
+            var new_id=n_id;
+            var new_author_id=u_author_id;
+
+            console.log("当前登录的id是" + my_id);
+            console.log("所点击的新闻n_id是" + new_id);
+            console.log("所点击的新闻的发布者是"+new_author_id);
+            Content_Comms(n_id);
+            //这里要写一个发送n_id的请求去申请详细的新闻。5.31(1)
+            var request = new XMLHttpRequest();
+            request.open("GET", " http://139.199.55.139:8080/api/news/selectDetailNews?" +
+                "n_id=" + new_id);
+            request.send();
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200) {
+                    var json = JSON.parse(request.responseText);//json解析返回的数据
+                    if (json.status == "200") {
+
+                        var newboxflag = document.getElementById("newdaily_box2");
+                        if (newboxflag) {
+                            console.log("有详细新闻的盒子存在,要做一个删除操作");
+                            document.getElementById("newdaily_box1").removeChild(document.getElementById("newdaily_box1").firstElementChild);
+                        }
+                        var newdailyObj = document.createElement("div");
+                        newdailyObj.className = "box2_content";
+                        newdailyObj.id = "newdaily_box2";
+                        newdailyObj.setAttribute("n_id",new_id );//给详细新闻页面中获取到的新闻块div设置一个n_id用于辨别这个新闻。
+                        newdailyObj.setAttribute("u_author_id", new_author_id);//给详细新闻页面中获取到的新闻块div设置一个u_author_id自定义属性用于辨别这个新闻。
+                        newdailyObj.setAttribute('style', 'height:90%;width:80%;margin-left:23px;margin-bottom:5%');
+                        document.getElementById("newdaily_box1").appendChild(newdailyObj);
+                        var imgObj = document.createElement("img");
+                        imgObj.src = "images/back1.png";
+                        imgObj.onclick = newdailyback;
+                        imgObj.className = "newdaily_back";
+                        newdailyObj.appendChild(imgObj);
+                        var h1Obj = document.createElement("h1");
+
+                        h1Obj.innerHTML = json["data"][0]["n_title"];//次处需要使用获取到的新闻标题
+                         // var n_title11= json["data"][0]["n_title"];
+                        localStorage.setItem("n_title11",json["data"][0]["n_title"]);
+                        localStorage.setItem("new_id",new_id);
+                        // create(new_id,n_title11);
+
+                        newdailyObj.appendChild(h1Obj);
+                        var tableTop = document.createElement("table");
+                        tableTop.setAttribute('style', 'margin-top:-15px;margin-left:5%');
+                        newdailyObj.appendChild(tableTop);
+                        var trFirst = document.createElement("tr");//这个tr是为了显示头像，昵称和关注按钮的
+                        tableTop.appendChild(trFirst);
+                        var td1photo = document.createElement("td");
+                        td1photo.rowSpan = "2";
+                        td1photo.setAttribute('style', 'width:50px;font-size:15px');
+                        trFirst.appendChild(td1photo);
+                        var imgphoto = document.createElement("img");
+                        imgphoto.src = "images/head.png";
+                        imgphoto.setAttribute('style', 'width:38px');
+                        td1photo.appendChild(imgphoto);
+                        var td2name = document.createElement("td");
+                        td2name.setAttribute('style', 'width:370px;font-size:14px');
+                        td2name.innerHTML = json["data"][1]["u_name"];
+                        trFirst.appendChild(td2name);
+                        var td3 = document.createElement("td");
+                        td3.rowSpan = "2";
+                        td3.setAttribute('style', 'width:100px');
+                        var buttonfocus = document.createElement("button");
+                        buttonfocus.id = "foucs_fr";//设置关注按钮的id名
+                        buttonfocus.onclick = attention;//设置关注的点击事件
+                        buttonfocus.setAttribute('style', 'background:#30b8e1;border-radius:8px;color:#ffffff;width:80px');
+                        //buttonfocus.innerHTML = "关注";自动生成，不需要设置
+                        trFirst.appendChild(td3);
+                        td3.appendChild(buttonfocus);
+                        var trSecond = document.createElement("tr");//这个tr里放的是日期
+                        var tddate = document.createElement("td");
+                        tddate.setAttribute('style', 'font-size:11px');
+                        tddate.innerHTML = json["data"][0]["n_release"];
+                        tableTop.appendChild(trSecond);
+                        trSecond.appendChild(tddate);
+                        newdailyObj.appendChild(document.createElement("hr"));
+                        var divPB = document.createElement("div");
+                        var pObj = document.createElement("p");
+                        //目前写的都是添加图片添加视频或者是图片5.31(1)
+                        var imgBig = document.createElement("img");//存放图片
+                        imgBig.className = "news_img";
+                        imgBig.src = json["data"][0]["n_img_url"];
+                        pObj.innerHTML =  json["data"][0]["n_content"];
+                        pObj.className = "psuoj";
+                        newdailyObj.appendChild(divPB);
+                        divPB.appendChild(pObj);
+                        divPB.appendChild(imgBig);
+                        var tableB = document.createElement("table");
+                        tableB.setAttribute('style', 'margin-button:8px');
+                        newdailyObj.appendChild(tableB);
+                        var trB = document.createElement("tr");
+                        tableB.appendChild(trB);
+                        var tdkong = document.createElement("td");
+                        tdkong.setAttribute('style', 'width:420px');
+                        trB.appendChild(tdkong);
+                        var tdzan = document.createElement("td");
+                        tdzan.setAttribute('style', 'width:60px');
+                        var imgzan = document.createElement("img");
+                        imgzan.src = "images/zaning.png";
+                        imgzan.id="zan_img";
+                        imgzan.width = 30;//这里需要添加点赞的点击事件
+                        imgzan.value=1;//1时可以点赞
+                        imgzan.onclick=function(){
+                            NewsConyent_Zan(my_id,newdailyObj.getAttribute("n_id"));
+                        };
+                        trB.appendChild(tdzan);
+                        tdzan.appendChild(imgzan);
+                        var tdcomment = document.createElement("td");
+                        var imgcomment = document.createElement("img");
+                        imgcomment.width = 30;
+                        imgcomment.src = "images/cotake.png";//这里需要添加评论的点击事件
+                        imgcomment.onclick=function () {
+                            Content_Comms(newdailyObj.getAttribute("n_id"));
+                        }
+                        trB.appendChild(tdcomment);
+                        tdcomment.appendChild(imgcomment);
+                        newdailyObj.appendChild(document.createElement("hr"));
 
 
-            var newboxflag = document.getElementById("newdaily_box2");
-            if (newboxflag) {
-                console.log("有详细新闻的盒子存在,要做一个删除操作");
-                document.getElementById("newdaily_box1").removeChild(document.getElementById("newdaily_box1").firstElementChild);
-            }
-            var newdailyObj = document.createElement("div");
-            newdailyObj.className = "box2_content";
-            newdailyObj.id = "newdaily_box2";
-            newdailyObj.setAttribute("n_id", d)//给详细新闻页面中获取到的新闻块div设置一个n_id用于辨别这个新闻。
-            newdailyObj.setAttribute('style', 'height:90%;width:80%;margin-left:23px;margin-bottom:5%');
-            document.getElementById("newdaily_box1").appendChild(newdailyObj);
-            var imgObj = document.createElement("img");
-            imgObj.src = "images/back1.png";
-            imgObj.onclick = newdailyback;
-            imgObj.className = "newdaily_back";
-            newdailyObj.appendChild(imgObj);
-            var h1Obj = document.createElement("h1");
-            h1Obj.innerHTML = "标题";//次处需要使用获取到的新闻标题
-            newdailyObj.appendChild(h1Obj);
-            var tableTop = document.createElement("table");
-            tableTop.setAttribute('style', 'margin-top:-15px;margin-left:5%');
-            newdailyObj.appendChild(tableTop);
-            var trFirst = document.createElement("tr");//这个tr是为了显示头像，昵称和关注按钮的
-            tableTop.appendChild(trFirst);
-            var td1photo = document.createElement("td");
-            td1photo.rowSpan = "2";
-            td1photo.setAttribute('style', 'width:50px;font-size:15px');
-            trFirst.appendChild(td1photo);
-            var imgphoto = document.createElement("img");
-            imgphoto.src = "images/head.png";
-            imgphoto.setAttribute('style', 'width:38px');
-            td1photo.appendChild(imgphoto);
-            var td2name = document.createElement("td");
-            td2name.setAttribute('style', 'width:370px;font-size:14px');
-            td2name.innerHTML = "昵称";
-            trFirst.appendChild(td2name);
-            var td3 = document.createElement("td");
-            td3.rowSpan = "2";
-            td3.setAttribute('style', 'width:100px');
-            var buttonfocus = document.createElement("button");
-            buttonfocus.id = "foucs_fr";//设置关注按钮的id名
-            buttonfocus.onclick = attention;//设置关注的点击事件
-            buttonfocus.setAttribute('style', 'background:#30b8e1;border-radius:8px;color:#ffffff;width:80px');
-            buttonfocus.innerHTML = "关注";
-            trFirst.appendChild(td3);
-            td3.appendChild(buttonfocus);
-            var trSecond = document.createElement("tr");//这个tr里放的是日期
-            var tddate = document.createElement("td");
-            tddate.setAttribute('style', 'font-size:11px');
-            tddate.innerHTML = "日期";
-            tableTop.appendChild(trSecond);
-            trSecond.appendChild(tddate);
-            newdailyObj.appendChild(document.createElement("hr"));
-            var divP = document.createElement("div");
-            var pObj = document.createElement("p");
-            pObj.innerHTML = "内容";
-            pObj.className = "psuoj";
-            newdailyObj.appendChild(divP);
-            divP.appendChild(pObj);
-            var tableB = document.createElement("table");
-            tableB.setAttribute('style', 'margin-button:8px');
-            newdailyObj.appendChild(tableB);
-            var trB = document.createElement("tr");
-            tableB.appendChild(trB);
-            var tdkong = document.createElement("td");
-            tdkong.setAttribute('style', 'width:420px');
-            trB.appendChild(tdkong);
-            var tdzan = document.createElement("td");
-            tdzan.setAttribute('style', 'width:60px');
-            var imgzan = document.createElement("img");
-            imgzan.src = "images/zan.png";
-            imgzan.width = 30;//这里需要添加点赞的点击事件
-            trB.appendChild(tdzan);
-            tdzan.appendChild(imgzan);
-            var tdcomment = document.createElement("td");
-            var imgcomment = document.createElement("img");
-            imgcomment.width = 30;
-            imgcomment.src = "images/cotake.png";//这里需要添加评论的点击事件
-            trB.appendChild(tdcomment);
-            tdcomment.appendChild(imgcomment);
-            newdailyObj.appendChild(document.createElement("hr"));
+                        //按钮的显示与其点击的操作5.31(1)add
+                        //当前已经有用户登录了
+                        if(my_id!=null){
+                            if(my_id==new_author_id){//当前登录的用户就是所点击新闻的发布者
+                                buttonfocus.innerHTML="本人";
+                                buttonfocus.onclick=function(){
+                                    alert("您好，作者大大");
+                                };
 
+                            }else{//调用函数，去判断有没有关注这个新闻发布的作者
+                                checkFocus(my_id,new_author_id);
+                            }
+                        }else{
+                            //当前没有用户登录 提示用户去登录
+                            buttonfocus.innerHTML="关注";
+                            buttonfocus.onclick=promptBox;
+                        }//end-else
 
-        }
+                    }//end-if (json.status == "200")
+                }//end-if (request.readyState === 4 && request.status === 200)
+            }//end-request.onreadystatechange = function ()
+
+        }//end-fun function new_detail(n_id,u_author_id)
 
         //默认显示综合的新闻XL
         function defaultNews() {
@@ -424,7 +544,8 @@
                         for (var g = 0; g < sametypeth; g++) {
 
                             var childnewth = document.createElement("tr");//一个新闻就是table中的一个tr
-                            childnewth.setAttribute("n_id",newsdatath[g]["n_id"])//5.30(2)
+                            childnewth.setAttribute("n_id", newsdatath[g]["n_id"])//5.30(2)
+                            childnewth.setAttribute("u_author_id",newsdatath[g]["u_author_id"]);//5.30(3)add
                             var tdFirstth = document.createElement("td");//第一行
                             var tdSecondth = document.createElement("td");//第二行
                             var spanFirstth = document.createElement("sapn");//第二行第一个标签放发布时间
@@ -437,17 +558,21 @@
                             childnewth.appendChild(tdSecondth);
                             tdFirstth.appendChild(tdFimgth);
                             tdSecondth.appendChild(tdSath);
-                            tdSecondth.appendChild(document.createElement("br"));//换行，将新闻缩略标题和新闻发布时间换行分离
+                            // tdSecondth.appendChild(document.createElement("br"));//换行，将新闻缩略标题和新闻发布时间换行分离
                             tdSecondth.appendChild(spanFirstth);
-                            // tdSecond.appendChild(spanSecondth);
-                            // tdFimgth.className="newsXLimg";
-                            tdFimgth.style.width = "80px";
-                            tdFimgth.style.height = "60px";
-                            tdFimgth.style.borderRadius = "5px";
+
+                            //CSS样式
+                            tdFimgth.className="tdFimg";
+                            tdSath.className="tdSa";
+                            spanFirstth.className="spanFirst2";
+
+                            // tdFimgth.style.width = "80px";
+                            // tdFimgth.style.height = "60px";
+                            // tdFimgth.style.borderRadius = "5px";
                             tdFimgth.src = newsdatath[g]["n_img_url"];
                             tdSath.innerHTML = newsdatath[g]["n_title"];
                             spanFirstth.innerHTML = newsdatath[g]["n_release"];
-                            spanFirstth.style.fontSize = "4px";
+                            // spanFirstth.style.fontSize = "4px";
 
                         }//end-for
                         //点击新闻缩略图中的一个缩略新闻，那么就传一个新闻的n_id给new_detail()这个函数，用于显示详细界面5.29add
@@ -456,7 +581,7 @@
                             (function (num) {
                                 trObj[num].addEventListener("click", function () {
                                     new_content();
-                                    new_detail(trObj[num].getAttribute("n_id"));
+                                    new_detail(trObj[num].getAttribute("n_id"),trObj[num].getAttribute("u_author_id"));
                                 })
                             })(i);
                         }//end-for
@@ -487,7 +612,8 @@
                         }//end-for
                         for (var j = 0; j < newsnum; j++) {
                             var divChild = document.createElement("div");//轮播模块中的一个轮播新闻图
-                            divChild.setAttribute("n_id",newsContent[j]["n_id"]);//5.30(2)add
+                            divChild.setAttribute("n_id", newsContent[j]["n_id"]);//5.30(2)add
+                            divChild.setAttribute("u_author_id",newsContent[j]["u_author_id"]);//5.30(3)add
                             divChild.className = "slide";
                             document.getElementById("lunbo").appendChild(divChild);
                             divChild.appendChild(document.createElement("hr"));
@@ -517,7 +643,7 @@
                             (function (num) {
                                 divObj[num].addEventListener("click", function () {
                                     new_content();
-                                    new_detail(divObj[num].getAttribute("n_id"));
+                                    new_detail(divObj[num].getAttribute("n_id"),divObj[num].getAttribute("u_author_id"));
                                 })
                             })(i);
                         }//end-for
@@ -564,36 +690,39 @@
                             if (index_type_id == json["data"][d]["n_type"]) {
                                 sametype++;
                                 newsdata[newsi++] = json["data"][d];
-
                             }
                         }//end-for
 
                         for (var e = 0; e < sametype; e++) {
                             var childnew = document.createElement("tr");//一个新闻就是table中的一个tr
-                            childnew.setAttribute("n_id",newsdata[e]["n_id"]);//5.30(2)add
+                            childnew.setAttribute("n_id", newsdata[e]["n_id"]);//5.30(2)add
+                            childnew.setAttribute("u_author_id",newsdata[e]["u_author_id"]);//5.30(3)add
                             var tdFirst = document.createElement("td");//第一行
                             var tdSecond = document.createElement("td");//第二行
                             var spanFirst = document.createElement("sapn");//第二行第一个标签放发布时间
                             // var spanSecond=document.createElement("sapn");//第二行第二个标签放发布作者 暂时没有使用到
                             var tdFimg = document.createElement("img");//放在第一个td里用来显示新闻图片
                             var tdSa = document.createElement("a");//放在第二个td里用来放新闻缩略标题
+                            //CSS样式
+
+                            tdFimg.className="tdFimg";
+                            tdSa.className="tdSa";
+                            spanFirst.className="spanFirst2";
+
                             // 标签之间的关系层次
                             document.getElementById("daily_recommds").appendChild(childnew);
                             childnew.appendChild(tdFirst);
                             childnew.appendChild(tdSecond);
+                            // childnew.appendChild(tdThird);
+
                             tdFirst.appendChild(tdFimg);
                             tdSecond.appendChild(tdSa);
-                            tdSecond.appendChild(document.createElement("br"));//换行，将新闻缩略标题和新闻发布时间换行分离
+                            // tdSecond.appendChild(document.createElement("br"));//换行，将新闻缩略标题和新闻发布时间换行分离
                             tdSecond.appendChild(spanFirst);
-                            // tdSecond.appendChild(spanSecond);
-                            // tdFimg.className="newsXLimg";
-                            tdFimg.style.width = "80px";
-                            tdFimg.style.height = "60px";
-                            tdFimg.style.borderRadius = "5px";
+
                             tdFimg.src = newsdata[e]["n_img_url"];
                             tdSa.innerHTML = newsdata[e]["n_title"];
                             spanFirst.innerHTML = newsdata[e]["n_release"];
-                            spanFirst.style.fontSize = "4px";
                         }//end-for
 
                         //点击新闻缩略图中的一个缩略新闻，那么就传一个新闻的n_id给new_detail()这个函数，用于显示详细界面5.29add
@@ -602,7 +731,7 @@
                             (function (num) {
                                 trObj[num].addEventListener("click", function () {
                                     new_content();
-                                    new_detail(trObj[num].getAttribute("n_id"));
+                                    new_detail(trObj[num].getAttribute("n_id"),trObj[num].getAttribute("u_author_id"));
 
                                 })
                             })(i);
@@ -641,7 +770,8 @@
 
                         for (var j = 0; j < newsnum; j++) {
                             var divChild = document.createElement("div");//轮播模块中的一个轮播新闻图
-                            divChild.setAttribute("n_id",newsContent[j]["n_id"]);//给每一个轮播新闻设置一个index，5.30(2)
+                            divChild.setAttribute("n_id", newsContent[j]["n_id"]);//给每一个轮播新闻设置一个index，5.30(2)
+                            divChild.setAttribute("u_author_id",newsContent[j]["u_author_id"]);//5.30(3)add
                             divChild.className = "slide";
                             document.getElementById("lunbo").appendChild(divChild);
                             divChild.appendChild(document.createElement("hr"));
@@ -672,7 +802,7 @@
                             (function (num) {
                                 divObj[num].addEventListener("click", function () {
                                     new_content();
-                                    new_detail(divObj[num].getAttribute("n_id"));
+                                    new_detail(divObj[num].getAttribute("n_id"),divObj[num].getAttribute("u_author_id"));
                                 })
                             })(i);
                         }//end-for
@@ -703,9 +833,9 @@
                         for (var j = 0; j < newsType_name.length; j++) {
                             var child = document.createElement("li");//创建li标签
                             var a = document.createElement("a");//创建a标签
-                            var str = "   |   ";
+                            // var str = "|";
                             a.href = "#";
-                            a.innerHTML = newsType_name[j] + str;//ul>li>a标签里是新闻类别的名字
+                            a.innerHTML = newsType_name[j] ;//ul>li>a标签里是新闻类别的名字
                             a.style.color = "#ffffff";
                             child.appendChild(a);//中动态添加a标签
                             child.className = "layui-nav-item";
@@ -762,6 +892,155 @@
                     ;//end-内if
                 }
             };
+        }
+
+        //新闻详细内容点赞
+        function NewsConyent_Zan(uid1,nid1){
+            // promptBox();
+            if(id!=null){
+                if(document.getElementById("zan_img").value==1){
+                    var uid=uid1;
+                    var nid=nid1;
+                    var request = new XMLHttpRequest();
+                    request.open("GET", " http://139.199.55.139:8080/api/like/insertLike?" +
+                        "u_id=" + uid+"&n_id="+nid);
+                    request.send();
+                    request.onreadystatechange = function () {
+                        if (request.readyState === 4 && request.status === 200) {
+                            var json = JSON.parse(request.responseText);
+                            if (json.status == "200") {
+                                alert(json.message);
+                                document.getElementById("zan_img").value=0;
+                                document.getElementById("zan_img").src="images/zaned.png";
+                            }
+                        }if (json.status == "500") {
+                            alert("失败");
+                        }
+                    }
+                }//取消点赞
+                else if(document.getElementById("zan_img").value==0){
+                    var uid=uid1;
+                    var nid=nid1;
+                    var request = new XMLHttpRequest();
+                    request.open("GET", " http://139.199.55.139:8080/api/like/deleteLike?" +
+                        "u_id=" + uid+"&n_id="+nid);
+                    request.send();
+                    request.onreadystatechange = function () {
+                        if (request.readyState === 4 && request.status === 200) {
+                            var json = JSON.parse(request.responseText);
+                            if (json.status == "200") {
+                                alert(json.message);
+                                document.getElementById("zan_img").value==1;
+                                document.getElementById("zan_img").src="images/zaning.png";
+                            }
+                        }if (json.status == "500") {
+
+                            alert("取消失败");
+                        }
+                    }
+                }
+            }else{
+                alert("请先登录");
+            }
+        }
+        //加载新闻评论
+        function Content_Comms(n_id) {
+            var new_id=n_id;
+            var TalkData=[];
+            var request=new XMLHttpRequest();
+            request.open("GET", " http://139.199.55.139:8080/api/remark/getNewsRemark?" + "n_id="+new_id);
+            request.send();
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200) {
+                    var json = JSON.parse(request.responseText);
+                    if (json.status == "200") {
+                        // alert(json.message);
+                        for (var i=0;i<json["data"].length;i++){
+                            TalkData[i]=json["data"][i];
+                        }
+                        //删除数据
+                        var trs = document.getElementById("Comms_tab").getElementsByTagName("tr");
+                        alert(trs.length);
+                        for (var j = 0; j < trs.length;) {
+                            document.getElementById("Comms_tab").removeChild(trs[0]);
+                        }
+                        if(json["data"].length==0) {
+                            var chitr = document.createElement("tr");
+                            chitr.innerHTML = "暂时没有评论";
+                            document.getElementById("Comms_tab").appendChild(chitr);
+                        }
+                        // // alert(json["data"].length);
+
+                        if(json["data"].length!=0){
+
+                            // document.getElementById("Comms_tab").removeChild();
+                            for(var j=0;j<json["data"].length;j++){
+                             var childtr1=document.createElement("tr");
+                             var Name_td1=document.createElement("td");
+                             var Content_td2=document.createElement("td");
+                             childtr1.appendChild(Name_td1);
+                             childtr1.appendChild(Content_td2);
+
+
+                             Name_td1.style.fontSize="16px";
+                             // Name_td1
+                             Name_td1.innerHTML=TalkData[j]["r_uid"]+":";
+                             Content_td2.innerHTML=TalkData[j]["r_content"];
+                             document.getElementById("Comms_tab").appendChild(childtr1);
+                                // document.getElementById("Comms_tab").remove();
+                            }
+                        }
+
+                    }else {
+                        alter("失败");
+                    }
+        }}}
+        //重置评论区
+        function reset() {
+            document.getElementById("comment").value="";
+        }
+        //发布评论
+        function create(){
+
+            var id = localStorage.getItem("id");//用户id
+            var nw_id=localStorage.getItem("new_id");
+            var tit_id=localStorage.getItem("n_title11");
+
+            // alert(tit_id);
+            var request = new XMLHttpRequest();
+            request.open("POST", "http://139.199.55.139:8080/api/remark/insertNewsRemark?");
+
+
+            var data = "r_uid=" + id + "&r_nid=" + nw_id+
+                "&r_title="+tit_id  + "&r_content=" + document.getElementById("comment").value;
+            request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            request.send(data);
+
+            alert(nw_id);
+            alert(data);
+
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200) {
+                    var json = JSON.parse(request.responseText);
+                    // alert(json.message);
+                    if (json.status == "200") {
+                        var childtr1=document.createElement("tr");
+                        var td1=document.createElement("td");
+                        var td2=document.createElement("td");
+                        childtr1.appendChild(td1);
+                        childtr1.appendChild(td2);
+
+                        td1.innerHTML="我";
+
+                        document.getElementById("Comms_tab").appendChild(childtr1);
+
+                        alert(json.message);
+                    } else if (json.status == "500") {
+                        alert("上传失败");
+                    }
+                }
+            }
+
         }
 
         // 轮播图
@@ -824,7 +1103,7 @@
 
         //我的发布---数据库
         function Data_Realse() {
-            // //删除所有新闻tr，但是这个没有效果
+            // 避免重复显示
             var trfb = document.getElementById("Name_time").getElementsByTagName("tr");
             var trfblength = trfb.length;
             for (var h = 0; h < trfblength; h++) {
@@ -837,7 +1116,6 @@
             var request = new XMLHttpRequest();
             request.open("GET", " http://139.199.55.139:8080/api/news/myNews?" +
                 "u_id=" + id);
-            // alert(id);
             request.send();
             request.onreadystatechange = function () {
                 if (request.readyState === 4 && request.status === 200) {
@@ -846,31 +1124,32 @@
                         for (var i = 0; i < json["data"].length; i++) {
                             NewsMyData[i] = json["data"][i];
                         }
-                        //显示点赞的新闻
                         for (var j = 0; j < json["data"].length; j++) {
                             //第一行---用户名+时间
                             var Na_TimeTr = document.createElement("tr");
                             var Nametd = document.createElement("td");
                             var Timetd = document.createElement("td");
-                            Na_TimeTr.appendChild(Nametd);
-                            Na_TimeTr.appendChild(Timetd);
-                            Nametd.innerHTML = name;
-                            Nametd.className = Nametd;
-                            Timetd.innerHTML = NewsMyData[j]["n_release"];
-//第三行----删除新闻按钮
-                            var talkTr = document.createElement("tr");
-                            var newstd3 = document.createElement("td");
-
+                            var Imgtd=document.createElement("td");
                             var deleteNews = document.createElement("img");
                             (function (num) {
+                                deleteNews.value = NewsMyData[num]["n_id"];
+                                // alert("this is " + deleteNews.value);
                                 deleteNews.onclick = function () {
                                     delete_news(NewsMyData[num]["n_id"]);
                                 };
                             })(j);
-                            deleteNews.src = "images/back1.png";
+                            deleteNews.src = "images/Delete_Tong.png";
                             deleteNews.className = "deteleNewsImg";
-                            talkTr.appendChild(newstd3);
-                            newstd3.appendChild(deleteNews);
+                            Na_TimeTr.appendChild(Nametd);
+                            Na_TimeTr.appendChild(Timetd);
+                            Na_TimeTr.appendChild(Imgtd);
+                            Imgtd.appendChild(deleteNews);
+
+                            Nametd.innerHTML = name;
+                            Nametd.className = "Nametd";
+                            Timetd.innerHTML = NewsMyData[j]["n_release"];
+                            Na_TimeTr.className="User";
+                            Timetd.className="Tim_td";
 
                             //第二行-----新闻标题和图片
                             var newstr = document.createElement("tr");
@@ -883,42 +1162,57 @@
                             newstd1.appendChild(news_img);
                             newstd2.appendChild(news_a);
 
+                            // newstr.className="newstr";
+                            //第三行
+                            var hr1=document.createElement("hr");
+
                             news_img.src = NewsMyData[j]["n_img_url"];
                             news_a.innerHTML = NewsMyData[j]["n_title"];
                             news_img.className = "likenewsimg";
-                            news_a.className = "eslipise_new";
+                            news_a.className="news_titles";
+                            // news_a.className="news_titles";
 
-                            document.getElementById("Name_time").appendChild(Na_TimeTr);
-                            document.getElementById("Name_time").appendChild(talkTr);
-                            document.getElementById("Name_time").appendChild(newstr);
+                            var BigTr = document.createElement("tr");
+                            BigTr.appendChild(Na_TimeTr);
+                            // BigTr.appendChild(talkTr);
+                            BigTr.appendChild(newstr);
+                            BigTr.appendChild(hr1);
+
+                            document.getElementById("Name_time").appendChild(BigTr);
                         }
 
                         //删除新闻
-                        function delete_news(value) {
-                            var n_id = value;
-                            alert(n_id);
+                        function delete_news(img) {
+                            var n_id = img;
                             var request = new XMLHttpRequest();
                             request.open("GET", " http://139.199.55.139:8080/api/news/deleteNews?" +
                                 "n_id=" + n_id);
                             request.send();
+
                             request.onreadystatechange = function () {
                                 if (request.readyState === 4 && request.status === 200) {
                                     var json = JSON.parse(request.responseText);
                                     if (json.status == "200") {
-                                        alert(json.message);
 
-                                    }
-                                    if (json.status == "500") {
-                                        alert("删除失败");
+
+                                        alert(n_id);
+                                        var baba = document.getElementById("Name_time");
+                                        var imgs = baba.getElementsByTagName("img");
+                                        for (var i = 0; i < imgs.length; i++) {
+                                            if (n_id == imgs[i].value) {
+                                                alert("SHUZI " + i);
+                                                var son = imgs[i].parentNode.parentNode.parentNode;
+                                                baba.removeChild(son);
+                                            }
+                                        }
                                     }
                                 }
-                            };
+                            }
                         }
                     }
                 }//end-   if(json.status=="200")
             };//end- request.onreadystatechange = function ()
         }
-
         function release() {
             var release = document.getElementById("release");
             var guanzhu = document.getElementById("guanzhu");
@@ -932,11 +1226,8 @@
             }
             // Data_Realse();
         }
-
         //关注---数据库
         function Data_guanzhu() {
-
-            // //删除所有新闻tr，但是这个没有效果
             var focus_tr = document.getElementById("focusMy").getElementsByTagName("tr");
             var focus_trlength = focus_tr.length;
             for (var h = 0; h < focus_trlength; h++) {
@@ -961,9 +1252,11 @@
                         for (var j = 0; j < json["data"].length; j++) {
                             //第一行--名
                             var childtr1 = document.createElement("tr");
+                            var td0=document.createElement("td");
                             var td1 = document.createElement("td");
                             var td2 = document.createElement("td");
                             var td3 = document.createElement("td");
+                            var td0Img=document.createElement("img");
                             var td1Img = document.createElement("img");
                             // var td2_lab=document.createElement("span");
                             var tdName = document.createElement("td");
@@ -974,20 +1267,33 @@
                                     focus_Btn(id, focussdata[num]["u_id"]);
                                 };
                             })(j);
-
+                            childtr1.appendChild(td0);
                             childtr1.appendChild(td1);
                             childtr1.appendChild(td2);
                             childtr1.appendChild(td3);
                             td1.appendChild(td1Img);
                             td2.appendChild(tdName);
                             td3.appendChild(tdBtn);
+                            td0.appendChild(td0Img);
 
+                            td0Img.src="images/san.png";
+                            td0Img.style.width="20px";
+                            td0Img.style.marginLeft="15px";
+                            td1.style.width="100px";
+                            td2.style.width="100px";
+                            td2.style.marginLeft="10px";
                             td1Img.src = focussdata[j]["u_photo"];
                             td1Img.className = "focusImg";
                             tdName.innerHTML = focussdata[j]["u_name"];
                             tdName.className = "focus_Name";
-                            tdBtn.innerText = "已关注";
-                            tdBtn.className = "focus_Btn";
+                            tdBtn.innerText = "取消关注";
+                            // tdBtn.className = "focus_Btn";
+                            tdBtn.className="layui-btn layui-btn-radius";
+                            tdBtn.style.width="85px";
+                            tdBtn.style.height="30px";
+                            tdBtn.style.marginLeft="30px";
+                            tdBtn.style.paddingBottom="5px";
+                            // tdBtn.style.fontSize="16px";
 
                             document.getElementById("focusMy").appendChild(childtr1);
                         }
@@ -1018,7 +1324,6 @@
                 }
             }
         }
-
         function guanzhu() {
             var release = document.getElementById("release");
             var guanzhu = document.getElementById("guanzhu");
@@ -1032,7 +1337,6 @@
             }
             Data_guanzhu();
         }
-
         //点赞-数据库
         function zan() {
             //跳转
@@ -1071,25 +1375,32 @@
                         //显示点赞的新闻
                         for (var j = 0; j < json["data"].length; j++) {
                             var childtr = document.createElement("tr");
+                            var td0=document.createElement("td");
                             var tdFirst = document.createElement("td");
                             var tdSecond = document.createElement("td");
+                            // var td0lab=document.createElement("label");
                             var tdFimg = document.createElement("img");
                             var tdSa = document.createElement("a");
                             document.getElementById("like_news").appendChild(childtr);
+                            childtr.appendChild(td0);
                             childtr.appendChild(tdFirst);
                             childtr.appendChild(tdSecond);
+                            // td0.appendChild(td0lab);
                             tdFirst.appendChild(tdFimg);
                             tdSecond.appendChild(tdSa);
 
+                            childtr.className="User";
+                            td0.innerHTML="我赞了";
+                            td0.className="td0Class";
                             tdFimg.src = likedata[j]["n_img_url"];
                             tdSa.innerHTML = likedata[j]["n_title"];
-                            tdFimg.className = "likenewsimg";
+                            tdFimg.className = "likenewsimg2";
+                            tdSa.className="zan_titles";
                         }
                     }
                 }
             };
         }
-
         //评论--数据库
         function comments() {
             var release = document.getElementById("release");
@@ -1126,21 +1437,27 @@
                         }
                         for (var j = 0; j < json["data"].length; j++) {
                             //第一行--名
+                            var childtr0=document.createElement("tr");
                             var childtr1 = document.createElement("tr");
-                            var name_td = document.createElement("td");
-                            var comms_td = document.createElement("td");
 
-                            childtr1.appendChild(name_td);
+                            // name_td.innerHTML =  "评论了:";
+                            //新闻标题
+                            var comms_td = document.createElement("td");
                             childtr1.appendChild(comms_td);
 
-                            name_td.innerHTML = name + ":";
-                            comms_td.innerHTML = commentsdata[j]["r_content"];
+
+                            childtr0.innerHTML=commentsdata[j]["r_release"];
+
+
+                            comms_td.innerHTML = commentsdata[j]["r_ntitle"];
                             comms_td.className = "comms";
 
-                            //第二行--显示新闻标题
+                            //第二行--显示新闻评论
                             var childtr2 = document.createElement("tr");
-                            var dele_comms = document.createElement("td");
                             var comms_title = document.createElement("td");
+                            var dele_comms = document.createElement("td");
+                            // var name_td = document.createElement("td");
+
                             var deleBtn = document.createElement("button");
                             (function (num) {
                                 deleBtn.onclick = function () {
@@ -1148,16 +1465,30 @@
                                 };
                             })(j);
 
-                            comms_title.style.cssText = "border:1px solid #F00;border-radius: 5px;";
-                            childtr2.appendChild(dele_comms);
+                            // comms_title.style.cssText = "border:1px solid #F00;border-radius: 5px;";
+                            // childtr2.appendChild(name_td);
                             childtr2.appendChild(comms_title);
+                            childtr2.appendChild(dele_comms);
                             dele_comms.appendChild(deleBtn);
+                            // name_td.innerHTML =  "评论了:";
                             deleBtn.innerText = "删除";
-                            comms_title.innerHTML = commentsdata[j]["r_ntitle"];
-                            deleBtn.style.cssText = "width:50px;height:20px; margin-left: 10px;margin-right: 7px;";
+                            comms_title.innerHTML = "评论了："+commentsdata[j]["r_content"];
+                            comms_title.className="comms_title";
+                            // comms_title.style.background="#000000";
+                            // deleBtn.style.cssText = "width:50px;height:20px;";
+                            // childtr2.style.marginTop="8px";
+                            deleBtn.className="layui-btn layui-btn-radius";
+                            deleBtn.style.height="30px";
+                            deleBtn.style.width="70px";
+                            deleBtn.style.marginLeft="9px";
 
+                            var childtr3 = document.createElement("tr");
+                            var hrr=document.createElement("hr");
+                            childtr3.appendChild(hrr);
+                            document.getElementById("commentsNew").appendChild(childtr0);
                             document.getElementById("commentsNew").appendChild(childtr1);
                             document.getElementById("commentsNew").appendChild(childtr2);
+                            document.getElementById("commentsNew").appendChild(childtr3);
                         }
 
                         //删除评论
@@ -1203,6 +1534,7 @@
                 news_Conent.style.display = 'none';
             }
         }
+        // 123
 
         //发布
         function addnew() {
@@ -1366,31 +1698,40 @@
         }
 
         //关注作者
-        function attention() {
-            var con;
-            if (document.getElementById("foucs_fr").innerHTML == "已关注") {
-                alert("请到 “我的关注” 操作");
-            } else {
-                con = confirm("确定关注吗？");
-                if (con == true) {
-                    alert("关注成功！");
-                    document.getElementById("foucs_fr").innerHTML = "已关注";
+        //点击某个位置进入到详细新闻页面的时候，当此时系统有用户登录且未关注这个所点击的新闻发布者时候5.31(1)------------------
+        //整个地方都要修改。
+        function attention(my_id,new_author_id) {
+            //这里要写的操作是添加所关注的id.
+            var my_ID=my_id;
+            var f_ID=new_author_id;
+            var request = new XMLHttpRequest();
+            request.open("GET", " http://139.199.55.139:8080/api/follow/insertFollow?" +
+                "u_id=" + my_ID+"&f_ufid="+f_ID);
+            request.send();
+            // alert(id);
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200) {
+                    var json = JSON.parse(request.responseText);
+                    if (json.status == "200") {
+                        document.getElementById("foucs_fr").innerHTML="已关注";
+                        console.log(json.message);
+                    }
                 }
-            }
+            }//end-request.onreadystatechange = function ()
         }
 
         //发布评论
-        function create() {
-            var comm = document.getElementById("comment").value;
-            // var commResult=document.getElementById("commentResult").value;
-            if (comm.length > 0) {
-                document.getElementById("commentResult").innerHTML = comm;
-                document.getElementById("comment").value = "";
-            } else if (comm.length == 0) {
-                //
-                alert("评论内容不能为空！");
-            }
-        }
+        // function create() {
+        //     var comm = document.getElementById("comment").value;
+        //     // var commResult=document.getElementById("commentResult").value;
+        //     if (comm.length > 0) {
+        //         document.getElementById("commentResult").innerHTML = comm;
+        //         document.getElementById("comment").value = "";
+        //     } else if (comm.length == 0) {
+        //         //
+        //         alert("评论内容不能为空！");
+        //     }
+        // }
 
         function huifu1() {
             var huifu = document.getElementById("huifu1");
@@ -1412,9 +1753,7 @@
             } else {
                 alert("请先登录");
             }
-
         }
-
         //返回评论页面
         function go_comms() {
             var logining = document.getElementById("logining");
@@ -1425,9 +1764,9 @@
             }
 
         }
-
         //修改资料-数据库
-        function save_info() {
+        function alter_infos() {
+
             var id = localStorage.getItem("id");
             alert(id);
             var request = new XMLHttpRequest();
@@ -1464,7 +1803,6 @@
 
             }
         }
-
         //发布新闻---数据库
         function fabu() {
             if (document.getElementById("title_news").value == "" || document.getElementById("news_content").value == "") {
@@ -1506,17 +1844,16 @@
             }
         }
 
+
+
     </script>
 </head>
 <body>
 <div class="news">
     <!--    //导航栏-->
     <div class="newsTypeBar">
-
         <ul class="layui-nav" lay-filter="" id="newsnav">
-
         </ul>
-
         <script>
             //注意：导航 依赖 element 模块，否则无法进行功能性操作
             layui.use('element', function () {
@@ -1524,7 +1861,6 @@
                 //…
             });
         </script>
-
     </div>
     <!--    分类-->
     <div class="newsType">
@@ -1535,7 +1871,6 @@
             <hr>
             <!--            这个table里面会显示对应的新闻XL,一个新闻是一个tr-->
             <table id="daily_recommds" style="margin-left: 18px;">
-
             </table>
         </div>
     </div>
@@ -1629,7 +1964,7 @@
             <table style="margin-left: 2%">
                 <tr>
                     <td>
-                        <button id="save_info" onclick="save_info()" class="layui-btn"
+                        <button id="save_info" onclick="alter_infos()" class="layui-btn"
                                 style="margin-left: 100px;margin-top: 20px">确定
                         </button>
                     </td>
@@ -1662,28 +1997,18 @@
                 </p>
             </div>
             <!--            评论区-->
-            <div id="comment_box" style="height:75%;margin-top: -5px;font-size: 16px;background: #ffffff">
-                <p style="font-size: 16px;margin-top: 5px;margin-left: 5px;">
-                    <img src="images/talkk.png" width="25px;" height="25px">
-                </p>
-                <span id="talk_Name1">王子轩</span>
-                <label>:</label>
-                <span style="font-size: 16px;width: 250px;">OMG !是我师傅！</span>
+            <div id="comment_box" class="comment_box" style="">
+                <div style="width: 105%;height:100%;overflow-y: scroll;overflow-x: hidden;">
+                    <div >
+                        <p style="font-size: 16px;margin-top: 8px;margin-left: 5px;">
+                            <img src="images/talkk.png" width="25px;" height="25px">
+                        </p>
+                        <table id="Comms_tab" style="margin-left: 15px;border-collapse:separate; border-spacing:10px 15px;">
 
-                <button style="font-size: 10px;color: #7c7c7c;" onclick="huifu1()">回复</button>
-                <br>
-                <span id="huifuResult1" style="margin-left: 8px;font-size: 12px;display: none">我
-                                    <span style="color: blue;margin-left: 3px;font-size: 10px;">回复</span>
+                        </table>
+                    </div>
 
-                                    <span style="margin-left: 5px;">:</span>
-                                    <span id="info_hf1" style="font-size: 13px;"></span>
-                                </span>
-                <p id="huifu1" style="margin-top: 5px;margin-left: 18px;display: none">
-                    <input type="text" id="info_text1"
-                           style="border-radius: 5px;width: 180px;height: 20px;font-size: 12px;" placeholder="回复消息">
-                    <button style="background: #56B4DC;border-radius: 3px;" onclick="send_info()">发送</button>
-                </p>
-                <p id="commentResult" style="margin-left: 5px;"></p>
+                </div>
             </div>
         </div>
         <!--        发表评论-->
@@ -1746,12 +2071,13 @@
             <div style="width: 105%;height:100%;overflow-y: scroll;overflow-x: hidden;">
                 <!--        发布-->
                 <div id="release" class="box2">
-                    <table id="Name_time">
+                    <table id="Name_time" style="margin-top: 8px;margin-left: 5px;">
                     </table>
 
                 </div>
                 <!--        关注-->
                 <div id="guanzhu" class="box2" style="display: none">
+                    <h2 style="font-size: 22px;font-family: 楷体;">关注好友</h2>
                     <table id="focusMy">
 
                     </table>
