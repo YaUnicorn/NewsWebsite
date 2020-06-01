@@ -46,6 +46,7 @@
             height: 93.5%;
             width: 35%;
             margin-top: 60px;
+
         }
 
         /*新闻分类导航栏*/
@@ -175,7 +176,11 @@
         }
 
         .psuoj {
-            text-indent: 2em
+            text-indent: 2em;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 1px;
+            white-space: pre-line;
         }
 
         .likenewsimg {
@@ -261,6 +266,8 @@
             margin-top: 0px;
             padding-right: 4px;
             /*width: 240px;*/
+            letter-spacing: 1px;
+            line-height: 18px;
         }
         .spanFirst2{
             margin-top: 0px;
@@ -286,6 +293,17 @@
             overflow: hidden;
             /*height:75%;*/
             margin-top: 0px;font-size: 16px;background: #ffffff
+        }
+        .h1Obj{
+            /*text-indent: 1em;*/
+            font-weight: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            font-size: 30px;
+            padding-bottom: 28px;
         }
 
      /*/
@@ -403,7 +421,8 @@
                         newdailyObj.id = "newdaily_box2";
                         newdailyObj.setAttribute("n_id",new_id );//给详细新闻页面中获取到的新闻块div设置一个n_id用于辨别这个新闻。
                         newdailyObj.setAttribute("u_author_id", new_author_id);//给详细新闻页面中获取到的新闻块div设置一个u_author_id自定义属性用于辨别这个新闻。
-                        newdailyObj.setAttribute('style', 'height:90%;width:80%;margin-left:23px;margin-bottom:5%');
+                        newdailyObj.setAttribute('style', 'height:90%;width:80%;margin-left:23px;margin-bottom:5%;');
+                        // newdailyObj.style.paddingBottom="20px";
                         document.getElementById("newdaily_box1").appendChild(newdailyObj);
                         var imgObj = document.createElement("img");
                         imgObj.src = "images/back1.png";
@@ -413,6 +432,9 @@
                         var h1Obj = document.createElement("h1");
 
                         h1Obj.innerHTML = json["data"][0]["n_title"];//次处需要使用获取到的新闻标题
+                        // h1Obj.style.marginBottom="10px";
+                        h1Obj.className="h1Obj";
+
                          // var n_title11= json["data"][0]["n_title"];
                         localStorage.setItem("n_title11",json["data"][0]["n_title"]);
                         localStorage.setItem("new_id",new_id);
@@ -442,7 +464,8 @@
                         var buttonfocus = document.createElement("button");
                         buttonfocus.id = "foucs_fr";//设置关注按钮的id名
                         buttonfocus.onclick = attention;//设置关注的点击事件
-                        buttonfocus.setAttribute('style', 'background:#30b8e1;border-radius:8px;color:#ffffff;width:80px');
+                        buttonfocus.setAttribute('style', 'color:#ffffff;width:70px;height:30px;');
+                        buttonfocus.className="layui-btn layui-btn-radius";
                         //buttonfocus.innerHTML = "关注";自动生成，不需要设置
                         trFirst.appendChild(td3);
                         td3.appendChild(buttonfocus);
@@ -479,6 +502,7 @@
                         imgzan.id="zan_img";
                         imgzan.width = 30;//这里需要添加点赞的点击事件
                         imgzan.value=1;//1时可以点赞
+                        imgzan.style.paddingBottom="20px";
                         imgzan.onclick=function(){
                             NewsConyent_Zan(my_id,newdailyObj.getAttribute("n_id"));
                         };
@@ -488,13 +512,13 @@
                         var imgcomment = document.createElement("img");
                         imgcomment.width = 30;
                         imgcomment.src = "images/cotake.png";//这里需要添加评论的点击事件
+                        imgcomment.style.paddingBottom="20px";
                         imgcomment.onclick=function () {
                             Content_Comms(newdailyObj.getAttribute("n_id"));
                         }
                         trB.appendChild(tdcomment);
                         tdcomment.appendChild(imgcomment);
                         newdailyObj.appendChild(document.createElement("hr"));
-
 
                         //按钮的显示与其点击的操作5.31(1)add
                         //当前已经有用户登录了
@@ -513,11 +537,9 @@
                             buttonfocus.innerHTML="关注";
                             buttonfocus.onclick=promptBox;
                         }//end-else
-
                     }//end-if (json.status == "200")
                 }//end-if (request.readyState === 4 && request.status === 200)
             }//end-request.onreadystatechange = function ()
-
         }//end-fun function new_detail(n_id,u_author_id)
 
         //默认显示综合的新闻XL
@@ -897,8 +919,12 @@
         //新闻详细内容点赞
         function NewsConyent_Zan(uid1,nid1){
             // promptBox();
+            var id=localStorage.getItem("id");
+// alert(id);
             if(id!=null){
+
                 if(document.getElementById("zan_img").value==1){
+                    alert(document.getElementById("zan_img").value);
                     var uid=uid1;
                     var nid=nid1;
                     var request = new XMLHttpRequest();
@@ -945,6 +971,7 @@
         }
         //加载新闻评论
         function Content_Comms(n_id) {
+
             var new_id=n_id;
             var TalkData=[];
             var request=new XMLHttpRequest();
@@ -992,7 +1019,7 @@
                         }
 
                     }else {
-                        alter("失败");
+                        alter("内容格式不正确");
                     }
         }}}
         //重置评论区
@@ -1001,46 +1028,43 @@
         }
         //发布评论
         function create(){
+                var id = localStorage.getItem("id");//用户id
+                var nw_id=localStorage.getItem("new_id");
+                var tit_id=localStorage.getItem("n_title11");
 
-            var id = localStorage.getItem("id");//用户id
-            var nw_id=localStorage.getItem("new_id");
-            var tit_id=localStorage.getItem("n_title11");
-
-            // alert(tit_id);
-            var request = new XMLHttpRequest();
-            request.open("POST", "http://139.199.55.139:8080/api/remark/insertNewsRemark?");
+                // alert(tit_id);
+                var request = new XMLHttpRequest();
+                request.open("POST", "http://139.199.55.139:8080/api/remark/insertNewsRemark?");
 
 
-            var data = "r_uid=" + id + "&r_nid=" + nw_id+
-                "&r_title="+tit_id  + "&r_content=" + document.getElementById("comment").value;
-            request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            request.send(data);
+                var data = "r_uid=" + id + "&r_nid=" + nw_id+
+                    "&r_ntitle="+tit_id  + "&r_content=" + document.getElementById("comment").value;
+                request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                request.send(data);
+                // alert(nw_id);
+                alert(data);
+                request.onreadystatechange = function () {
 
-            alert(nw_id);
-            alert(data);
+                    if (request.readyState === 4 && request.status === 200) {
+                        var json = JSON.parse(request.responseText);
 
-            request.onreadystatechange = function () {
-                if (request.readyState === 4 && request.status === 200) {
-                    var json = JSON.parse(request.responseText);
-                    // alert(json.message);
-                    if (json.status == "200") {
-                        var childtr1=document.createElement("tr");
-                        var td1=document.createElement("td");
-                        var td2=document.createElement("td");
-                        childtr1.appendChild(td1);
-                        childtr1.appendChild(td2);
+                        if (json.status == "200") {
 
-                        td1.innerHTML="我";
-
-                        document.getElementById("Comms_tab").appendChild(childtr1);
-
-                        alert(json.message);
-                    } else if (json.status == "500") {
-                        alert("上传失败");
+                            var childtr1=document.createElement("tr");
+                            var td1=document.createElement("td");
+                            var td2=document.createElement("td");
+                            childtr1.appendChild(td1);
+                            childtr1.appendChild(td2);
+                            td1.innerHTML=id+":";
+                            td2.innerHTML=document.getElementById("comment").value;
+                            document.getElementById("Comms_tab").appendChild(childtr1);
+                            reset();
+                            // alert(json.message);
+                        } else if (json.status == "500") {
+                            alert("上传失败");
+                        }
                     }
                 }
-            }
-
         }
 
         // 轮播图
@@ -1652,7 +1676,6 @@
                                 alert("注销失败！");
                             }
                         }
-
                     }
                 }
 
@@ -1715,23 +1738,12 @@
                     if (json.status == "200") {
                         document.getElementById("foucs_fr").innerHTML="已关注";
                         console.log(json.message);
+                        document.getElementById("foucs_fr").onclick=function(){ };//6.1(1)已关注的时候移除这个按钮的点击事件。
+                        document.getElementById("foucs_fr").onclick=function(){alert("您已关注，请勿重复操作。若要取消关注，请去设置关注"); };
                     }
                 }
             }//end-request.onreadystatechange = function ()
         }
-
-        //发布评论
-        // function create() {
-        //     var comm = document.getElementById("comment").value;
-        //     // var commResult=document.getElementById("commentResult").value;
-        //     if (comm.length > 0) {
-        //         document.getElementById("commentResult").innerHTML = comm;
-        //         document.getElementById("comment").value = "";
-        //     } else if (comm.length == 0) {
-        //         //
-        //         alert("评论内容不能为空！");
-        //     }
-        // }
 
         function huifu1() {
             var huifu = document.getElementById("huifu1");
@@ -1739,7 +1751,6 @@
                 huifu.style.display = 'block';
             }
         }
-
         //个人中心
         function trans_info() {
             var id = localStorage.getItem("id");
@@ -1820,7 +1831,7 @@
                 request.open("POST", "http://139.199.55.139:8080/api/news/insertNews?");
 
                 var data = "u_author_id=" + id + "&n_title=" + document.getElementById("title_news").value +
-                    "&n_type=" + myselect.options[index].value + "&news_content=" + document.getElementById("news_content").value;
+                    "&n_type=" + myselect.options[index].value + "&n_content=" + document.getElementById("news_content").value;
 
                 request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
@@ -1843,9 +1854,6 @@
                 }
             }
         }
-
-
-
     </script>
 </head>
 <body>
@@ -1865,13 +1873,17 @@
     <!--    分类-->
     <div class="newsType">
         <!--        //新闻热点-->
-        <div id="daily_recommd" style="background: #ffffff;border-radius: 8px;">
-            <td><img src="images/hot_news.png" width="40" height="40"></td>
-            <td>新闻列表</td>
-            <hr>
-            <!--            这个table里面会显示对应的新闻XL,一个新闻是一个tr-->
-            <table id="daily_recommds" style="margin-left: 18px;">
-            </table>
+
+        <div id="" style="width: 105%;height:100%;overflow-y: scroll;overflow-x: hidden;background: #ffffff;border-radius: 8px;">
+            <div id="daily_recommd" style="padding-bottom: 23px;">
+                <td><img src="images/hot_news.png" width="40" height="40"></td>
+                <td>新闻列表</td>
+                <hr>
+                <!--            这个table里面会显示对应的新闻XL,一个新闻是一个tr-->
+                <table id="daily_recommds" style="margin-left: 18px;">
+                </table>
+            </div>
+
         </div>
     </div>
     <!--    新闻轮播-->
