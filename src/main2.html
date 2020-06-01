@@ -364,7 +364,8 @@
                             console.log(my_id+json.message+f_id);
                             //当前登录者已经关注了新闻发布者
                             document.getElementById("foucs_fr").innerHTML="已关注";
-                            document.getElementById("foucs_fr").onclick=function(){ alert("您已关注，请勿重复操作。若要取消关注，请去设置关注");};
+                            document.getElementById("foucs_fr").onclick=function(){
+                                alert("您已关注，请勿重复操作。若要取消关注，请去设置关注");};
                         } else{//当前登录的用户没有关注所点击的新闻发布者
                             document.getElementById("foucs_fr").innerHTML="关注";
                             document.getElementById("foucs_fr").onclick=function(){
@@ -526,7 +527,7 @@
                             if(my_id==new_author_id){//当前登录的用户就是所点击新闻的发布者
                                 buttonfocus.innerHTML="本人";
                                 buttonfocus.onclick=function(){
-                                    alert("您好，作者大大");
+                                    alert("不能关注自己！");
                                 };
 
                             }else{//调用函数，去判断有没有关注这个新闻发布的作者
@@ -920,11 +921,10 @@
         function NewsConyent_Zan(uid1,nid1){
             // promptBox();
             var id=localStorage.getItem("id");
-// alert(id);
             if(id!=null){
 
                 if(document.getElementById("zan_img").value==1){
-                    alert(document.getElementById("zan_img").value);
+                    // alert(document.getElementById("zan_img").value);
                     var uid=uid1;
                     var nid=nid1;
                     var request = new XMLHttpRequest();
@@ -935,7 +935,7 @@
                         if (request.readyState === 4 && request.status === 200) {
                             var json = JSON.parse(request.responseText);
                             if (json.status == "200") {
-                                alert(json.message);
+                                // alert(json.message);
                                 document.getElementById("zan_img").value=0;
                                 document.getElementById("zan_img").src="images/zaned.png";
                             }
@@ -955,7 +955,7 @@
                         if (request.readyState === 4 && request.status === 200) {
                             var json = JSON.parse(request.responseText);
                             if (json.status == "200") {
-                                alert(json.message);
+                                // alert(json.message);
                                 document.getElementById("zan_img").value==1;
                                 document.getElementById("zan_img").src="images/zaning.png";
                             }
@@ -987,7 +987,7 @@
                         }
                         //删除数据
                         var trs = document.getElementById("Comms_tab").getElementsByTagName("tr");
-                        alert(trs.length);
+                        // alert(trs.length);
                         for (var j = 0; j < trs.length;) {
                             document.getElementById("Comms_tab").removeChild(trs[0]);
                         }
@@ -1042,7 +1042,7 @@
                 request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 request.send(data);
                 // alert(nw_id);
-                alert(data);
+                // alert(data);
                 request.onreadystatechange = function () {
 
                     if (request.readyState === 4 && request.status === 200) {
@@ -1071,7 +1071,10 @@
         onload = function () {
             navlist();
             fbnavlist();
-
+            // alter_infos();
+            document.getElementById("name1").value = localStorage.getItem("name");
+            document.getElementById("phone1").value = localStorage.getItem("phone");
+            document.getElementById("password1").value = localStorage.getItem("password");
             Data_Realse();
             Data_guanzhu();
             if (online == 1) {
@@ -1218,13 +1221,13 @@
                                     var json = JSON.parse(request.responseText);
                                     if (json.status == "200") {
 
-
-                                        alert(n_id);
+                                        //
+                                        // alert(n_id);
                                         var baba = document.getElementById("Name_time");
                                         var imgs = baba.getElementsByTagName("img");
                                         for (var i = 0; i < imgs.length; i++) {
                                             if (n_id == imgs[i].value) {
-                                                alert("SHUZI " + i);
+                                                // alert("SHUZI " + i);
                                                 var son = imgs[i].parentNode.parentNode.parentNode;
                                                 baba.removeChild(son);
                                             }
@@ -1522,7 +1525,7 @@
                             request.open("GET", " http://139.199.55.139:8080/api/remark/deleteNewsRemark?" +
                                 "r_id=" + r_id);
                             request.send();
-                            alert(r_id);
+                            // alert(r_id);
                             request.onreadystatechange = function () {
                                 if (request.readyState === 4 && request.status === 200) {
                                     var json = JSON.parse(request.responseText);
@@ -1600,33 +1603,33 @@
             }
         }
 
-        //查看评论
-        function talk_rearch() {
-            var comments_rearch = document.getElementById("comments_rearch");
-            if (comments_rearch.style.display != 'block') {
-                comments_rearch.style.display = 'block';
-            } else {
-                comments_rearch.style.display = 'none';
-            }
+        // //查看评论
+        // function talk_rearch() {
+        //     var comments_rearch = document.getElementById("comments_rearch");
+        //     if (comments_rearch.style.display != 'block') {
+        //         comments_rearch.style.display = 'block';
+        //     } else {
+        //         comments_rearch.style.display = 'none';
+        //     }
+        //
+        // }
 
-        }
+        // //删除评论
+        // function delete_talk() {
+        //     var con;
+        //     con = confirm("确定要删除这条评论吗？？？")
+        //     if (con == true) {
+        //         alert("删除成功！");
+        //         document.getElementById("talk1").remove();
+        //     }
+        // }
 
-        //删除评论
-        function delete_talk() {
-            var con;
-            con = confirm("确定要删除这条评论吗？？？")
-            if (con == true) {
-                alert("删除成功！");
-                document.getElementById("talk1").remove();
-            }
-        }
-
-        //点赞
-        function link_like() {
-            if (document.getElementById("like").style.color != "#f00") {
-                document.getElementById("like").style.color = "#f00";
-            }
-        }
+        // //点赞
+        // function link_like() {
+        //     if (document.getElementById("like").style.color != "#f00") {
+        //         document.getElementById("like").style.color = "#f00";
+        //     }
+        // }
 
         //退出登录
         function BackLogin() {
@@ -1638,7 +1641,7 @@
                 if (request.readyState === 4 && request.status === 200) {
                     var json = JSON.parse(request.responseText);
                     if (json.status == "200") {
-                        alert(json.message);
+                        // alert(json.message);
                         localStorage.clear();
                         window.location.reload();
                         var logining = document.getElementById("logining");
@@ -1669,7 +1672,7 @@
                         if (request.readyState === 4 && request.status === 200) {
                             var json = JSON.parse(request.responseText);
                             if (json.status == "200") {
-                                alert(json.message);
+                                // alert(json.message);
                                 localStorage.clear();
                                 window.location.reload();
                             } else if (json.status == "500") {
@@ -1739,12 +1742,11 @@
                         document.getElementById("foucs_fr").innerHTML="已关注";
                         console.log(json.message);
                         document.getElementById("foucs_fr").onclick=function(){ };//6.1(1)已关注的时候移除这个按钮的点击事件。
-                        document.getElementById("foucs_fr").onclick=function(){alert("您已关注，请勿重复操作。若要取消关注，请去设置关注"); };
+                        document.getElementById("foucs_fr").onclick=function(){alert("已关注"); };
                     }
                 }
             }//end-request.onreadystatechange = function ()
         }
-
         function huifu1() {
             var huifu = document.getElementById("huifu1");
             if (huifu.style.display != 'block') {
@@ -1777,42 +1779,41 @@
         }
         //修改资料-数据库
         function alter_infos() {
-
-            var id = localStorage.getItem("id");
-            alert(id);
-            var request = new XMLHttpRequest();
-            request.open("POST", "http://139.199.55.139:8080/api/user/updateInfo?");
-            if (document.getElementById("name1").value == "") {
-                document.getElementById("name1").value = localStorage.getItem("name");
-            } else if (document.getElementById("phone1").value == "") {
-                document.getElementById("phone1").value = localStorage.getItem("phone");
-            } else if (document.getElementById("password1").value == "") {
-                document.getElementById("password1").value = localStorage.getItem("password");
-            }
-            var data = "u_id=" + id + "&u_name=" + document.getElementById("name1").value + '&u_password=' + document.getElementById("password1").value
-                + '&u_phone=' + document.getElementById("phone1").value;
-
-            request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            request.send(data);
-            request.onreadystatechange = function () {
-                if (request.readyState === 4 && request.status === 200) {
-                    var json = JSON.parse(request.responseText);
-                    if (json.status == "200") {
-                        localStorage.setItem("id", json.data["u_id"]);
-                        localStorage.setItem("name", json.data["u_name"]);
-                        localStorage.setItem("password", json.data["u_password"]);
-                        localStorage.setItem("photo", json.data["u_photo"]);
-                        localStorage.setItem("regist", json.data["u_regist"]);
-                        localStorage.setItem("login", json.data["u_login"]);
-                        localStorage.setItem("phone", json.data["u_phone"]);
-                        localStorage.setItem("online", json.data["u_online"]);
-                        alert(json.message);
-                    } else if (json.status == "500") {
-                        alert("更新失败！");
+                var id = localStorage.getItem("id");
+                var request = new XMLHttpRequest();
+                request.open("POST", "http://139.199.55.139:8080/api/user/updateInfo?");
+                if (document.getElementById("name1").value =="") {
+                    // alert("1");
+                    document.getElementById("name1").value = localStorage.getItem("name");
+                }  if (document.getElementById("phone1").value =="") {
+                    // alert("2");
+                    document.getElementById("phone1").value = localStorage.getItem("phone");
+                }  if (document.getElementById("password1").value =="") {
+                    // alert("3");
+                    document.getElementById("password1").value = localStorage.getItem("password");
+                }
+                var data = "u_id=" + id + "&u_name=" + document.getElementById("name1").value + '&u_password=' + document.getElementById("password1").value
+                    + '&u_phone=' + document.getElementById("phone1").value;
+                request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                request.send(data);
+                request.onreadystatechange = function () {
+                    if (request.readyState === 4 && request.status === 200) {
+                        var json = JSON.parse(request.responseText);
+                        if (json.status == "200") {
+                            localStorage.setItem("id", json.data["u_id"]);
+                            localStorage.setItem("name", json.data["u_name"]);
+                            localStorage.setItem("password", json.data["u_password"]);
+                            localStorage.setItem("photo", json.data["u_photo"]);
+                            localStorage.setItem("regist", json.data["u_regist"]);
+                            localStorage.setItem("login", json.data["u_login"]);
+                            localStorage.setItem("phone", json.data["u_phone"]);
+                            localStorage.setItem("online", json.data["u_online"]);
+                            alert(json.message);
+                        } else if (json.status == "500") {
+                            alert("更新失败！");
+                        }
                     }
                 }
-
-            }
         }
         //发布新闻---数据库
         function fabu() {
@@ -1955,21 +1956,21 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">昵称</label>
                 <div class="layui-input-block">
-                    <input id="name1" type="text" lay-verify="required" placeholder="请输入标题" autocomplete="off"
+                    <input id="name1" type="text" required lay-verify="required" placeholder="请输入昵称" autocomplete="off"
                            class="layui-input" style="width: 200px;">
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">手机号</label>
                 <div class="layui-input-inline">
-                    <input id="phone1" type="text" lay-verify="required" placeholder="请输入密码" autocomplete="off"
+                    <input id="phone1" type="text" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
                            class="layui-input" style="width: 200px;">
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">密码</label>
                 <div class="layui-input-inline">
-                    <input id="password1" type="password" lay-verify="required" placeholder="请输入密码" autocomplete="off"
+                    <input id="password1" type="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
                            class="layui-input" style="width: 200px;">
                 </div>
             </div>

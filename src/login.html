@@ -6,11 +6,16 @@
     <link rel="stylesheet" href="layui/css/layui.css" >
     <link href="main.css" rel="stylesheet">
     <script language="JavaScript">
+        //判断是不是数字的函数
+        function isNumber(obj){
+            return typeof obj ==='number' && !isNaN(obj)
+        }
+
         function pd() {
             var name=document.getElementById("phone").value;
             var psw=document.getElementById("password").value;
-            if(name.length!=11){
-                window.alert("请输入11位的手机号！")
+            if(name.length!=11 || !isNumber(Number(name))){
+                window.alert("请输入11位的手机号！");
             }else if(psw.length!=6){
                 window.alert("请输入6位数密码！");
             }
@@ -33,13 +38,11 @@
                                 localStorage.setItem("phone",json.data["u_phone"]);
                                 localStorage.setItem("online",json.data["u_online"]);
                                 window.location.href="main2.html";
-
-                                alert(json.message);
+                                // alert(json.message);
                             }if(json.status=="500"){
                                 document.getElementById("msg").innerHTML=json.message;
                             }
                         }
-
                 };
 
             }
@@ -73,7 +76,7 @@
         <table style="margin-left:-2%;border-collapse: separate;border-spacing: 2px 12px;">
            <tr>
                <td width="40px"><i class="layui-icon layui-icon-cellphone" style="font-size: 26px;"></i></td>
-               <td><input type="text" id="phone" title="请填写正确的手机号" name="title" required  lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input" style="height: 35px;width: 180px;border-radius: 5px;border-color: #393D49"></td>
+               <td ><input type="text"  id="phone" title="请填写正确的手机号" name="title" required  lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input" style="height: 35px;width: 180px;border-radius: 5px;border-color: #393D49"></td>
            </tr>
            <tr style="margin-top: 10px;">
                <td width="40px"><i class="layui-icon layui-icon-password" style="font-size: 26px;"></i></td>

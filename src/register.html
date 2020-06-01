@@ -22,6 +22,7 @@
             document.getElementsByTagName("title")[0].innerText=titles;
         }
 
+
     </script>
 
 </head>
@@ -68,11 +69,15 @@
 
                     var txt2 = document.getElementById("txt2").value;
                     mcavs = localStorage.getItem("chacknum");
+                    function isNumber(obj){
+                        return typeof obj ==='number' && !isNaN(obj)
+                    }
+
 
                     if (psw != pswag) {
                         alert("密码不匹配！");
                         document.getElementById("pswagin").value = "";
-                    } else if (phone.length != 11) {
+                    } else if (phone.length != 11|| !isNumber(Number(phone))) {
                         alert("请输入正确的手机号！");
                     } else if (psw.length != 6) {
                         alert("密码不正确");
@@ -111,12 +116,14 @@
                                     var json = JSON.parse(request.responseText);
                                     if (json.status == "200") {
                                         alert(json.message); window.location.href = "login.html";
-
                                     }else if (json.status == "500") {
-                                        document.getElementById("createResult").innerHTML = json.message;
+                                        // var request=new XMLHttpRequest();
+                                        // request.open("GET","http://139.199.55.139:8080/api/user/checkPhoneNum?"+ "u_phone=" + document.getElementById("phone").value );
+                                        // alert(document.getElementById("phone").value);
+                                        document.getElementById("createResult").innerHTML = json.message + ",手机号已经存在!！！";
+                                        document.getElementById("createResult").style.color="red";
                                     }
                                 }
-
                             }
                         }
 
