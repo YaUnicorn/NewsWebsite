@@ -450,9 +450,9 @@
                         td1photo.setAttribute('style', 'width:50px;font-size:15px');
                         trFirst.appendChild(td1photo);
                         var imgphoto = document.createElement("img");
-                        imgphoto.src = "images/head.png";
-                        var ipa=localStorage.getItem("photo");
-                        imgphoto.src=ipa;
+                        imgphoto.src =json["data"][1]["u_photo"];
+                        // var ipa=localStorage.getItem("photo");
+                        // imgphoto.src=ipa;
                         imgphoto.setAttribute('style', 'width:38px');
                         td1photo.appendChild(imgphoto);
                         var td2name = document.createElement("td");
