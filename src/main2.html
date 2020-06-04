@@ -310,6 +310,7 @@
     </style>
     <script src="layui/layui.js"></script>
     <script src="//res.layui.com/layui/dist/layui.js" charset="utf-8"></script>
+
     <script>
         //注意：导航 依赖 element 模块，否则无法进行功能性操作
         layui.use('element', function () {
@@ -343,6 +344,7 @@
         //新闻导航栏--数据库
         //详细新闻中有一个取消信息回退的×号按钮 5.29add----------------------------------------------
         //提示弹框，您未登录，请先登录!5.31(1)
+
         function promptBox(){
             if(confirm("您未登录，请先登录!")){
                 window.location.href="login.html";
@@ -1794,7 +1796,7 @@
                 request.open("POST", "http://139.199.55.139:8080/api/news/insertNews?");
 
                 var data = "u_author_id=" + id + "&n_title=" + document.getElementById("title_news").value +
-                    "&n_type=" + myselect.options[index].value + "&n_content=" + document.getElementById("news_content").value;
+                    "&n_type=" + myselect.options[index].value + "&n_content=" + document.getElementById("news_content").value+"&n_img_url="+document.getElementById("new_photo").src;
 
                 request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
@@ -1888,13 +1890,23 @@
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label">图片/视频</label>
+                <!--                6.4(1)XL修改，为了添加图片地址-->
+                <label class="layui-form-label">图片</label>
                 <div class="layui-input-block">
-                    <button type="button" class="layui-btn">
-                        <i class="layui-icon">&#xe67c;</i>上传图片/视频
-                    </button>
+                    <img id="new_photo" height="100" width="100"/><br/>
+                    图片地址：<br/><input type="text" id="new_photo_src" value=""/>
+                    <button id="new_photo_btn" type="button" class="layui-btn">
+                        <i class="layui-icon">&#xe67c;</i>上传图片
+                        </button>
                 </div>
             </div>
+                <!--                6.4(1)修改,js-->
+                <script>
+                    document.getElementById("new_photo_btn").onclick=function(){
+                        var img_photo_src=document.getElementById("new_photo_src").value;
+                        document.getElementById("new_photo").src=img_photo_src;
+                    }
+                </script>
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <button onclick="fabu()" class="layui-btn" lay-submit lay-filter="formDemo">发布</button>
