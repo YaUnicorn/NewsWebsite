@@ -328,7 +328,6 @@
         //Demo
         layui.use('form', function () {
             var form = layui.form;
-
             //监听提交
             form.on('submit(formDemo)', function (data) {
                 // layer.msg(JSON.stringify(data.field));
@@ -452,6 +451,8 @@
                         trFirst.appendChild(td1photo);
                         var imgphoto = document.createElement("img");
                         imgphoto.src = "images/head.png";
+                        var ipa=localStorage.getItem("photo");
+                        imgphoto.src=ipa;
                         imgphoto.setAttribute('style', 'width:38px');
                         td1photo.appendChild(imgphoto);
                         var td2name = document.createElement("td");
