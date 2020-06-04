@@ -1078,9 +1078,11 @@
 
         // 轮播图
         onload = function () {
-            var iphoto=localStorage.getItem("photo");
-            document.getElementById("photo_moren").src=iphoto;
-            document.getElementById("photoi").src=iphoto;
+            // document.getElementById("photo_moren").src="images/top_photo.png";
+
+            // var iphoto=localStorage.getItem("iphotoees");
+            // document.getElementById("photo_moren").src=iphoto;
+            // document.getElementById("photoi").src=iphoto;
 
             navlist();
             fbnavlist();
@@ -1098,10 +1100,11 @@
 
             document.getElementById("name").innerHTML = name;
 
-            // if (photos != null && photos != "") {
-            //     document.getElementById("photo").src = photos;
-            //     document.getElementById("photoi").src = photos;
-            // }
+            if (photos != null && photos != "") {
+                var iphoto=localStorage.getItem("photoes");
+                document.getElementById("photo_moren").src=iphoto;
+                document.getElementById("photoi").src=iphoto;
+            }
 
         }
 
@@ -1562,7 +1565,7 @@
             var addNews = document.getElementById("addNews");
             var alterInfo = document.getElementById("alterInfo");
             var news_Conent = document.getElementById("news_Conent");
-            var img=localStorage.getItem("photo");
+            var img=localStorage.getItem("photoes");
             if (alterInfo.style.display != 'block') {
                 alterInfo.style.display = 'block';
                 document.getElementById("head_photo").src=img;
@@ -1631,6 +1634,7 @@
         //登录-数据库
         function userLogin() {
             var online = localStorage.getItem("online");
+
             if (online != null && online == "1") {
                 var request = new XMLHttpRequest();
                 var id = localStorage.getItem("id");
@@ -1642,8 +1646,13 @@
                             var json = JSON.parse(request.responseText);
                             if (json.status == "200") {
                                 // alert(json.message);
+                               // var iphotoees=localStorage.setItem("u_photo");
                                 localStorage.clear();
                                 window.location.reload();
+                                // var iphoto=localStorage.getItem("iphotoees");
+                                // document.getElementById("photo_moren").src=iphoto;
+                                // document.getElementById("photoi").src=iphoto;
+                                // localStorage.clear();
                             } else if (json.status == "500") {
                                 alert("注销失败！");
                             }
@@ -1725,6 +1734,9 @@
         //个人中心
         function trans_info() {
             var id = localStorage.getItem("id");
+            var iphoto=localStorage.getItem("photoes");
+            document.getElementById("photo_moren").src=iphoto;
+            // document.getElementById("photoi").src=iphoto;
             if (id != null) {
                 var logining = document.getElementById("logining");
                 var logined = document.getElementById("logined");
@@ -1772,7 +1784,7 @@
                             localStorage.setItem("id", json.data["u_id"]);
                             localStorage.setItem("name", json.data["u_name"]);
                             localStorage.setItem("password", json.data["u_password"]);
-                            localStorage.setItem("photo", json.data["u_photo"]);
+                            localStorage.setItem("photoes", json.data["u_photo"]);
                             localStorage.setItem("regist", json.data["u_regist"]);
                             localStorage.setItem("login", json.data["u_login"]);
                             localStorage.setItem("phone", json.data["u_phone"]);
@@ -1989,7 +2001,8 @@
         <div id="box1" style="height: 75%">
             <div style="height:22%;background: #393D49">
 
-                <img id="photo_moren" src="images/head.png"
+                <img id="photo_moren"
+                     src="images/head.png"
                      style="margin-left:160px;margin-top: 8px;width: 55px;height: 55px;border-radius: 50%">
 
                 <p style="margin-top: 3px;margin-left:100px;">
