@@ -1213,7 +1213,9 @@
                             BigTr.appendChild(newstr);
                             BigTr.appendChild(hr1);
 
+
                             document.getElementById("Name_time").appendChild(BigTr);
+
                         }
 
                         //删除新闻
@@ -1235,6 +1237,8 @@
                                             if (n_id == imgs[i].value) {
                                                 var son = imgs[i].parentNode.parentNode.parentNode;
                                                 baba.removeChild(son);
+                                                // window.location.reload();
+                                                // navli_suolue();
                                             }
                                         }
                                     }
@@ -1803,6 +1807,9 @@
 
                         if (json.status == "200") {
                             alert(json.message);
+                            // document.getElementById("title_news").value="";
+                            // document.getElementById("news_content").value="";
+                            window.location.reload();
 
                         } else if (json.status == "500") {
                             // alert("上传失败");
