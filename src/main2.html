@@ -310,7 +310,6 @@
     </style>
     <script src="layui/layui.js"></script>
     <script src="//res.layui.com/layui/dist/layui.js" charset="utf-8"></script>
-
     <script>
         //注意：导航 依赖 element 模块，否则无法进行功能性操作
         layui.use('element', function () {
@@ -344,7 +343,6 @@
         //新闻导航栏--数据库
         //详细新闻中有一个取消信息回退的×号按钮 5.29add----------------------------------------------
         //提示弹框，您未登录，请先登录!5.31(1)
-
         function promptBox(){
             if(confirm("您未登录，请先登录!")){
                 window.location.href="login.html";
@@ -1079,6 +1077,10 @@
 
         // 轮播图
         onload = function () {
+            var iphoto=localStorage.getItem("photo");
+            document.getElementById("photo_moren").src=iphoto;
+            document.getElementById("photoi").src=iphoto;
+
             navlist();
             fbnavlist();
             // alter_infos();
@@ -1559,8 +1561,10 @@
             var addNews = document.getElementById("addNews");
             var alterInfo = document.getElementById("alterInfo");
             var news_Conent = document.getElementById("news_Conent");
+            var img=localStorage.getItem("photo");
             if (alterInfo.style.display != 'block') {
                 alterInfo.style.display = 'block';
+                document.getElementById("head_photo").src=img;
                 addNews.style.display = 'none';
                 lunbo.style.display = 'none';
                 news_Conent.style.display = 'none';
@@ -1757,7 +1761,7 @@
                     document.getElementById("password1").value = localStorage.getItem("password");
                 }
                 var data = "u_id=" + id + "&u_name=" + document.getElementById("name1").value + '&u_password=' + document.getElementById("password1").value
-                    + '&u_phone=' + document.getElementById("phone1").value;
+                    + '&u_phone=' + document.getElementById("phone1").value+'&u_photo='+document.getElementById("head_photo").src;
                 request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 request.send(data);
                 request.onreadystatechange = function () {
@@ -1890,23 +1894,23 @@
                 </div>
             </div>
             <div class="layui-form-item">
-                <!--                6.4(1)XL修改，为了添加图片地址-->
+<!--                6.4(1)XL修改，为了添加图片地址-->
                 <label class="layui-form-label">图片</label>
                 <div class="layui-input-block">
                     <img id="new_photo" height="100" width="100"/><br/>
                     图片地址：<br/><input type="text" id="new_photo_src" value=""/>
                     <button id="new_photo_btn" type="button" class="layui-btn">
                         <i class="layui-icon">&#xe67c;</i>上传图片
-                        </button>
+                    </button>
                 </div>
-            </div>
-                <!--                6.4(1)修改,js-->
+<!--                6.4(1)修改,js-->
                 <script>
                     document.getElementById("new_photo_btn").onclick=function(){
                         var img_photo_src=document.getElementById("new_photo_src").value;
                         document.getElementById("new_photo").src=img_photo_src;
                     }
                 </script>
+            </div>
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <button onclick="fabu()" class="layui-btn" lay-submit lay-filter="formDemo">发布</button>
@@ -1924,11 +1928,20 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">头像</label>
                 <div class="layui-input-block">
-                    <img src="" id="showing" name="showing" width="120px" height="120px;" style="border-radius: 10%">
-                    <button onchange="changeImg(this.value)" type="button" class="layui-btn" id="test1">
+                    <img  id="head_photo" name="showing" width="120px" height="120px;" style="border-radius: 10%">
+<!--                    6.4(2)修改上传图片-->
+                    <br/>地址：<br/>
+                    <input id="head_photo_src" type="text" value=""/>
+                    <button id="head_photo_btn" type="button" class="layui-btn" id="test1">
                         <i class="layui-icon">&#xe67c;</i>上传图片
                     </button>
                 </div>
+                <script>
+                    document.getElementById("head_photo_btn").onclick=function(){
+                        var head_photo_src=document.getElementById("head_photo_src").value;
+                        document.getElementById("head_photo").src=head_photo_src;
+                    }
+                </script>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">昵称</label>
@@ -1975,8 +1988,8 @@
         <div id="box1" style="height: 75%">
             <div style="height:22%;background: #393D49">
 
-                <img id="photo" src="images/head.png"
-                     style="margin-left:160px;margin-top: 8px;width: 55px;height: 55px;">
+                <img id="photo_moren" src="images/head.png"
+                     style="margin-left:160px;margin-top: 8px;width: 55px;height: 55px;border-radius: 50%">
 
                 <p style="margin-top: 3px;margin-left:100px;">
                     <button onclick="trans_info()" class="layui-btn layui-btn-radius" style="height: 30px;">个人中心
@@ -2021,7 +2034,7 @@
         <table>
             <tr>
                 <td width="80" colspan="2"><img id="photoi" src="images/head.png" width="60" height="60"
-                                                style="margin-left: 10px;margin-top: 3px;"></td>
+                                                style="margin-left: 10px;margin-top: 3px;border-radius: 50%"></td>
                 <td width="180" colspan="2"><label id="name" style="font-size: 20px;color: #ffffff">用户名</label></td>
                 <td>
                     <ul class="layui-nav">
@@ -2031,6 +2044,7 @@
                                 <dd><a href="javascript:;" onclick="alter()">修改信息</a></dd>
                                 <dd><a href="javascript:;" onclick="go_comms()">返回</a></dd>
                                 <dd><a href="javascript:;" onclick="BackLogin()">退出</a></dd>
+                                <dd><a href="javascript:;" >管理系统</a></dd>
                             </dl>
                         </li>
                     </ul>
