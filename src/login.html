@@ -10,7 +10,7 @@
         function isNumber(obj){
             return typeof obj ==='number' && !isNaN(obj)
         }
-
+        //判断用户的输入是否符合
         function pd() {
             var name=document.getElementById("phone").value;
             var psw=document.getElementById("password").value;
@@ -30,6 +30,7 @@
                             var json=JSON.parse(request.responseText);
                             if(json.status=="200"){
                                 localStorage.setItem("photoes",json.data["u_photo"]);
+
                                 localStorage.setItem("id",json.data["u_id"]);
                                 localStorage.setItem("name",json.data["u_name"]);
                                 localStorage.setItem("password",json.data["u_password"]);
@@ -38,7 +39,6 @@
                                 localStorage.setItem("phone",json.data["u_phone"]);
                                 localStorage.setItem("online",json.data["u_online"]);
                                 window.location.href="main2.html";
-                                // alert(json.message);
                             }if(json.status=="500"){
                                 document.getElementById("msg").innerHTML=json.message;
                             }
