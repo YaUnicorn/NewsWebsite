@@ -1809,7 +1809,7 @@
         function trans_info() {
             var id = localStorage.getItem("id");
             var iphoto = localStorage.getItem("photoes");
-            alert(localStorage.getItem("photoes"));
+            // alert(localStorage.getItem("photoes"));
             document.getElementById("photo_moren").src = iphoto;
             // document.getElementById("photoi").src=iphoto;
             if (id != null) {
@@ -1919,6 +1919,13 @@
 
                 }
             }
+        }
+        //管理
+        function admin() {
+            var Mid=localStorage.getItem("id");
+            var Mname=localStorage.getItem("name");
+            var Mphoto=localStorage.getItem("photoes");
+            window.location.href="http://139.199.55.139:8000/admin/home?u_name="+Mname+"&u_id="+Mid+"&u_photo="+Mphoto+"&close_tag=3";
         }
     </script>
 </head>
@@ -2143,7 +2150,7 @@
                                 <dd><a href="javascript:;" onclick="alter()">修改信息</a></dd>
                                 <dd><a href="javascript:;" onclick="go_comms()">返回</a></dd>
                                 <dd><a href="javascript:;" onclick="BackLogin()">退出</a></dd>
-                                <dd><a href="javascript:;">管理系统</a></dd>
+                                <dd><a href="javascript:;" onclick="admin()">管理系统</a></dd>
                             </dl>
                         </li>
                     </ul>
